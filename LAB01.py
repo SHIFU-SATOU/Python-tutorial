@@ -68,17 +68,41 @@ import random
 # sLowerCase = str(input("Chữ cái in thường: "))
 # print(f"-Chữ cái in hoa: {chr(ord(sLowerCase) - 32)}")
 
-# Task 12: Random integer number and float number
-print("$$ Bài 12: In số nguyên và số thực ngẫu nhiên")
-print("-[0~100]:")
-print(f"-Số nguyên ngẫu nhiên: {random.randint(0, 100)} || "
-      f"Số thực ngẫu nhiên: {round(random.uniform(0, 100), 2)}")
-print("-[50~99]:")
-print(f"-Số nguyên ngẫu nhiên: {random.randint(50, 99)} || "
-      f"Số thực ngẫu nhiên: {round(random.uniform(50, 99), 2)}")
-print("-[-39~79]:")
-print(f"-Số nguyên ngẫu nhiên: {random.randint(-39, 79)} || "
-      f"Số thực ngẫu nhiên: {round(random.uniform(-39, 79), 2)}")
-print("-[-79~-39]:")
-print(f"-Số nguyên ngẫu nhiên: {random.randint(-79, -39)} || "
-      f"Số thực ngẫu nhiên: {round(random.uniform(-79, -39), 2)}")
+# # Task 12: Random integer number and float number
+# print("$$ Bài 12: In số nguyên và số thực ngẫu nhiên")
+# print("-[0~100]:")
+# print(f"-Số nguyên ngẫu nhiên: {random.randint(0, 100)} || "
+#       f"Số thực ngẫu nhiên: {round(random.uniform(0, 100), 2)}")
+# print("-[50~99]:")
+# print(f"-Số nguyên ngẫu nhiên: {random.randint(50, 99)} || "
+#       f"Số thực ngẫu nhiên: {round(random.uniform(50, 99), 2)}")
+# print("-[-39~79]:")
+# print(f"-Số nguyên ngẫu nhiên: {random.randint(-39, 79)} || "
+#       f"Số thực ngẫu nhiên: {round(random.uniform(-39, 79), 2)}")
+# print("-[-79~-39]:")
+# print(f"-Số nguyên ngẫu nhiên: {random.randint(-79, -39)} || "
+#       f"Số thực ngẫu nhiên: {round(random.uniform(-79, -39), 2)}")
+
+# # Task 13: Enter time then convert to other format
+# print("$$ Bài 13: Chuyển đổi định dạng thời gian")
+# sTime = str(input("Thời gian(dd mm yyyyy): "))
+# lTime = sTime.split(' ')
+# sTimeFormat1 = '/'.join(lTime)  ##dd/mm/yyyy format
+# print(f"-dd/mm/yyyy: {sTimeFormat1}")
+# Temp = lTime.copy()
+# Temp[-1] = Temp[-1][-2::] ##dd/mm/yy format
+# sTimeFormat2 = '/'.join(Temp)
+# print(f"-dd/mm/yy: {sTimeFormat2}")
+# sTimeFormat3 = '/'.join(lTime[::-1]) ##yyyy/mm/dd format
+# print(f"-yyyy/mm/dd: {sTimeFormat3}")
+#
+# print("-Chuyển đổi về định dạng ban đầu:")
+# sTimeFormatOrigin1 = ' '.join(sTimeFormat1.split('/')) ##dd mm yyyy format
+# print(f"-dd mm yyyy: {sTimeFormatOrigin1}")
+# sTimeFormatOrigin2 = ' '.join(sTimeFormat2.split('/')) ## dd mm yy format
+# print(f"-dd mm yy: {sTimeFormatOrigin2}")
+# sTimeFormatOrigin3 = ' '.join(sTimeFormat3.split('/')) ## yyyy mm dd format
+# print(f"-yyyy mm dd: {sTimeFormatOrigin3}")
+
+# Task 14: Caculate Expression
+print(f"A = {round(pow(32, 1 / 5) - pow(1 / 64, -1 / 4) + pow(8 / 27, 1 / 3), 3)}")
