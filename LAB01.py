@@ -49,9 +49,15 @@ import math
 # fHeight = float(input("Chiều cao(m) = "))
 # print(f"-BMI: {round(fWeight / fHeight, 3)}")
 
-# Task 9: Print the Food Menu
-print("$$ Bài 8: In Menu món ăn")
-sFrame1 = "============"
-sFrame2 = "=============================="
-print(f"{sFrame1} MENU {sFrame1}\n1. Hu tieu\n2. Chao long\n3. Banh canh\n"
-      f"4. Bun rieu\n5. Pho bo\n{sFrame2}\nMoi nhap lua chon:\n{sFrame2}")
+# # Task 9: Print the Food Menu
+# print("$$ Bài 9: In Menu món ăn")
+# sFrame1 = "============"
+# sFrame2 = "=============================="
+# print(f"{sFrame1} MENU {sFrame1}\n1. Hu tieu\n2. Chao long\n3. Banh canh\n"
+#       f"4. Bun rieu\n5. Pho bo\n{sFrame2}\nMoi nhap lua chon:\n{sFrame2}")
+
+# Task 10: Enter a 4-digits car license plate then caculate lucky number
+print("$$ Bài 10: Tính nút biển số xe 4 số")
+iCarLicensePlate = int(input("Biển số = "))
+iLuckyNumber = iCarLicensePlate // 1000 + iCarLicensePlate // 100 + iCarLicensePlate // 10 + iCarLicensePlate % 10
+print(f"-Nút của biển số: {iLuckyNumber % 10}")
