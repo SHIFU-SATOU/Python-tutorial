@@ -23,3 +23,9 @@ print(f"-Phần nguyên: {iValue1 // iValue2} || Phần dư: {iValue1 % iValue2}
 print("$$ Bài 4: Tính tổng các chữ số của số hàng chục")
 iValue = int(input("Số hàng chục: "))
 print(f"-Tổng các chữ số: {iValue // 10 + iValue % 10}")
+
+# Task 5: Enter the time in hh:mm:ss format then convert it to seconds
+print("$$ Bài 5: Đổi thời gian sang giây")
+sTime = str(input("Thời gian(hh:mm:ss):"))
+lTime = sTime.split(':')
+print(f"Sau khi đổi sang giây: {int(lTime[0]) * 3600 + int(lTime[1]) * 60 + int(lTime[2])}")
