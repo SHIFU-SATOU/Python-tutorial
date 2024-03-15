@@ -1,4 +1,5 @@
 import math
+import random
 
 # # Task 1: Enter 4 integers then calculate the average
 # print("$$ Bài 1: Tính trung bình cộng của 4 số nguyên")
@@ -62,7 +63,22 @@ import math
 # iLuckyNumber = iCarLicensePlate // 1000 + iCarLicensePlate // 100 + iCarLicensePlate // 10 + iCarLicensePlate % 10
 # print(f"-Nút của biển số: {iLuckyNumber % 10}")
 
-# Task 11: Enter lower case then convert to upper case
-print("$$ Bài 11: Chuyển chữ cái in thường sang chữ cái in hoa")
-sLowerCase = str(input("Chữ cái in thường: "))
-print(f"-Chữ cái in hoa: {chr(ord(sLowerCase) - 32)}")
+# # Task 11: Enter lower case then convert to upper case
+# print("$$ Bài 11: Chuyển chữ cái in thường sang chữ cái in hoa")
+# sLowerCase = str(input("Chữ cái in thường: "))
+# print(f"-Chữ cái in hoa: {chr(ord(sLowerCase) - 32)}")
+
+# Task 12: Random integer number and float number
+print("$$ Bài 12: In số nguyên và số thực ngẫu nhiên")
+print("-[0~100]:")
+print(f"-Số nguyên ngẫu nhiên: {random.randint(0, 100)} || "
+      f"Số thực ngẫu nhiên: {round(random.uniform(0, 100), 2)}")
+print("-[50~99]:")
+print(f"-Số nguyên ngẫu nhiên: {random.randint(50, 99)} || "
+      f"Số thực ngẫu nhiên: {round(random.uniform(50, 99), 2)}")
+print("-[-39~79]:")
+print(f"-Số nguyên ngẫu nhiên: {random.randint(-39, 79)} || "
+      f"Số thực ngẫu nhiên: {round(random.uniform(-39, 79), 2)}")
+print("-[-79~-39]:")
+print(f"-Số nguyên ngẫu nhiên: {random.randint(-79, -39)} || "
+      f"Số thực ngẫu nhiên: {round(random.uniform(-79, -39), 2)}")
