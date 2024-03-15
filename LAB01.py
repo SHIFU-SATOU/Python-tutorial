@@ -26,6 +26,11 @@ print(f"-Tổng các chữ số: {iValue // 10 + iValue % 10}")
 
 # Task 5: Enter the time in hh:mm:ss format then convert it to seconds
 print("$$ Bài 5: Đổi thời gian sang giây")
-sTime = str(input("Thời gian(hh:mm:ss):"))
+sTime = str(input("Thời gian(hh:mm:ss): "))
 lTime = sTime.split(':')
-print(f"Sau khi đổi sang giây: {int(lTime[0]) * 3600 + int(lTime[1]) * 60 + int(lTime[2])}")
+print(f"-Sau khi đổi sang giây: {int(lTime[0]) * 3600 + int(lTime[1]) * 60 + int(lTime[2])}")
+
+# Task 6: Enter your birth year then calculate your current age
+print("$$ Bài 5: Tính tuổi hiện tại")
+iYearOfBirth = int(input("Năm sinh = "))
+print(f"-Tuổi hiện tại: {2024 - iYearOfBirth}")
