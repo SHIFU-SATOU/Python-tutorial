@@ -1,3 +1,5 @@
+import math
+
 # Task 1: Enter 4 integers then calculate the average
 print("$$ Bài 1: Tính trung bình cộng của 4 số nguyên")
 iValue1 = int(input("a = "))
@@ -10,8 +12,8 @@ print(f"-Trung bình cộng: {(iValue1 + iValue2 + ivalue3 + iValue4) / 4}")
 print("$$ Bài 2: Tính tổng, hiệu, tích, thương của 2 số nguyên")
 iValue1 = int(input("a = "))
 iValue2 = int(input("b = "))
-print(
-    f"-Tổng: {iValue1 + iValue2} || Hiệu: {iValue1 - iValue2} || Tích: {iValue1 * iValue2} || Thương: {iValue1 / iValue2}")
+print(f"-Tổng: {iValue1 + iValue2} || Hiệu: {iValue1 - iValue2} || "
+      f"Tích: {iValue1 * iValue2} || Thương: {round(iValue1 * iValue2, 3)}")
 
 # Task 3: Enter two positive integers, indicating the result of dividing the integer part and the remainder
 print("$$ Bài 3: Tính phần dư và phần nguyên của phép chia")
@@ -31,6 +33,12 @@ lTime = sTime.split(':')
 print(f"-Sau khi đổi sang giây: {int(lTime[0]) * 3600 + int(lTime[1]) * 60 + int(lTime[2])}")
 
 # Task 6: Enter your birth year then calculate your current age
-print("$$ Bài 5: Tính tuổi hiện tại")
+print("$$ Bài 6: Tính tuổi hiện tại")
 iYearOfBirth = int(input("Năm sinh = "))
 print(f"-Tuổi hiện tại: {2024 - iYearOfBirth}")
+
+# Task 7: Enter the radius of the circle then calculate the circumference and area
+print("$$ Bài 7: Tính chu vi và diện tích hình tròn")
+iRadius = int(input("r = "))
+print(f"-Chu vi hình tròn: {round(2 * math.pi * iRadius, 3)} || "
+      f"Diện tích hình tròn: {round(math.pi * iRadius * iRadius, 3)}")
