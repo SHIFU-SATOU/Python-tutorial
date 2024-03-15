@@ -43,8 +43,15 @@ import math
 # print(f"-Chu vi hình tròn: {round(2 * math.pi * iRadius, 3)} || "
 #       f"Diện tích hình tròn: {round(math.pi * iRadius * iRadius, 3)}")
 
-# Task 8: Enter weight and height then calculate BMI index
-print("$$ Bài 8: Tính chỉ số sức khỏe BMI")
-fWeight = float(input("Cân nặng(Kg) = "))
-fHeight = float(input("Chiều cao(m) = "))
-print(f"-BMI: {round(fWeight / fHeight, 3)}")
+# # Task 8: Enter weight and height then calculate BMI index
+# print("$$ Bài 8: Tính chỉ số sức khỏe BMI")
+# fWeight = float(input("Cân nặng(Kg) = "))
+# fHeight = float(input("Chiều cao(m) = "))
+# print(f"-BMI: {round(fWeight / fHeight, 3)}")
+
+# Task 9: Print the Food Menu
+print("$$ Bài 8: In Menu món ăn")
+sFrame1 = "============"
+sFrame2 = "=============================="
+print(f"{sFrame1} MENU {sFrame1}\n1. Hu tieu\n2. Chao long\n3. Banh canh\n"
+      f"4. Bun rieu\n5. Pho bo\n{sFrame2}\nMoi nhap lua chon:\n{sFrame2}")
