@@ -1,5 +1,6 @@
 import math
 import random
+import re
 
 # # Task 1: Enter 4 integers then calculate the average
 # print("$$ Bài 1: Tính trung bình cộng của 4 số nguyên")
@@ -118,16 +119,24 @@ import random
 # # Task 16: Enter time in format hh/mm/ss then convert to seconds
 # print("$$ Bài 16: Chuyển đổi định dạng thời gian sang giây")
 # sTime = str(input("Thời gian:"))
-# import re
 #
 # lTimeNumbers = re.findall(r"[0-9]+", sTime)
 # print(f"-Thời gian sau khi đổi ra giây: {int(lTimeNumbers[0]) * 3600 + int(lTimeNumbers[1]) * 60
 #                                         + int(lTimeNumbers[2])}s")
 
-# Task 17: Enter 3 integer numbers then find max and min
-print("$$ Bài 17: Tìm số lớn nhất và nhỏ nhất trong 3 số")
-iList = []
-iList.append(int(input("A = ")))
-iList.append(int(input("B = ")))
-iList.append(int(input("C = ")))
-print(f"-Số lớn nhất: {max(iList)} || số nhỏ nhất: {min(iList)}")
+# # Task 17: Enter 3 integer numbers then find max and min
+# print("$$ Bài 17: Tìm số lớn nhất và nhỏ nhất trong 3 số")
+# iList = []
+# iList.append(int(input("A = ")))
+# iList.append(int(input("B = ")))
+# iList.append(int(input("C = ")))
+# print(f"-Số lớn nhất: {max(iList)} || số nhỏ nhất: {min(iList)}")
+
+# Task 18: Enter 2 time points in day then add and subtract these 2 time points
+print("$$ Bài 18: Cộng trừ 2 giờ")
+iTime1 = re.findall(r'[0-9]+', input("Mốc thời gian trong ngày thứ nhất: "))
+iTime2 = re.findall(r'[0-9]+', input("Mốc thời gian trong ngày thứ hai: "))
+print(f"-Khoảng thời gian sau khi cộng: {int(iTime1[0]) + int(iTime2[0])}h"
+      f"{int(iTime1[1]) + int(iTime2[1])}p{int(iTime1[2]) + int(iTime2[2])}s\n"
+      f"-Khoảng thời gian sau khi trừ: {int(iTime1[0]) - int(iTime2[0])}h"
+      f"{int(iTime1[1]) - int(iTime2[1])}p{int(iTime1[2]) - int(iTime2[2])}s")
