@@ -107,8 +107,16 @@ import random
 # # Task 14: Caculate Expression
 # print(f"A = {round(pow(32, 1 / 5) - pow(1 / 64, -1 / 4) + pow(8 / 27, 1 / 3), 3)}")
 
-# Task 15: Enter 2 numbers then caculate express
-iA = int(input("A = "))
-iB = int(input("B = "))
-fResult = round(((iA + iB) / (iA ** 1 / 2 + iB ** 1 / 2) - (iA * iB) ** 1 / 2) / ((iA ** 1 / 2 - iB ** 1 / 2) ** 2), 3)
-print(fResult)
+# # Task 15: Enter 2 numbers then caculate express
+# iA = int(input("A = "))
+# iB = int(input("B = "))
+# fResult = round(((iA + iB) / (iA ** 1 / 2 + iB ** 1 / 2) - (iA * iB) ** 1 / 2) / ((iA ** 1 / 2 - iB ** 1 / 2) ** 2), 3)
+# print(fResult)
+
+# Task 16: Enter time in format hh/mm/ss then convert to seconds
+sTime = str(input("Thời gian:"))
+import re
+
+lTimeNumbers = re.findall(r"[0-9]+", sTime)
+print(f"Thời gian sau khi đổi ra giây: {int(lTimeNumbers[0]) * 3600 + int(lTimeNumbers[1]) * 60
+                                        + int(lTimeNumbers[2])}s")
