@@ -169,17 +169,29 @@ import re
 #         iMax = item
 # print(f"- Số lớn nhất: {iMax}")
 
-# Task 21: Enter 1 integer number between 1 and 9 then print that number in text format
-print("$$ Bài 21: Chuyển đổi số sang kiểu văn bản")
-dNumbers = {
-    1: 'Mot',
-    2: 'Hai',
-    3: 'Ba',
-    4: 'Bon',
-    5: 'Nam',
-    6: 'Sau',
-    7: 'Bay',
-    8: 'Tam',
-    9: 'Chin'
-}
-print(f"-Dạng văn bản: {dNumbers.get(int(input("Dạng số: ")), "Khong doc duoc")}")
+# # Task 21: Enter 1 integer number between 1 and 9 then print that number in text format
+# print("$$ Bài 21: Chuyển đổi số sang kiểu văn bản")
+# dNumbers = {
+#     1: 'Mot',
+#     2: 'Hai',
+#     3: 'Ba',
+#     4: 'Bon',
+#     5: 'Nam',
+#     6: 'Sau',
+#     7: 'Bay',
+#     8: 'Tam',
+#     9: 'Chin'
+# }
+# print(f"-Dạng văn bản: {dNumbers.get(int(input("Dạng số: ")), "Khong doc duoc")}")
+
+# Task 22: Solving and arguing first-order equations
+print("$$ Bài 22: Giải và biện luận phương trình bậc nhất")
+iA = int(input("A = "))
+iB = int(input("B = "))
+if (iA == 0):
+    if (iB != 0):
+        print("-Phương trình vô nghiệm!")
+    else:
+        print("-Phương trình có vô số nghiệm.")
+else:
+    print(f"Phương trình có 1 nghiệm duy nhất: {round(-iA / iB, 3)}")
