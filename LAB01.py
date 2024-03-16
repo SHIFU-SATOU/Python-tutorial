@@ -143,18 +143,28 @@ import re
 
 ## BRANCH STRUCTURE
 
-# Task 19: Enter 4 integer numbers then find max and min number
-print("$$ Bài 19: Tìm số lớn nhất và nhỏ nhất không dùng hàm max và min")
+# # Task 19: Enter 4 integer numbers then find min number
+# print("$$ Bài 19: Tìm số nhỏ nhất không dùng hàm min")
+# iList = []
+# iList.append(int(input("A = ")))
+# iList.append(int(input("B = ")))
+# iList.append(int(input("C = ")))
+# iList.append(int(input("D = ")))
+# iMin = iList[0]
+# for item in iList:
+#     if item < iMin:
+#         iMin = item
+# print(f"-Số nhỏ nhất: {iMin}")
+
+# Task 20: Enter 4 integer numbers then find max number
+print("$$ Bài 19: Tìm số lớn nhất không dùng hàm max")
 iList = []
 iList.append(int(input("A = ")))
 iList.append(int(input("B = ")))
 iList.append(int(input("C = ")))
 iList.append(int(input("D = ")))
 iMax = iList[0]
-iMin = iList[0]
 for item in iList:
     if item > iMax:
         iMax = item
-    if item < iMin:
-        iMin = item
-print(f"- Số lớn nhất: {iMax} || Số nhỏ nhất: {iMin}")
+print(f"- Số lớn nhất: {iMax}")
