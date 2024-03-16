@@ -156,15 +156,30 @@ import re
 #         iMin = item
 # print(f"-Số nhỏ nhất: {iMin}")
 
-# Task 20: Enter 4 integer numbers then find max number
-print("$$ Bài 19: Tìm số lớn nhất không dùng hàm max")
-iList = []
-iList.append(int(input("A = ")))
-iList.append(int(input("B = ")))
-iList.append(int(input("C = ")))
-iList.append(int(input("D = ")))
-iMax = iList[0]
-for item in iList:
-    if item > iMax:
-        iMax = item
-print(f"- Số lớn nhất: {iMax}")
+# # Task 20: Enter 4 integer numbers then find max number
+# print("$$ Bài 19: Tìm số lớn nhất không dùng hàm max")
+# iList = []
+# iList.append(int(input("A = ")))
+# iList.append(int(input("B = ")))
+# iList.append(int(input("C = ")))
+# iList.append(int(input("D = ")))
+# iMax = iList[0]
+# for item in iList:
+#     if item > iMax:
+#         iMax = item
+# print(f"- Số lớn nhất: {iMax}")
+
+# Task 21: Enter 1 integer number between 1 and 9 then print that number in text format
+print("$$ Bài 21: Chuyển đổi số sang kiểu văn bản")
+dNumbers = {
+    1: 'Mot',
+    2: 'Hai',
+    3: 'Ba',
+    4: 'Bon',
+    5: 'Nam',
+    6: 'Sau',
+    7: 'Bay',
+    8: 'Tam',
+    9: 'Chin'
+}
+print(f"-Dạng văn bản: {dNumbers.get(int(input("Dạng số: ")), "Khong doc duoc")}")
