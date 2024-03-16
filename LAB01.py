@@ -105,18 +105,29 @@ import random
 # print(f"-yyyy mm dd: {sTimeFormatOrigin3}")
 
 # # Task 14: Caculate Expression
+# print("$$ Bài 14: Tính toán biểu thức")
 # print(f"A = {round(pow(32, 1 / 5) - pow(1 / 64, -1 / 4) + pow(8 / 27, 1 / 3), 3)}")
 
 # # Task 15: Enter 2 numbers then caculate express
+# print("$$ Bài 15: Tính toán biểu thức có 2 biến")
 # iA = int(input("A = "))
 # iB = int(input("B = "))
 # fResult = round(((iA + iB) / (iA ** 1 / 2 + iB ** 1 / 2) - (iA * iB) ** 1 / 2) / ((iA ** 1 / 2 - iB ** 1 / 2) ** 2), 3)
 # print(fResult)
 
-# Task 16: Enter time in format hh/mm/ss then convert to seconds
-sTime = str(input("Thời gian:"))
-import re
+# # Task 16: Enter time in format hh/mm/ss then convert to seconds
+# print("$$ Bài 16: Chuyển đổi định dạng thời gian sang giây")
+# sTime = str(input("Thời gian:"))
+# import re
+#
+# lTimeNumbers = re.findall(r"[0-9]+", sTime)
+# print(f"-Thời gian sau khi đổi ra giây: {int(lTimeNumbers[0]) * 3600 + int(lTimeNumbers[1]) * 60
+#                                         + int(lTimeNumbers[2])}s")
 
-lTimeNumbers = re.findall(r"[0-9]+", sTime)
-print(f"Thời gian sau khi đổi ra giây: {int(lTimeNumbers[0]) * 3600 + int(lTimeNumbers[1]) * 60
-                                        + int(lTimeNumbers[2])}s")
+# Task 17: Enter 3 integer numbers then find max and min
+print("$$ Bài 17: Tìm số lớn nhất và nhỏ nhất trong 3 số")
+iList = []
+iList.append(int(input("A = ")))
+iList.append(int(input("B = ")))
+iList.append(int(input("C = ")))
+print(f"-Số lớn nhất: {max(iList)} || số nhỏ nhất: {min(iList)}")
