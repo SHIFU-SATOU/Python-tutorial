@@ -218,3 +218,11 @@ import re
 #     print(f"-Thời gian hợp lệ.")
 # else:
 #     print(f"-Thời gian không hợp lệ!")
+
+# Task 25: Enter 1 character then convert it to upper case or lower case
+print("$$ Bài 25: Nhập vào 1 chữ cái sau đó chuyển về kiểu hoa hoặc thường")
+sCharacter = str(input("Chữ cái cần chyển: "))
+if (ord(sCharacter) >= 65 and ord(sCharacter) <= 90):
+    print(f"-Kiểu thường: {chr(ord(sCharacter) + 32)}")
+if (ord(sCharacter) >= 97 and ord(sCharacter) <= 122):
+    print(f"-Kiểu hoa: {chr(ord(sCharacter) - 32)}")
