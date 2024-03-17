@@ -141,7 +141,7 @@ import re
 #       f"-Khoảng thời gian sau khi trừ: {int(iTime1[0]) - int(iTime2[0])}h"
 #       f"{int(iTime1[1]) - int(iTime2[1])}p{int(iTime1[2]) - int(iTime2[2])}s")
 
-## BRANCH STRUCTURE
+### BRANCH STRUCTURE
 
 # # Task 19: Enter 4 integer numbers then find min number
 # print("$$ Bài 19: Tìm số nhỏ nhất không dùng hàm min")
@@ -184,14 +184,37 @@ import re
 # }
 # print(f"-Dạng văn bản: {dNumbers.get(int(input("Dạng số: ")), "Khong doc duoc")}")
 
-# Task 22: Solving and arguing first-order equations
-print("$$ Bài 22: Giải và biện luận phương trình bậc nhất")
-iA = int(input("A = "))
-iB = int(input("B = "))
-if (iA == 0):
-    if (iB != 0):
-        print("-Phương trình vô nghiệm!")
-    else:
-        print("-Phương trình có vô số nghiệm.")
-else:
-    print(f"Phương trình có 1 nghiệm duy nhất: {round(-iA / iB, 3)}")
+# # Task 22: Solving and arguing first-order equations
+# print("$$ Bài 22: Giải và biện luận phương trình bậc nhất")
+# iA = int(input("A = "))
+# if (iA != 0):
+#     iB = int(input("B = "))
+#     print(f"-Nghiệm của phương trình: {round(-iB / iA, 2)}")
+# else:
+#     print("Đây không phải phương trình bậc nhất!")
+
+# # Task 23: Solving and arguing second-order equations
+# print("$$ Bài 22: Giải và biện luận phương trình bậc hai")
+# iA = int(input("A = "))
+#
+# if (iA == 0):
+#     print(f"-Phương trình vô nghiệm!")
+# else:
+#     iB = int(input("B = "))
+#     iC = int(input("C = "))
+#     fDelta = iB ** 2 - 4 * iA * iC
+#     print(fDelta)
+#     if (fDelta == 0):
+#         print(f"-Phương trình có 1 nghiệm: {-iB / (2 * iA)}")
+#     elif (fDelta > 0):
+#         print(f"-Phương trình có 2 nghiệm phân biệt: x1 = {(-iB + fDelta ** 1 / 2) / (2 * iA)} ||"
+#               f"x2 = {(-iB - fDelta ** 1 / 2) / (2 * iA)}")
+
+# # Task 24: Enter hour, time, second then check logic of time
+# print("$$ Bài 24: Kiểm tra tính logic của giờ, phút, giây")
+# sTime = re.findall(r'[0-9]+', input("Thời gian trong ngày: "))
+# if (int(sTime[0]) >= 0 and int(sTime[0]) <= 23 and int(sTime[1]) >= 0
+#         and int(sTime[1]) <= 59 and int(sTime[2]) >= 0 and int(sTime[2]) <= 59):
+#     print(f"-Thời gian hợp lệ.")
+# else:
+#     print(f"-Thời gian không hợp lệ!")
