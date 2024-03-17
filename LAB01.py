@@ -236,13 +236,39 @@ import re
 # lNumbers.sort()
 # print(f"-Dãy số tăng dần: {lNumbers}")
 
-# Task 26.2: Enter 1 integer number then sort its numbers in ascending order
-sNumber = str(input("N = "))
-lNumbers = []
-for key in sNumber:
-    lNumbers.append(int(key))
-lNumbers.sort()
-sNewNumber = ''
-for key in lNumbers:
-    sNewNumber += str(key)
-print(sNewNumber)
+# # Task 26.2: Enter 1 integer number then sort its numbers in ascending order
+# sNumber = str(input("N = "))
+# lNumbers = []
+# for key in sNumber:
+#     lNumbers.append(int(key))
+# lNumbers.sort()
+# sNewNumber = ''
+# for key in lNumbers:
+#     sNewNumber += str(key)
+# print(sNewNumber)
+
+# Task 27: Enter type of shape, length and width then caculate perimeter and area
+dShapes = {
+    'v': 'vuông',
+    'n': "chữ nhật",
+    't': 'tròn'
+}
+sTypeOfShape = str(input("Nhập hình: "))
+if sTypeOfShape in dShapes:
+    print(f"Tính P và S của hình {dShapes[sTypeOfShape]}")
+    fPerimeter = None
+    fArea = None
+    if (sTypeOfShape == 'v'):
+        iLength = int(input("Nhập chiều dài: "))
+        fPerimeter = 4 * iLength
+        fArea = iLength ** 2
+    elif (sTypeOfShape == 'n'):
+        iWidth = int(input("Nhập chiều rộng: "))
+        iLength = int(input("Nhập chiều dài: "))
+        fPerimeter = 2 * (iWidth + iLength)
+        fArea = iWidth * iLength
+    elif (sTypeOfShape == 't'):
+        iRadius = int(input("Nhập bán kính: "))
+        fPerimeter = round(2 * math.pi * iRadius, 3)
+        fArea = round(math.pi * iRadius ** 2, 3)
+print(f"   Kết quả P = {fPerimeter}    S = {fArea}")
