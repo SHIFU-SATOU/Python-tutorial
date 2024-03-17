@@ -227,11 +227,22 @@ import re
 # if (ord(sCharacter) >= 97 and ord(sCharacter) <= 122):
 #     print(f"-Kiểu hoa: {chr(ord(sCharacter) - 32)}")
 
-# Task 26.1: Enter 3 integer number then sort in ascending order
-print("$$ Bài 26-a: Nhập vào 3 số nguyên, sắp xếp theo thứ tự tăng dần")
+# # Task 26.1: Enter 3 integer number then sort in ascending order
+# print("$$ Bài 26-a: Nhập vào 3 số nguyên, sắp xếp theo thứ tự tăng dần")
+# lNumbers = []
+# lNumbers.append(int(input(f"A = ")))
+# lNumbers.append(int(input(f"B = ")))
+# lNumbers.append(int(input(f"C = ")))
+# lNumbers.sort()
+# print(f"-Dãy số tăng dần: {lNumbers}")
+
+# Task 26.2: Enter 1 integer number then sort its numbers in ascending order
+sNumber = str(input("N = "))
 lNumbers = []
-lNumbers.append(int(input(f"A = ")))
-lNumbers.append(int(input(f"B = ")))
-lNumbers.append(int(input(f"C = ")))
+for key in sNumber:
+    lNumbers.append(int(key))
 lNumbers.sort()
-print(f"-Dãy số tăng dần: {lNumbers}")
+sNewNumber = ''
+for key in lNumbers:
+    sNewNumber += str(key)
+print(sNewNumber)
