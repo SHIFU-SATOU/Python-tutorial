@@ -219,10 +219,19 @@ import re
 # else:
 #     print(f"-Thời gian không hợp lệ!")
 
-# Task 25: Enter 1 character then convert it to upper case or lower case
-print("$$ Bài 25: Nhập vào 1 chữ cái sau đó chuyển về kiểu hoa hoặc thường")
-sCharacter = str(input("Chữ cái cần chyển: "))
-if (ord(sCharacter) >= 65 and ord(sCharacter) <= 90):
-    print(f"-Kiểu thường: {chr(ord(sCharacter) + 32)}")
-if (ord(sCharacter) >= 97 and ord(sCharacter) <= 122):
-    print(f"-Kiểu hoa: {chr(ord(sCharacter) - 32)}")
+# # Task 25: Enter 1 character then convert it to upper case or lower case
+# print("$$ Bài 25: Nhập vào 1 chữ cái sau đó chuyển về kiểu hoa hoặc thường")
+# sCharacter = str(input("Chữ cái cần chyển: "))
+# if (ord(sCharacter) >= 65 and ord(sCharacter) <= 90):
+#     print(f"-Kiểu thường: {chr(ord(sCharacter) + 32)}")
+# if (ord(sCharacter) >= 97 and ord(sCharacter) <= 122):
+#     print(f"-Kiểu hoa: {chr(ord(sCharacter) - 32)}")
+
+# Task 26.1: Enter 3 integer number then sort in ascending order
+print("$$ Bài 26-a: Nhập vào 3 số nguyên, sắp xếp theo thứ tự tăng dần")
+lNumbers = []
+lNumbers.append(int(input(f"A = ")))
+lNumbers.append(int(input(f"B = ")))
+lNumbers.append(int(input(f"C = ")))
+lNumbers.sort()
+print(f"-Dãy số tăng dần: {lNumbers}")
