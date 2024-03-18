@@ -358,4 +358,9 @@ import re
 #                              fDistance - dThirdPrice.get(isBetween5and119Km, 0) * fDistance * dFourthPrice.get(isGreaterThan120Km, 0), 2)}đ")
 
 # Task 33: Enter 1 positive integer number then check it is square number
-
+print("$$ Bài 33: Kiểm tra số chính phương")
+iNumber = int(input("N = "))
+dSquareNumber = {True: "Số chính phương",
+                 False: "Không phải số chính phương!"}
+isSquareNumber = iNumber ** 1 / 2 % 1 == 0
+print(f"-Kết quả kiểm tra: {dSquareNumber.get(isSquareNumber)}")
