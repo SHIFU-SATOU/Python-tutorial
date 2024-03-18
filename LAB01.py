@@ -314,27 +314,48 @@ import re
 # lTime = re.findall(r'[0-9]+', input("Tháng và năm: "))
 # print(f"-Số ngày trong tháng: {dMonths.get(int(lTime[0]), dFebruary.get(int(lTime[1]) % 4 == 0 or (lTime[1][-2:] == '00' and int(lTime[1]) % 400 == 0), False))}")
 
-# Task 31: Enter 3 width of triangle then find type of triangle
-print("$$ Bài 31: Tìm loại tam giác")
-lWidths = []
-lWidths.append(int(input("a = ")))
-lWidths.append(int(input("b = ")))
-lWidths.append(int(input("c = ")))
-# Check logic of triangle
-isTriangle = lWidths[0] + lWidths[1] > lWidths[2] and lWidths[1] + lWidths[2] > lWidths[0] and lWidths[2] + lWidths[0] > \
-             lWidths[1]
-dInvalidTriangle = {False: "Không phải tam giác!"}
-# Finding of type triangle
-isIsoscelesTriangle = lWidths[0] == lWidths[1] or lWidths[1] == lWidths[2] or lWidths[2] == lWidths[0]
-isRightTriangle = lWidths[0] ** 2 + lWidths[1] ** 2 == lWidths[2] ** 2 or lWidths[1] ** 2 + lWidths[2] ** 2 == lWidths[
-    0] ** 2 or lWidths[2] ** 2 + lWidths[0] ** 2 == lWidths[1] ** 2
-isEquilateralTriangle = lWidths[0] == lWidths[1] and lWidths[1] == lWidths[2]
+# # Task 31: Enter 3 width of triangle then find type of triangle
+# print("$$ Bài 31: Tìm loại tam giác")
+# lWidths = []
+# lWidths.append(int(input("a = ")))
+# lWidths.append(int(input("b = ")))
+# lWidths.append(int(input("c = ")))
+# # Check logic of triangle
+# isTriangle = lWidths[0] + lWidths[1] > lWidths[2] and lWidths[1] + lWidths[2] > lWidths[0] and lWidths[2] + lWidths[0] > \
+#              lWidths[1]
+# dInvalidTriangle = {False: "Không phải tam giác!"}
+# # Finding of type triangle
+# isIsoscelesTriangle = lWidths[0] == lWidths[1] or lWidths[1] == lWidths[2] or lWidths[2] == lWidths[0]
+# isRightTriangle = lWidths[0] ** 2 + lWidths[1] ** 2 == lWidths[2] ** 2 or lWidths[1] ** 2 + lWidths[2] ** 2 == lWidths[
+#     0] ** 2 or lWidths[2] ** 2 + lWidths[0] ** 2 == lWidths[1] ** 2
+# isEquilateralTriangle = lWidths[0] == lWidths[1] and lWidths[1] == lWidths[2]
+#
+# dIsocelseTriangle = {2: 'Tam giác cân'} #True + True == 2
+# dRightTriangle = {2: 'Tam giác vuông'} #True + True == 2
+# dEquilateralTriangle = {2: 'Tam giác đều'} #True + True == 2
+#
+# print(f"-Kết quả kiểm tra: {dRightTriangle.get(isRightTriangle + isRightTriangle, '')}"
+#       f"{dIsocelseTriangle.get(isTriangle + isIsoscelesTriangle, '')}"
+#       f"{dEquilateralTriangle.get(isTriangle + isEquilateralTriangle, '')}"
+#       f"{dInvalidTriangle.get(isTriangle, '')}")
 
-dIsocelseTriangle = {2: 'Tam giác cân'}
-dRightTriangle = {2: 'Tam giác vuông'}
-dEquilateralTriangle = {2: 'Tam giác đều'}
+# # Task 32: Enter distance then find taxi tax
+# print("$$ Bài 32: Tính tiền taxi")
+# fDistance = float(input("Quãng đường đã đi: "))
+# # Prices list
+# dFirstPrice = {True: 15000}
+# dSecondPrice = {True: 13500}
+# dThirdPrice = {True: 11000}
+# dFourthPrice = {True: 0.1}
+# # Check distance
+# isLessThan1Km = fDistance <= 1
+# isBetween2and5Km = fDistance >= 2 and fDistance <= 5
+# isBetween5and119Km = fDistance >= 5
+# isGreaterThan120Km = fDistance >= 120
+# # Print tax
+# print(
+#     f"-Giá cước taxi: {round(dFirstPrice.get(isLessThan1Km, dSecondPrice.get(isBetween2and5Km, dThirdPrice.get(isBetween5and119Km))) *
+#                              fDistance - dThirdPrice.get(isBetween5and119Km, 0) * fDistance * dFourthPrice.get(isGreaterThan120Km, 0), 2)}đ")
 
-print(f"-Kết quả kiểm tra: {dRightTriangle.get(isRightTriangle + isRightTriangle, '')}"
-      f"{dIsocelseTriangle.get(isTriangle + isIsoscelesTriangle, '')}"
-      f"{dEquilateralTriangle.get(isTriangle + isEquilateralTriangle, '')}"
-      f"{dInvalidTriangle.get(isTriangle, '')}")
+# Task 33: Enter 1 positive integer number then check it is square number
+
