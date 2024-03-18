@@ -357,10 +357,26 @@ import re
 #     f"-Giá cước taxi: {round(dFirstPrice.get(isLessThan1Km, dSecondPrice.get(isBetween2and5Km, dThirdPrice.get(isBetween5and119Km))) *
 #                              fDistance - dThirdPrice.get(isBetween5and119Km, 0) * fDistance * dFourthPrice.get(isGreaterThan120Km, 0), 2)}đ")
 
-# Task 33: Enter 1 positive integer number then check it is square number
-print("$$ Bài 33: Kiểm tra số chính phương")
+# # Task 33: Enter 1 positive integer number then check it is square number
+# print("$$ Bài 33: Kiểm tra số chính phương")
+# iNumber = int(input("N = "))
+# dSquareNumber = {True: "Số chính phương",
+#                  False: "Không phải số chính phương!"}
+# isSquareNumber = iNumber ** 1 / 2 % 1 == 0
+# print(f"-Kết quả kiểm tra: {dSquareNumber.get(isSquareNumber)}")
+
+# Task 34: Enter 1 positive integer number then check prime number
 iNumber = int(input("N = "))
-dSquareNumber = {True: "Số chính phương",
-                 False: "Không phải số chính phương!"}
-isSquareNumber = iNumber ** 1 / 2 % 1 == 0
-print(f"-Kết quả kiểm tra: {dSquareNumber.get(isSquareNumber)}")
+# Count divisors of number
+dDivisor = {
+    True: 1,
+    False: 0
+}
+iCount = 0
+for element in range(1, iNumber + 1):
+    iCount += dDivisor.get(iNumber % element == 0)
+# Check prime number
+dPrimeNumber = {True: "Số nguyên tố.",
+                False: "Không phải số nguyên tố!"}
+isPrimeNumber = iCount == 2
+print(f"-Kết quả kiểm tra: {dPrimeNumber.get(isPrimeNumber)}")
