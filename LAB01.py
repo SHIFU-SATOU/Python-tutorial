@@ -292,27 +292,49 @@ import re
 #     iSum += int(element)
 # print(f"-Tổng các chữ số: {iSum}")
 
-# Task 30: Enter month and year then find number of days in month
-print("$$ Bài 30: In ra số ngày trong tháng")
-dMonths = {
-    1: 31,
-    3: 31,
-    4: 30,
-    5: 31,
-    6: 30,
-    7: 31,
-    8: 31,
-    9: 30,
-    10: 31,
-    11: 30,
-    12: 31
-}
-dFebruary = {
-    True: 29,
-    False: 28
-}
-lTime = re.findall(r'[0-9]+', input("Tháng và năm: "))
-isLeapYear = False
-if (int(lTime[1]) % 4 == 0 or (lTime[1][-2:] == '00' and int(lTime[1]) % 400 == 0)):
-    isLeapYear = True
-print(f"-Số ngày trong tháng: {dMonths.get(int(lTime[0]), dFebruary.get(isLeapYear))}")
+# # Task 30: Enter month and year then find number of days in month
+# print("$$ Bài 30: In ra số ngày trong tháng")
+# dMonths = {
+#     1: 31,
+#     3: 31,
+#     4: 30,
+#     5: 31,
+#     6: 30,
+#     7: 31,
+#     8: 31,
+#     9: 30,
+#     10: 31,
+#     11: 30,
+#     12: 31
+# }
+# dFebruary = {
+#     True: 29,
+#     False: 28
+# }
+# lTime = re.findall(r'[0-9]+', input("Tháng và năm: "))
+# print(f"-Số ngày trong tháng: {dMonths.get(int(lTime[0]), dFebruary.get(int(lTime[1]) % 4 == 0 or (lTime[1][-2:] == '00' and int(lTime[1]) % 400 == 0), False))}")
+
+# Task 31: Enter 3 width of triangle then find type of triangle
+print("$$ Bài 31: Tìm loại tam giác")
+lWidths = []
+lWidths.append(int(input("a = ")))
+lWidths.append(int(input("b = ")))
+lWidths.append(int(input("c = ")))
+# Check logic of triangle
+isTriangle = lWidths[0] + lWidths[1] > lWidths[2] and lWidths[1] + lWidths[2] > lWidths[0] and lWidths[2] + lWidths[0] > \
+             lWidths[1]
+dInvalidTriangle = {False: "Không phải tam giác!"}
+# Finding of type triangle
+isIsoscelesTriangle = lWidths[0] == lWidths[1] or lWidths[1] == lWidths[2] or lWidths[2] == lWidths[0]
+isRightTriangle = lWidths[0] ** 2 + lWidths[1] ** 2 == lWidths[2] ** 2 or lWidths[1] ** 2 + lWidths[2] ** 2 == lWidths[
+    0] ** 2 or lWidths[2] ** 2 + lWidths[0] ** 2 == lWidths[1] ** 2
+isEquilateralTriangle = lWidths[0] == lWidths[1] and lWidths[1] == lWidths[2]
+
+dIsocelseTriangle = {2: 'Tam giác cân'}
+dRightTriangle = {2: 'Tam giác vuông'}
+dEquilateralTriangle = {2: 'Tam giác đều'}
+
+print(f"-Kết quả kiểm tra: {dRightTriangle.get(isRightTriangle + isRightTriangle, '')}"
+      f"{dIsocelseTriangle.get(isTriangle + isIsoscelesTriangle, '')}"
+      f"{dEquilateralTriangle.get(isTriangle + isEquilateralTriangle, '')}"
+      f"{dInvalidTriangle.get(isTriangle, '')}")
