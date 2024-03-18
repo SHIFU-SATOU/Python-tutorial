@@ -382,10 +382,26 @@ import re
 # isPrimeNumber = iCount == 2
 # print(f"-Kết quả kiểm tra: {dPrimeNumber.get(isPrimeNumber)}")
 
-# Task 35: Enter n then caculate express S = 1 + 2 + 3 + ... + n(n is positive integer number)
-print("$$ Bài 35: Tính biểu thức S = 1 + 2 + 3 + ... + n")
+# # Task 35: Enter n then caculate express S = 1 + 2 + 3 + ... + n(n is positive integer number)
+# print("$$ Bài 35: Tính biểu thức S = 1 + 2 + 3 + ... + n")
+# iLastNumber = int(input("N = "))
+# iSum = 0
+# for element in range(1, iLastNumber + 1):
+#     iSum += element
+# print(f"-S = {iSum}")
+
+# # Task 36: Enter n then caculate express S = 1**2 + 2**2 + 3**2 + ... + n**2(n is positive integer number)
+# print("$$ Bài 36: Tính biểu thức S = 1**2 + 2**2 + 3**2 + ... + n**2")
+# iLastNumber = int(input("N = "))
+# iSum = 0
+# for element in range(1, iLastNumber + 1):
+#     iSum += element ** 2
+# print(f"-S = {iSum}")
+
+# Task 37: Enter n then caculate express S = 2 + 4 + 6 + ... + n (n is positive integer number)
+print("$$ Bài 37: Tính biểu thức S = 2 + 4 + 6 + ... + n")
 iLastNumber = int(input("N = "))
 iSum = 0
-for element in range(1, iLastNumber + 1):
+for element in range(2, iLastNumber + 1, 2):
     iSum += element
-print(f"-S = 1 + 2 + 3 + ... + {iLastNumber} = {iSum}")
+print(f"-S = {iSum}")
