@@ -247,28 +247,39 @@ import re
 #     sNewNumber += str(key)
 # print(sNewNumber)
 
-# Task 27: Enter type of shape, length and width then caculate perimeter and area
-dShapes = {
-    'v': 'vuông',
-    'n': "chữ nhật",
-    't': 'tròn'
-}
-sTypeOfShape = str(input("Nhập hình: "))
-if sTypeOfShape in dShapes:
-    print(f"Tính P và S của hình {dShapes[sTypeOfShape]}")
-    fPerimeter = None
-    fArea = None
-    if (sTypeOfShape == 'v'):
-        iLength = int(input("Nhập chiều dài: "))
-        fPerimeter = 4 * iLength
-        fArea = iLength ** 2
-    elif (sTypeOfShape == 'n'):
-        iWidth = int(input("Nhập chiều rộng: "))
-        iLength = int(input("Nhập chiều dài: "))
-        fPerimeter = 2 * (iWidth + iLength)
-        fArea = iWidth * iLength
-    elif (sTypeOfShape == 't'):
-        iRadius = int(input("Nhập bán kính: "))
-        fPerimeter = round(2 * math.pi * iRadius, 3)
-        fArea = round(math.pi * iRadius ** 2, 3)
-print(f"   Kết quả P = {fPerimeter}    S = {fArea}")
+# # Task 27: Enter type of shape, length and width then caculate perimeter and area
+# dShapes = {
+#     'v': 'vuông',
+#     'n': "chữ nhật",
+#     't': 'tròn'
+# }
+# sTypeOfShape = str(input("Nhập hình: "))
+# if sTypeOfShape in dShapes:
+#     print(f"Tính P và S của hình {dShapes[sTypeOfShape]}")
+#     fPerimeter = None
+#     fArea = None
+#     if (sTypeOfShape == 'v'):
+#         iLength = int(input("Nhập chiều dài: "))
+#         fPerimeter = 4 * iLength
+#         fArea = iLength ** 2
+#     elif (sTypeOfShape == 'n'):
+#         iWidth = int(input("Nhập chiều rộng: "))
+#         iLength = int(input("Nhập chiều dài: "))
+#         fPerimeter = 2 * (iWidth + iLength)
+#         fArea = iWidth * iLength
+#     elif (sTypeOfShape == 't'):
+#         iRadius = int(input("Nhập bán kính: "))
+#         fPerimeter = round(2 * math.pi * iRadius, 3)
+#         fArea = round(math.pi * iRadius ** 2, 3)
+# print(f"   Kết quả P = {fPerimeter}    S = {fArea}")
+
+### LOOP STRUTURE
+# Task 28: Enter 1 positive integer number. If that number valid then find all divisors
+print("$$ Bài 28: Tìm ước số")
+iNumber = 0
+while (iNumber <= 0):
+    iNumber = int(input("N = "))
+print(f"Các ước số của {iNumber}: ", end='')
+for element in range(iNumber + 1):
+    if (element > 0 and iNumber % element == 0):
+        print(element, end=' ')
