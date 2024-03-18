@@ -274,12 +274,45 @@ import re
 # print(f"   Kết quả P = {fPerimeter}    S = {fArea}")
 
 ### LOOP STRUTURE
-# Task 28: Enter 1 positive integer number. If that number valid then find all divisors
-print("$$ Bài 28: Tìm ước số")
-iNumber = 0
-while (iNumber <= 0):
-    iNumber = int(input("N = "))
-print(f"Các ước số của {iNumber}: ", end='')
-for element in range(iNumber + 1):
-    if (element > 0 and iNumber % element == 0):
-        print(element, end=' ')
+# # Task 28: Enter 1 positive integer number. If that number valid then find all divisors
+# print("$$ Bài 28: Tìm ước số")
+# iNumber = 0
+# while (iNumber <= 0):
+#     iNumber = int(input("N = "))
+# print(f"-Các ước số của {iNumber}: ", end='')
+# for element in range(iNumber + 1):
+#     if (element > 0 and iNumber % element == 0):
+#         print(element, end=' ')
+
+# # Task 29: Enter 1 positive integer number then sum its numbers
+# print("$$ Bài 29: Tính tổng các chữ số")
+# sNumber = str(input("N = "))
+# iSum = 0
+# for element in sNumber:
+#     iSum += int(element)
+# print(f"-Tổng các chữ số: {iSum}")
+
+# Task 30: Enter month and year then find number of days in month
+print("$$ Bài 30: In ra số ngày trong tháng")
+dMonths = {
+    1: 31,
+    3: 31,
+    4: 30,
+    5: 31,
+    6: 30,
+    7: 31,
+    8: 31,
+    9: 30,
+    10: 31,
+    11: 30,
+    12: 31
+}
+dFebruary = {
+    True: 29,
+    False: 28
+}
+lTime = re.findall(r'[0-9]+', input("Tháng và năm: "))
+isLeapYear = False
+if (int(lTime[1]) % 4 == 0 or (lTime[1][-2:] == '00' and int(lTime[1]) % 400 == 0)):
+    isLeapYear = True
+print(f"-Số ngày trong tháng: {dMonths.get(int(lTime[0]), dFebruary.get(isLeapYear))}")
