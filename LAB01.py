@@ -365,18 +365,27 @@ import re
 # isSquareNumber = iNumber ** 1 / 2 % 1 == 0
 # print(f"-Kết quả kiểm tra: {dSquareNumber.get(isSquareNumber)}")
 
-# Task 34: Enter 1 positive integer number then check prime number
-iNumber = int(input("N = "))
-# Count divisors of number
-dDivisor = {
-    True: 1,
-    False: 0
-}
-iCount = 0
-for element in range(1, iNumber + 1):
-    iCount += dDivisor.get(iNumber % element == 0)
-# Check prime number
-dPrimeNumber = {True: "Số nguyên tố.",
-                False: "Không phải số nguyên tố!"}
-isPrimeNumber = iCount == 2
-print(f"-Kết quả kiểm tra: {dPrimeNumber.get(isPrimeNumber)}")
+# # Task 34: Enter 1 positive integer number then check prime number
+# print("$$ Bài 34: Kiểm tra số nguyên tố")
+# iNumber = int(input("N = "))
+# # Count divisors of number
+# dDivisor = {
+#     True: 1,
+#     False: 0
+# }
+# iCount = 0
+# for element in range(1, iNumber + 1):
+#     iCount += dDivisor.get(iNumber % element == 0)
+# # Check prime number
+# dPrimeNumber = {True: "Số nguyên tố.",
+#                 False: "Không phải số nguyên tố!"}
+# isPrimeNumber = iCount == 2
+# print(f"-Kết quả kiểm tra: {dPrimeNumber.get(isPrimeNumber)}")
+
+# Task 35: Enter n then caculate express S = 1 + 2 + 3 + ... + n(n is positive integer number)
+print("$$ Bài 35: Tính biểu thức S = 1 + 2 + 3 + ... + n")
+iLastNumber = int(input("N = "))
+iSum = 0
+for element in range(1, iLastNumber + 1):
+    iSum += element
+print(f"-S = 1 + 2 + 3 + ... + {iLastNumber} = {iSum}")
