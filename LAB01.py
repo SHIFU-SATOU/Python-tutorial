@@ -398,10 +398,32 @@ import re
 #     iSum += element ** 2
 # print(f"-S = {iSum}")
 
-# Task 37: Enter n then caculate express S = 2 + 4 + 6 + ... + n (n is positive integer number)
-print("$$ Bài 37: Tính biểu thức S = 2 + 4 + 6 + ... + n")
-iLastNumber = int(input("N = "))
-iSum = 0
-for element in range(2, iLastNumber + 1, 2):
-    iSum += element
-print(f"-S = {iSum}")
+# # Task 37: Enter n then caculate express S = 2 + 4 + 6 + ... + n (n is positive even number)
+# print("$$ Bài 37: Tính biểu thức S = 2 + 4 + 6 + ... + n")
+# # Check even number
+# iLastNumber = int(input("N = "))
+# isOddNumber = iLastNumber % 2 != 0
+# while (isOddNumber):
+#     print("Vui lòng nhập số chẵn!")
+#     iLastNumber = int(input("N = "))
+#     isOddNumber = iLastNumber % 2 != 0
+# iSum = 0
+# # Caculating express
+# for element in range(2, iLastNumber + 1, 2):
+#     iSum += element
+# print(f"-S = {iSum}")
+
+# # Task 38: Enter n then caculate express S = 1 * 2 * 3 * ... * n (n is positive odd number)
+# print("$$ Bài 38: Tính biểu thức S = 1 * 2 * 3 * ... * n")
+# # Check odd number
+# iLastNumber = int(input("N = "))
+# isEvenNumber = iLastNumber % 2 == 0
+# while(isEvenNumber):
+#     print("Vui lòng nhập số lẻ!")
+#     iLastNumber = int(input("N = "))
+#     isEvenNumber = iLastNumber % 2 == 0
+# iProduct = 1
+# # Caculate express
+# for element in range(1, iLastNumber + 1):
+#     iProduct *= element
+# print(f"-S = {iProduct}")
