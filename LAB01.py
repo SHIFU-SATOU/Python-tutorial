@@ -476,14 +476,22 @@ import re
 #     fSum += (2 * element + 1) / (2 * element + 2)
 # print(f"-S = {round(fSum, 3)}")
 
-# Task 45: Enter n and x then caculate express S = x + x ** 2 / (1 + 2) + x ** 3 / (1 + 2 + 3) + ... + x ** n / (1 + 2 + 3 + ... + n)
-print(
-    "$$ Bài 45: Tính biểu thức S = x + x ** 2 / (1 + 2) + x ** 3 / (1 + 2 + 3) + ... + x ** n / (1 + 2 + 3 + ... + n)")
-iLastNumber = int(input("N = "))
-iX = int(input("X = "))
-fSum = 0
-iTotalDenominator = 0
-for element in range(1, iLastNumber + 1):
-    iTotalDenominator += element
-    fSum += iX ** element / iTotalDenominator
-print(f"-S = {round(fSum, 3)}")
+# # Task 45: Enter n and x then caculate express S = x + x ** 2 / (1 + 2) + x ** 3 / (1 + 2 + 3) + ... + x ** n / (1 + 2 + 3 + ... + n)
+# print(
+#     "$$ Bài 45: Tính biểu thức S = x + x ** 2 / (1 + 2) + x ** 3 / (1 + 2 + 3) + ... + x ** n / (1 + 2 + 3 + ... + n)")
+# iLastNumber = int(input("N = "))
+# iX = int(input("X = "))
+# fSum = 0
+# iTotalDenominator = 0
+# for element in range(1, iLastNumber + 1):
+#     iTotalDenominator += element
+#     fSum += iX ** element / iTotalDenominator
+# print(f"-S = {round(fSum, 3)}")
+
+# Task 46: Find all integer root of equation 2 * x + 7 * y + 9 * z = 979
+print("$$ Bài 46: Tìm bộ nghiệm nguyên của phương trình 2 * x + 7 * y + 9 * z = 979")
+for x in range(980):
+    for y in range(980):
+        for z in range(980):
+            if (2 * x + 7 * y + 9 * z == 979):
+                print(f"{x} {y} {z}")
