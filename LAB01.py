@@ -488,10 +488,22 @@ import re
 #     fSum += iX ** element / iTotalDenominator
 # print(f"-S = {round(fSum, 3)}")
 
-# Task 46: Find all integer root of equation 2 * x + 7 * y + 9 * z = 979
-print("$$ Bài 46: Tìm bộ nghiệm nguyên của phương trình 2 * x + 7 * y + 9 * z = 979")
+# # Task 46: Find all integer root of equation 2 * x + 7 * y + 9 * z = 979
+# print("$$ Bài 46: Tìm bộ nghiệm nguyên của phương trình 2 * x + 7 * y + 9 * z = 979")
+# for x in range(980):
+#     for y in range(980):
+#         for z in range(980):
+#             if (2 * x + 7 * y + 9 * z == 979):
+#                 print(f"{x} {y} {z}")
+
+# Task 47: Find all integer root of equation 2 * x + 7 * y + 9 * z = 979 then find largest total of x, y, z
+print("$$ Bài 47: Tìm bộ nghiệm nguyên của phương trình 2 * x + 7 * y + 9 * z = 979 và tổng x, y, z lớn nhất")
+iLargestTotal = 0
 for x in range(980):
     for y in range(980):
         for z in range(980):
             if (2 * x + 7 * y + 9 * z == 979):
+                if (x + y + z > iLargestTotal):
+                    iLargestTotal = x + y + z
                 print(f"{x} {y} {z}")
+print(f"-Tổng lớn nhất của x, y, z: {iLargestTotal}")
