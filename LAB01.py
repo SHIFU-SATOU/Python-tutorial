@@ -428,10 +428,18 @@ import re
 #     iProduct *= element
 # print(f"-S = {iProduct}")
 
-# Task 39: Enter n then caculate express S = 1 + 1/2 + 1/3 + ... + 1/n
-print("$$ Bài 39: Tính biểu thức S = 1 + 1/2 + 1/3 + ... + 1/n")
+# # Task 39: Enter n then caculate express S = 1 + 1/2 + 1/3 + ... + 1/n
+# print("$$ Bài 39: Tính biểu thức S = 1 + 1/2 + 1/3 + ... + 1/n")
+# iLastNumber = int(input("N = "))
+# fSum = 0
+# for element in range(1, iLastNumber + 1):
+#     fSum += 1 / element
+# print(round(fSum, 3))
+
+# Task 40: Enter n then caculate express S = 1/2 + 1/4 + ... + 1/2n
+print("$$ Bài 40: Tính biểu thức S = 1/2 + 1/4 + ... + 1/2n")
 iLastNumber = int(input("N = "))
 fSum = 0
 for element in range(1, iLastNumber + 1):
-    fSum += 1 / element
+    fSum += 1 / 2 * element
 print(round(fSum, 3))
