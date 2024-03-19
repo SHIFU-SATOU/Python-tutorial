@@ -460,10 +460,18 @@ import re
 #     fSum += 1 / (element * (element + 1))
 # print(f"-S = {round(fSum, 3)}")
 
-# Task 43: Enter n then caculate express S = 1/2 + 2/3 + ... + n/(n+1)
-print("$$ Bài 43: Tính biểu thức S = 1/2 + 2/3 + ... + n/(n+1)")
+# # Task 43: Enter n then caculate express S = 1/2 + 2/3 + ... + n/(n+1)
+# print("$$ Bài 43: Tính biểu thức S = 1/2 + 2/3 + ... + n/(n+1)")
+# iLastNumber = int(input("N = "))
+# fSum = 0
+# for element in range(1, iLastNumber + 1):
+#     fSum += element / (element + 1)
+# print(f"-S = {round(fSum, 3)}")
+
+# Task 44: Enter n then caculate express S = 1/2 + 3/4 + ... + (2 * n + 1)/(2 * n + 2)
+print("$$ Bài 44: Tính biểu thức S = S = 1/2 + 3/4 + ... + (2 * n + 1)/(2 * n + 2)")
 iLastNumber = int(input("N = "))
 fSum = 0
-for element in range(1, iLastNumber + 1):
-    fSum += element / (element + 1)
+for element in range(iLastNumber + 1):
+    fSum += (2 * element + 1) / (2 * element + 2)
 print(f"-S = {round(fSum, 3)}")
