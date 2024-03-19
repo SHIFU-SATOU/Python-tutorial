@@ -496,14 +496,32 @@ import re
 #             if (2 * x + 7 * y + 9 * z == 979):
 #                 print(f"{x} {y} {z}")
 
-# Task 47: Find all integer root of equation 2 * x + 7 * y + 9 * z = 979 then find largest total of x, y, z
-print("$$ Bài 47: Tìm bộ nghiệm nguyên của phương trình 2 * x + 7 * y + 9 * z = 979 và tổng x, y, z lớn nhất")
+# # Task 47: Find all integer root of equation 2 * x + 7 * y + 9 * z = 979 then find largest total of x, y, z
+# print("$$ Bài 47: Tìm bộ nghiệm nguyên của phương trình 2 * x + 7 * y + 9 * z = 979 và tổng x, y, z lớn nhất")
 iLargestTotal = 0
+lNumbersWithLargestTotal = [0, 0, 0]
 for x in range(980):
     for y in range(980):
         for z in range(980):
             if (2 * x + 7 * y + 9 * z == 979):
                 if (x + y + z > iLargestTotal):
                     iLargestTotal = x + y + z
+                    lNumbersWithLargestTotal = [x, y, z]
                 print(f"{x} {y} {z}")
-print(f"-Tổng lớn nhất của x, y, z: {iLargestTotal}")
+print(f"- {lNumbersWithLargestTotal} là bộ nghiệm có tổng lớn nhất. {lNumbersWithLargestTotal[0]} + "
+      f"{lNumbersWithLargestTotal[1]} + {lNumbersWithLargestTotal[2]} = {iLargestTotal}")
+
+# Task 48: Find all integer root of equation 2 * x + 7 * y + 9 * z = 979 then find smallest total of x, y, z
+print("$$ Bài 48: Tìm bộ nghiệm nguyên của phương trình 2 * x + 7 * y + 9 * z = 979 và tổng x, y, z nhỏ nhất")
+iSmallestTotal = 979
+lNumbersWithSmallestTotal = [0, 0, 0]
+for x in range(980):
+    for y in range(980):
+        for z in range(980):
+            if (2 * x + 7 * y + 9 * z == 979):
+                if (x + y + z < iSmallestTotal):
+                    iSmallestTotal = x + y + z
+                    lNumbersWithSmallestTotal = [x, y, z]
+                print(f"{x} {y} {z}")
+print(f"- {lNumbersWithSmallestTotal} là bộ nghiệm có tổng nhỏ nhất. {lNumbersWithSmallestTotal[0]} + "
+      f"{lNumbersWithSmallestTotal[1]} + {lNumbersWithSmallestTotal[2]} = {iSmallestTotal}")
