@@ -733,24 +733,90 @@ import re
 #
 # print(f"- S = 1 * 2 * 3 * ... * n = {caculatingExpress5(iNumber)}")
 
-# Task 54: Enter n then find n Fibonacci numbers
-print("$$ Bài 54: In ra n số Fibonacci")
-iSize = int(input(" N = "))
+# # Task 54: Enter n then find n Fibonacci numbers
+# print("$$ Bài 54: In ra n số Fibonacci")
+# iSize = int(input(" N = "))
+#
+#
+# def findTheNthFibonacciNumber(iNth: int) -> int:
+#     if iNth == 0:
+#         return 0
+#     elif iNth == 1:
+#         return 1
+#     else:
+#         return findTheNthFibonacciNumber(iNth - 1) + findTheNthFibonacciNumber(iNth - 2)
+#
+#
+# def findNFibonacciNumbers(iSize: int):
+#     for index in range(1, iSize + 1):
+#         print(findTheNthFibonacciNumber(index), end=' ')
+#
+#
+# print("-Dãy số Fibonacci: ", end=' ')
+# findNFibonacciNumbers(iSize)
+
+# # Task 55: Enter length and width of rectangle then caculate perimeter and area. After caculate, draw rectangel with *
+# print("$$ Bài 55: Tính chu vi và diện tích hình chữ nhật, sau đó vẽ bằng ký tự *")
+# iLength = int(input("Chiều dài = "))
+# iWidth = int(input("Chiều rộng  = "))
+#
+#
+# def caculatingPerimeterOfRectangle(iLength: int, iWidth: int) -> int:
+#     return 2 * (iLength + iWidth)
+#
+#
+# def caculatingAreaOfRectangle(iLength: int, iWidth: int) -> int:
+#     return iLength * iWidth
+#
+#
+# def drawRectangle(iLength: int, iWidth: int):
+#     for index1 in range(iWidth):
+#         print()
+#         for index2 in range(iLength):
+#             if (index1 == 0 or index1 == iWidth - 1 or index2 == 0 or index2 == iLength - 1):
+#                 print('*', end=' ')
+#             else:
+#                 print(' ', end=' ')
+#
+#
+# print(f"-Chu vi hình chữ nhật: {caculatingAreaOfRectangle(iLength, iWidth)}")
+# print(f"-Diện tích hình chữ nhật: {caculatingPerimeterOfRectangle(iLength, iWidth)}")
+# drawRectangle(iLength, iWidth)
 
 
-def findTheNthFibonacciNumber(iNth: int) -> int:
-    if iNth == 0:
-        return 0
-    elif iNth == 1:
-        return 1
-    else:
-        return findTheNthFibonacciNumber(iNth - 1) + findTheNthFibonacciNumber(iNth - 2)
+# Task 56: Apply kwargs, *args, **args techniques to design functions to calculate perimeter and area of squares,
+# rectangles, circles
+print("$$ Bài 56: Áp dụng kỹ thuật kwargs, *args, **args để thiết kế hàm tính chu vi, "
+      "diện tích của hình chữ nhật, hình vuông, hình tròn")
 
 
-def findNFibonacciNumbers(iSize: int):
-    for index in range(1, iSize + 1):
-        print(findTheNthFibonacciNumber(index), end=' ')
+def caculatingPerimeterAndAreaOfRectangleSquareCircle(*iSizes, **ShapesAndMethods):
+    if (ShapesAndMethods.get('hinh') == 'chu_nhat' and ShapesAndMethods.get('tinh') == 'cv'):
+        return 2 * (iSizes[0] + iSizes[1])
+    if (ShapesAndMethods.get('hinh') == 'chu_nhat' and ShapesAndMethods.get('tinh') == 'dt'):
+        return iSizes[0] * iSizes[1]
+    if (ShapesAndMethods.get('hinh') == 'vuong' and ShapesAndMethods.get('tinh') == 'cv'):
+        return iSizes[0] * 4
+    if (ShapesAndMethods.get('hinh') == 'vuong' and ShapesAndMethods.get('tinh') == 'dt'):
+        return iSizes[0] ** 2
+    if (ShapesAndMethods.get('hinh') == 'tron' and ShapesAndMethods.get('tinh') == 'cv'):
+        return round(2 * math.pi * iSizes[0], 3)
+    if (ShapesAndMethods.get('hinh') == 'tron' and ShapesAndMethods.get('tinh') == 'dt'):
+        return round(math.pi * iSizes[0] ** 2, 3)
 
 
-print("-Dãy số Fibonacci: ", end=' ')
-findNFibonacciNumbers(iSize)
+iLength = 10
+iWidth = 6
+iRadius = 3
+print(f"-Chu vi hình chữ nhật có chiều dài {iLength} và chiều rộng {iWidth}: "
+      f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='chu_nhat', tinh='cv')}")
+print(f"-Diện hình chữ nhật có chiều dài {iLength} và chiều rộng {iWidth}: "
+      f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='chu_nhat', tinh='dt')}")
+print(f"-Chu vi hình vuông có chiều dài {iLength}: "
+      f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='vuong', tinh='cv')}")
+print(f"-Diện tích hình vuông có chiều dài {iLength}: "
+      f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='vuong', tinh='dt')}")
+print(f"-Chu vi hình tròn có bán kính {iRadius}: "
+      f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='tron', tinh='cv')}")
+print(f"-Chu vi hình tròn có bán kính {iRadius}: "
+      f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='tron', tinh='dt')}")
