@@ -527,8 +527,20 @@ import re
 #       f"{lNumbersWithSmallestTotal[1]} + {lNumbersWithSmallestTotal[2]} = {iSmallestTotal}")
 
 ### FUNCTION
-# Task 49: Checking number is odd negative number
-print("$$ Bài 49: Kiểm tra số âm lẻ")
+
+# # Task 49: Checking number is even negative number
+# print("$$ Bài 49: Kiểm tra số âm chẵn")
+#
+#
+# def checkingEvenNegativeNumber(iNumber: int) -> bool:
+#     return iNumber % 2 == 0 and iNumber < 0
+#
+#
+# iNumber = int(input("N = "))
+# print(f"-Kết quả kiểm tra: {checkingEvenNegativeNumber(iNumber)}")
+
+# Task 50: Checking number is odd negative number
+print("$$ Bài 50: Kiểm tra số âm lẻ")
 
 
 def checkingOddNegativeNumber(iNumber: int) -> int:
@@ -540,4 +552,5 @@ def checkingOddNegativeNumber(iNumber: int) -> int:
     return iResult
 
 
-print(checkingOddNegativeNumber(-3))
+iNumber = int(input("N = "))
+print(f"-Kết quả kiểm tra: {checkingOddNegativeNumber(iNumber)}")
