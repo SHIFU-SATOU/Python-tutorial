@@ -539,18 +539,31 @@ import re
 # iNumber = int(input("N = "))
 # print(f"-Kết quả kiểm tra: {checkingEvenNegativeNumber(iNumber)}")
 
-# Task 50: Checking number is odd negative number
-print("$$ Bài 50: Kiểm tra số âm lẻ")
+# # Task 50: Checking number is odd negative number
+# print("$$ Bài 50: Kiểm tra số âm lẻ")
+#
+#
+# def checkingOddNegativeNumber(iNumber: int) -> int:
+#     dOddNegativeNumber = {True: -1}
+#     dEvenPositiveNumber = {True: 1}
+#     isOddNegativeNumber = iNumber % 2 != 0 and iNumber < 0
+#     isEvenPositiveNumber = iNumber % 2 == 0 and iNumber > 0
+#     iResult = dOddNegativeNumber.get(isOddNegativeNumber, dEvenPositiveNumber.get(isEvenPositiveNumber, 0))
+#     return iResult
+#
+#
+# iNumber = int(input("N = "))
+# print(f"-Kết quả kiểm tra: {checkingOddNegativeNumber(iNumber)}")
+
+# Task 51: Checking value in range [-89, 90]
+print("$$ Bài 51: Kiểm tra giá trị trong khoảng")
 
 
-def checkingOddNegativeNumber(iNumber: int) -> int:
-    dOddNegativeNumber = {True: -1}
-    dEvenPositiveNumber = {True: 1}
-    isOddNegativeNumber = iNumber % 2 != 0 and iNumber < 0
-    isEvenPositiveNumber = iNumber % 2 == 0 and iNumber > 0
-    iResult = dOddNegativeNumber.get(isOddNegativeNumber, dEvenPositiveNumber.get(isEvenPositiveNumber, 0))
-    return iResult
+def checkingValueInRange():
+    iNumber = int(input("N = "))
+    while (iNumber < -89 or iNumber > 90):
+        iNumber = int(input("N = "))
 
 
-iNumber = int(input("N = "))
-print(f"-Kết quả kiểm tra: {checkingOddNegativeNumber(iNumber)}")
+checkingValueInRange()
+
