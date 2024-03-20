@@ -567,99 +567,168 @@ import re
 #
 # checkingValueInRange()
 
-# Task 52:
-print("$$ Bài 52:")
+# # Task 52:
+# print("$$ Bài 52:")
+# iNumber = int(input("N = "))
+#
+# # a) Caculating x root of number
+#
+# iRoot = int(input("Căn bậc x = "))
+#
+#
+# def caculatingXRoot(iNumber: int, iRoot):
+#     return round(iNumber ** 1 / iRoot, 3)
+#
+#
+# print(f"-Căn bậc {iRoot} của {iNumber} bằng {caculatingXRoot(iNumber, iRoot)}")
+#
+#
+# # b) ReversingNumber
+# def reversingNumber(iNumber: int):
+#     return int("".join(reversed(str(iNumber))))
+#
+#
+# print(f"-Số sau khi đảo ngược: {reversingNumber(iNumber)}")
+#
+#
+# # c) Checking square number
+# def checkingSquareNumber(iNumber: int):
+#     return iNumber ** 1 / 2 % 1 == 0
+#
+#
+# print(f"-Kết quả kiểm tra số chính phương: {checkingSquareNumber(iNumber)}")
+#
+#
+# # d) Checking prime number
+# def checkingPrimeNumber(iNumber: int):
+#     # Count divisors of number
+#     dDivisor = {
+#         True: 1,
+#         False: 0
+#     }
+#     iCount = 0
+#     for element in range(1, iNumber + 1):
+#         iCount += dDivisor.get(iNumber % element == 0)
+#     # Check prime number
+#     isPrimeNumber = iCount == 2
+#     return isPrimeNumber
+#
+#
+# print(f"-Kết quả kiểm tra số nguyên tố: {checkingPrimeNumber(iNumber)}")
+#
+#
+# # e) Caculating product of odd numbers
+# def multiplyingOddNumbers(iNumber: int) -> int:
+#     iProductOfOddNumbers = 1
+#     for number in range(1, len(str(iNumber)) + 1):
+#         if (int(number) % 2 != 0):
+#             iProductOfOddNumbers *= int(number)
+#     return iProductOfOddNumbers
+#
+#
+# print(f"-Tích của các chữ số lẻ: {multiplyingOddNumbers(iNumber)}")
+#
+#
+# # f) Caculating total of prime numbers is smaller n
+# def summingPrimeNumbersSmallerN(iNumber: int) -> int:
+#     iTotalOfPrimeNumbers = 0
+#     for number in range(iNumber):
+#         if (checkingPrimeNumber(number)):
+#             iTotalOfPrimeNumbers += number
+#     return iTotalOfPrimeNumbers
+#
+#
+# print(f"-Tổng các số nguyên tố nhỏ hơn {iNumber}: {summingPrimeNumbersSmallerN(iNumber)}")
+#
+#
+# # g) Caculating total of square numbers is smaller n
+# def summingSquareNumbersSmallerN(iNumber: int) -> int:
+#     iTotalOfSquareNumbers = 0
+#     for number in range(iNumber):
+#         if (checkingSquareNumber(number)):
+#             iTotalOfSquareNumbers += number
+#     return iTotalOfSquareNumbers
+#
+#
+# print(f"-Tổng các số chính phương nhỏ hơn {iNumber}: {summingSquareNumbersSmallerN(iNumber)}")
+#
+#
+# # h) Caculating total of positve divisors
+# def summingPositiveDivisors(iNumber: int) -> int:
+#     iTotalOfPositiveDivisors = 0
+#     for number in range(1, iNumber + 1):
+#         if (iNumber % number == 0 and number > 0):
+#             iTotalOfPositiveDivisors += number
+#     return iTotalOfPositiveDivisors
+#
+#
+# print(f"-Tổng các ước số dương của {iNumber}: {summingPositiveDivisors(iNumber)}")
+
+# Task 53: Enter 1 positive integer number then caculate follows methods:
+print("$$ Bài 53: Nhập N sau đó tính các biểu thức sau")
 iNumber = int(input("N = "))
 
-# a) Caculating x root of number
 
-iRoot = int(input("Căn bậc x = "))
-
-
-def caculatingXRoot(iNumber: int, iRoot):
-    return round(iNumber ** 1 / iRoot, 3)
-
-
-print(f"-Căn bậc {iRoot} của {iNumber} bằng {caculatingXRoot(iNumber, iRoot)}")
+# a) S = 1 + 2 + 3 + ... + n
+def summingIncreasingIntegerSmallerN(iNumber):
+    iTotal = 0
+    for number in range(iNumber + 1):
+        iTotal += number
+    return iTotal
 
 
-# b) ReversingNumber
-def reversingNumber(iNumber: int):
-    return int("".join(reversed(str(iNumber))))
+print(f"-Tổng các số nguyên tăng dần nhỏ hơn {iNumber}: {summingIncreasingIntegerSmallerN(iNumber)}")
 
 
-print(f"-Số sau khi đảo ngược: {reversingNumber(iNumber)}")
-
-
-# c) Checking square number
-def checkingSquareNumber(iNumber: int):
-    return iNumber ** 1 / 2 % 1 == 0
-
-
-print(f"-Kết quả kiểm tra số chính phương: {checkingSquareNumber(iNumber)}")
-
-
-# d) Checking prime number
-def checkingPrimeNumber(iNumber: int):
-    # Count divisors of number
-    dDivisor = {
-        True: 1,
-        False: 0
-    }
-    iCount = 0
-    for element in range(1, iNumber + 1):
-        iCount += dDivisor.get(iNumber % element == 0)
-    # Check prime number
-    isPrimeNumber = iCount == 2
-    return isPrimeNumber
-
-
-print(f"-Kết quả kiểm tra số nguyên tố: {checkingPrimeNumber(iNumber)}")
-
-
-# e) Caculating product of odd numbers
-def multiplyingOddNumbers(iNumber: int) -> int:
-    iProductOfOddNumbers = 1
-    for number in range(1, len(str(iNumber)) + 1):
-        if (int(number) % 2 != 0):
-            iProductOfOddNumbers *= int(number)
-    return iProductOfOddNumbers
-
-
-print(f"-Tích của các chữ số lẻ: {multiplyingOddNumbers(iNumber)}")
-
-
-# f) Caculating total of prime numbers is smaller n
-def summingPrimeNumbersSmallerN(iNumber: int) -> int:
-    iTotalOfPrimeNumbers = 0
-    for number in range(iNumber):
-        if (checkingPrimeNumber(number)):
-            iTotalOfPrimeNumbers += number
-    return iTotalOfPrimeNumbers
-
-
-print(f"-Tổng các số nguyên tố nhỏ hơn {iNumber}: {summingPrimeNumbersSmallerN(iNumber)}")
-
-
-# g) Caculating total of square numbers is smaller n
-def summingSquareNumbersSmallerN(iNumber: int) -> int:
-    iTotalOfSquareNumbers = 0
-    for number in range(iNumber):
-        if (checkingSquareNumber(number)):
-            iTotalOfSquareNumbers += number
-    return iTotalOfSquareNumbers
-
-
-print(f"-Tổng các số chính phương nhỏ hơn {iNumber}: {summingSquareNumbersSmallerN(iNumber)}")
-
-
-# h) Caculating total of positve divisors
-def summingPositiveDivisors(iNumber: int) -> int:
-    iTotalOfPositiveDivisors = 0
+# b) S = 12 + 22 + 32 + ... + n * 10 + 2
+def caculatingExpression2(iNumber: int) -> int:
+    iTotal = 0
     for number in range(1, iNumber + 1):
-        if (iNumber % number == 0 and number > 0):
-            iTotalOfPositiveDivisors += number
-    return iTotalOfPositiveDivisors
+        iTotal += number * 10 + 2
+    return iTotal
 
 
-print(f"-Tổng các ước số dương của {iNumber}: {summingPositiveDivisors(iNumber)}")
+print(f"- S = 12 + 22 + 32 + ... + n * 10 + 2 = {caculatingExpression2(iNumber)}")
+
+
+# c) S = 1 + 1/2 + 1/3 + ... + 1/n
+def caculatingExpression3(iNumber: int) -> float:
+    iTotal = 0
+    for number in range(1, iNumber + 1):
+        iTotal += 1 / number
+    return round(iTotal, 3)
+
+
+print(f"- S = 1 + 1/2 + 1/3 + ... + 1/n = {caculatingExpression3(iNumber)}")
+
+
+# d) S = 1! + 2 ! + 3! + ... + n!
+def caculatingFactorial(iNumber: int) -> int:
+    if (iNumber == 0):
+        return 1
+    else:
+        iProduct = 1
+        for number in range(1, iNumber + 1):
+            iProduct *= number
+        return iProduct
+
+
+def caculatingExpress4(iNumber: int) -> float:
+    iTotal = 0
+    for number in range(1, iNumber + 1):
+        iTotal += caculatingFactorial(number)
+    return iTotal
+
+
+print(f"- S = 1! + 2! + 3! + ... + n! = {caculatingExpress4(iNumber)}")
+
+
+# e) S = 1 * 2 * 3 * ... * n
+def caculatingExpress5(iNumber: int) -> int:
+    iProduct = 1
+    for number in range(1, iNumber + 1):
+        iProduct *= number
+    return iProduct
+
+
+print(f"- S = 1 * 2 * 3 * ... * n = {caculatingExpress5(iNumber)}")
