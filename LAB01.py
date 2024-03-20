@@ -664,71 +664,93 @@ import re
 #
 # print(f"-Tổng các ước số dương của {iNumber}: {summingPositiveDivisors(iNumber)}")
 
-# Task 53: Enter 1 positive integer number then caculate follows methods:
-print("$$ Bài 53: Nhập N sau đó tính các biểu thức sau")
-iNumber = int(input("N = "))
+# # Task 53: Enter 1 positive integer number then caculate follows methods:
+# print("$$ Bài 53: Nhập N sau đó tính các biểu thức sau")
+# iNumber = int(input("N = "))
+#
+#
+# # a) S = 1 + 2 + 3 + ... + n
+# def summingIncreasingIntegerSmallerN(iNumber):
+#     iTotal = 0
+#     for number in range(iNumber + 1):
+#         iTotal += number
+#     return iTotal
+#
+#
+# print(f"-Tổng các số nguyên tăng dần nhỏ hơn {iNumber}: {summingIncreasingIntegerSmallerN(iNumber)}")
+#
+#
+# # b) S = 12 + 22 + 32 + ... + n * 10 + 2
+# def caculatingExpression2(iNumber: int) -> int:
+#     iTotal = 0
+#     for number in range(1, iNumber + 1):
+#         iTotal += number * 10 + 2
+#     return iTotal
+#
+#
+# print(f"- S = 12 + 22 + 32 + ... + n * 10 + 2 = {caculatingExpression2(iNumber)}")
+#
+#
+# # c) S = 1 + 1/2 + 1/3 + ... + 1/n
+# def caculatingExpression3(iNumber: int) -> float:
+#     iTotal = 0
+#     for number in range(1, iNumber + 1):
+#         iTotal += 1 / number
+#     return round(iTotal, 3)
+#
+#
+# print(f"- S = 1 + 1/2 + 1/3 + ... + 1/n = {caculatingExpression3(iNumber)}")
+#
+#
+# # d) S = 1! + 2 ! + 3! + ... + n!
+# def caculatingFactorial(iNumber: int) -> int:
+#     if (iNumber == 0):
+#         return 1
+#     else:
+#         iProduct = 1
+#         for number in range(1, iNumber + 1):
+#             iProduct *= number
+#         return iProduct
+#
+#
+# def caculatingExpress4(iNumber: int) -> float:
+#     iTotal = 0
+#     for number in range(1, iNumber + 1):
+#         iTotal += caculatingFactorial(number)
+#     return iTotal
+#
+#
+# print(f"- S = 1! + 2! + 3! + ... + n! = {caculatingExpress4(iNumber)}")
+#
+#
+# # e) S = 1 * 2 * 3 * ... * n
+# def caculatingExpress5(iNumber: int) -> int:
+#     iProduct = 1
+#     for number in range(1, iNumber + 1):
+#         iProduct *= number
+#     return iProduct
+#
+#
+# print(f"- S = 1 * 2 * 3 * ... * n = {caculatingExpress5(iNumber)}")
+
+# Task 54: Enter n then find n Fibonacci numbers
+print("$$ Bài 54: In ra n số Fibonacci")
+iSize = int(input(" N = "))
 
 
-# a) S = 1 + 2 + 3 + ... + n
-def summingIncreasingIntegerSmallerN(iNumber):
-    iTotal = 0
-    for number in range(iNumber + 1):
-        iTotal += number
-    return iTotal
-
-
-print(f"-Tổng các số nguyên tăng dần nhỏ hơn {iNumber}: {summingIncreasingIntegerSmallerN(iNumber)}")
-
-
-# b) S = 12 + 22 + 32 + ... + n * 10 + 2
-def caculatingExpression2(iNumber: int) -> int:
-    iTotal = 0
-    for number in range(1, iNumber + 1):
-        iTotal += number * 10 + 2
-    return iTotal
-
-
-print(f"- S = 12 + 22 + 32 + ... + n * 10 + 2 = {caculatingExpression2(iNumber)}")
-
-
-# c) S = 1 + 1/2 + 1/3 + ... + 1/n
-def caculatingExpression3(iNumber: int) -> float:
-    iTotal = 0
-    for number in range(1, iNumber + 1):
-        iTotal += 1 / number
-    return round(iTotal, 3)
-
-
-print(f"- S = 1 + 1/2 + 1/3 + ... + 1/n = {caculatingExpression3(iNumber)}")
-
-
-# d) S = 1! + 2 ! + 3! + ... + n!
-def caculatingFactorial(iNumber: int) -> int:
-    if (iNumber == 0):
+def findTheNthFibonacciNumber(iNth: int) -> int:
+    if iNth == 0:
+        return 0
+    elif iNth == 1:
         return 1
     else:
-        iProduct = 1
-        for number in range(1, iNumber + 1):
-            iProduct *= number
-        return iProduct
+        return findTheNthFibonacciNumber(iNth - 1) + findTheNthFibonacciNumber(iNth - 2)
 
 
-def caculatingExpress4(iNumber: int) -> float:
-    iTotal = 0
-    for number in range(1, iNumber + 1):
-        iTotal += caculatingFactorial(number)
-    return iTotal
+def findNFibonacciNumbers(iSize: int):
+    for index in range(1, iSize + 1):
+        print(findTheNthFibonacciNumber(index), end=' ')
 
 
-print(f"- S = 1! + 2! + 3! + ... + n! = {caculatingExpress4(iNumber)}")
-
-
-# e) S = 1 * 2 * 3 * ... * n
-def caculatingExpress5(iNumber: int) -> int:
-    iProduct = 1
-    for number in range(1, iNumber + 1):
-        iProduct *= number
-    return iProduct
-
-
-print(f"- S = 1 * 2 * 3 * ... * n = {caculatingExpress5(iNumber)}")
+print("-Dãy số Fibonacci: ", end=' ')
+findNFibonacciNumbers(iSize)
