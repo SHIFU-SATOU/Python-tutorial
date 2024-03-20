@@ -1,6 +1,7 @@
 import math
 import random
 import re
+import pandas as pd
 
 # # Task 1: Enter 4 integers then calculate the average
 # print("$$ Bài 1: Tính trung bình cộng của 4 số nguyên")
@@ -784,39 +785,170 @@ import re
 # drawRectangle(iLength, iWidth)
 
 
-# Task 56: Apply kwargs, *args, **args techniques to design functions to calculate perimeter and area of squares,
-# rectangles, circles
-print("$$ Bài 56: Áp dụng kỹ thuật kwargs, *args, **args để thiết kế hàm tính chu vi, "
-      "diện tích của hình chữ nhật, hình vuông, hình tròn")
+# # Task 56: Apply kwargs, *args, **args techniques to design functions to calculate perimeter and area of squares,
+# # rectangles, circles
+# print("$$ Bài 56: Áp dụng kỹ thuật kwargs, *args, **args để thiết kế hàm tính chu vi, "
+#       "diện tích của hình chữ nhật, hình vuông, hình tròn")
+#
+#
+# def caculatingPerimeterAndAreaOfRectangleSquareCircle(*iSizes, **ShapesAndMethods):
+#     if (ShapesAndMethods.get('hinh') == 'chu_nhat' and ShapesAndMethods.get('tinh') == 'cv'):
+#         return 2 * (iSizes[0] + iSizes[1])
+#     if (ShapesAndMethods.get('hinh') == 'chu_nhat' and ShapesAndMethods.get('tinh') == 'dt'):
+#         return iSizes[0] * iSizes[1]
+#     if (ShapesAndMethods.get('hinh') == 'vuong' and ShapesAndMethods.get('tinh') == 'cv'):
+#         return iSizes[0] * 4
+#     if (ShapesAndMethods.get('hinh') == 'vuong' and ShapesAndMethods.get('tinh') == 'dt'):
+#         return iSizes[0] ** 2
+#     if (ShapesAndMethods.get('hinh') == 'tron' and ShapesAndMethods.get('tinh') == 'cv'):
+#         return round(2 * math.pi * iSizes[0], 3)
+#     if (ShapesAndMethods.get('hinh') == 'tron' and ShapesAndMethods.get('tinh') == 'dt'):
+#         return round(math.pi * iSizes[0] ** 2, 3)
+#
+#
+# iLength = 10
+# iWidth = 6
+# iRadius = 3
+# print(f"-Chu vi hình chữ nhật có chiều dài {iLength} và chiều rộng {iWidth}: "
+#       f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='chu_nhat', tinh='cv')}")
+# print(f"-Diện hình chữ nhật có chiều dài {iLength} và chiều rộng {iWidth}: "
+#       f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='chu_nhat', tinh='dt')}")
+# print(f"-Chu vi hình vuông có chiều dài {iLength}: "
+#       f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='vuong', tinh='cv')}")
+# print(f"-Diện tích hình vuông có chiều dài {iLength}: "
+#       f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='vuong', tinh='dt')}")
+# print(f"-Chu vi hình tròn có bán kính {iRadius}: "
+#       f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='tron', tinh='cv')}")
+# print(f"-Chu vi hình tròn có bán kính {iRadius}: "
+#       f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='tron', tinh='dt')}")
+
+### SUMMARY EXCERCISES
+
+# Task 57: Manage students program
+lStudents = []
+
+sID = 'SV00'
 
 
-def caculatingPerimeterAndAreaOfRectangleSquareCircle(*iSizes, **ShapesAndMethods):
-    if (ShapesAndMethods.get('hinh') == 'chu_nhat' and ShapesAndMethods.get('tinh') == 'cv'):
-        return 2 * (iSizes[0] + iSizes[1])
-    if (ShapesAndMethods.get('hinh') == 'chu_nhat' and ShapesAndMethods.get('tinh') == 'dt'):
-        return iSizes[0] * iSizes[1]
-    if (ShapesAndMethods.get('hinh') == 'vuong' and ShapesAndMethods.get('tinh') == 'cv'):
-        return iSizes[0] * 4
-    if (ShapesAndMethods.get('hinh') == 'vuong' and ShapesAndMethods.get('tinh') == 'dt'):
-        return iSizes[0] ** 2
-    if (ShapesAndMethods.get('hinh') == 'tron' and ShapesAndMethods.get('tinh') == 'cv'):
-        return round(2 * math.pi * iSizes[0], 3)
-    if (ShapesAndMethods.get('hinh') == 'tron' and ShapesAndMethods.get('tinh') == 'dt'):
-        return round(math.pi * iSizes[0] ** 2, 3)
+def createID():
+    global sID
+    iNth = re.findall(r"[0-9]+", sID)
+    iNextNth = int(iNth[0]) + 1
+    if iNextNth in range(10):
+        sID = 'SV0' + str(iNextNth)
+    elif (iNextNth > 9):
+        sID = 'SV' + str(iNextNth)
 
 
-iLength = 10
-iWidth = 6
-iRadius = 3
-print(f"-Chu vi hình chữ nhật có chiều dài {iLength} và chiều rộng {iWidth}: "
-      f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='chu_nhat', tinh='cv')}")
-print(f"-Diện hình chữ nhật có chiều dài {iLength} và chiều rộng {iWidth}: "
-      f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='chu_nhat', tinh='dt')}")
-print(f"-Chu vi hình vuông có chiều dài {iLength}: "
-      f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='vuong', tinh='cv')}")
-print(f"-Diện tích hình vuông có chiều dài {iLength}: "
-      f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='vuong', tinh='dt')}")
-print(f"-Chu vi hình tròn có bán kính {iRadius}: "
-      f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='tron', tinh='cv')}")
-print(f"-Chu vi hình tròn có bán kính {iRadius}: "
-      f"{caculatingPerimeterAndAreaOfRectangleSquareCircle(iLength, iWidth, hinh='tron', tinh='dt')}")
+def rankAcademic(fGPA: float) -> str:
+    if (fGPA < 3.5):
+        return 'Kém'
+    elif (3.5 <= fGPA < 5.0):
+        return 'Yếu'
+    elif (5.0 <= fGPA < 7.0):
+        return 'Trung bình'
+    elif (7.0 <= fGPA < 8.0):
+        return 'Khá'
+    elif (8.0 <= fGPA < 9.0):
+        return 'Giỏi'
+    elif (9.0 <= fGPA <= 10):
+        return 'Xuất sắc'
+
+
+def createStudent(sName: str, fGPA: float):
+    createID()
+    dStudent = {
+        'ID': sID,
+        'Name': sName,
+        'GPA': float(fGPA),
+        'Classification': rankAcademic(fGPA)
+    }
+    lStudents.append(dStudent)
+
+
+def createRandomName() -> str:
+    lLastNames = ['Nguyễn', 'Trần', 'Phạm', 'Hoàng', 'Bùi', 'Trịnh', 'Đặng', 'Vũ', 'Đồng']
+    lFirstNames = ['Phú', 'Tân', 'Quân', 'Hậu', 'Lộc', 'Sơn', 'Khang', 'Quyên', 'Uyên', 'Tú', 'An', 'Bích', 'Duyên']
+    lMiddleNames = ['', 'Thị', 'Chí', 'Minh', 'Đăng', 'Kim', 'Đức']
+    return random.choice(lFirstNames) + ' ' + random.choice(lLastNames) + ' ' + random.choice(lMiddleNames)
+
+
+def createRandomGPA() -> float:
+    return round(random.uniform(0, 10), 2)
+
+
+def createRandomStudent():
+    createStudent(createRandomName(), createRandomGPA())
+
+
+def createRandomClass(iSize: int):
+    for index in range(iSize):
+        createStudent(createRandomName(), createRandomGPA())
+
+
+def showStudentInfo(sID: str) -> dict:
+    for index in range(len(lStudents)):
+        if (lStudents[index].get('ID') == sID):
+            return lStudents[index]
+
+
+createRandomClass(40)
+
+
+def showStudentsList():
+    for i in range(len(lStudents)):
+        print(lStudents[i])
+
+
+def findBestStudents() -> list:
+    # Finding highest score
+    iHighestScore = lStudents[0].get('GPA')
+    for i in range(len(lStudents)):
+        if (lStudents[i].get('GPA') > iHighestScore):
+            iHighestScore = lStudents[i].get('GPA')
+    # Finding best students
+    lBestStudents = []
+    for i in range(len(lStudents)):
+        if (lStudents[i].get('GPA') == iHighestScore):
+            lBestStudents.append(lStudents[i])
+    return lBestStudents
+
+
+def findStudentsFolowGPA(fGPA: float) -> list:
+    lResult = []
+    for i in range(len(lStudents)):
+        if (lStudents[i].get('GPA') == fGPA):
+            lResult.append(lStudents[i])
+    return lResult
+
+def findTop10Students():
+    data = pd.DataFrame(lStudents)
+    data = data.sort_values(by=['GPA'], ascending=False)
+    return data.head(10)
+
+def find10StupiestStudents():
+    data = pd.DataFrame(lStudents)
+    data = data.sort_values(by=['GPA'], ascending=True)
+    return data.head(10)
+
+showStudentsList()
+
+print(showStudentInfo('SV30'))
+
+print("Những học sinh có điểm số cao nhất:")
+for i in range(len(findBestStudents())):
+    print(findBestStudents()[i])
+
+print("Những học sinh có điểm GPA 5.18")
+for i in range(len(findStudentsFolowGPA(5.18))):
+    print(findStudentsFolowGPA(5.18)[i])
+
+print("Top 10 học sinh có điểm GPA cao nhất:")
+# for i in range(len(findTop10Students())):
+#     print(findTop10Students()[i])
+print(findTop10Students())
+
+print("10 học sinh có điểm GPA thấp nhất:")
+print(find10StupiestStudents())
+
+# Task 58:
