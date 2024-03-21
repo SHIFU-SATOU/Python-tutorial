@@ -16,7 +16,7 @@ print("$$ Bài 2: Tính tổng, hiệu, tích, thương của 2 số nguyên")
 iValue1 = int(input("a = "))
 iValue2 = int(input("b = "))
 print(f"-Tổng: {iValue1 + iValue2} || Hiệu: {iValue1 - iValue2} || "
-      f"Tích: {iValue1 * iValue2} || Thương: {round(iValue1 * iValue2, 3)}")
+      f"Tích: {iValue1 * iValue2} || Thương: {round(iValue1 / iValue2, 3)}")
 
 # Task 3: Enter two positive integers, indicating the result of dividing the integer part and the remainder
 print("$$ Bài 3: Tính phần dư và phần nguyên của phép chia")
@@ -238,6 +238,7 @@ lNumbers.sort()
 print(f"-Dãy số tăng dần: {lNumbers}")
 
 # Task 26.2: Enter 1 integer number then sort its numbers in ascending order
+print("$$ Bài 26-b: Nhập vào 1 số nguyên, sắp xếp theo thứ tự tăng dần")
 sNumber = str(input("N = "))
 lNumbers = []
 for key in sNumber:
@@ -249,6 +250,7 @@ for key in lNumbers:
 print(sNewNumber)
 
 # Task 27: Enter type of shape, length and width then caculate perimeter and area
+print("$$ Bài 27: Tính chu vi diện tích hình vuông, chữ nhật hoặc tròn")
 dShapes = {
     'v': 'vuông',
     'n': "chữ nhật",
