@@ -824,10 +824,139 @@ import pandas as pd
 
 ### SUMMARY EXCERCISES
 
-# Task 57: Manage students program
-lStudents = []
+# # Task 57: Manage students program
+# lStudents = []
+#
+# sID = 'SV00'
+#
+#
+# def createID():
+#     global sID
+#     iNth = re.findall(r"[0-9]+", sID)
+#     iNextNth = int(iNth[0]) + 1
+#     if iNextNth in range(10):
+#         sID = 'SV0' + str(iNextNth)
+#     elif (iNextNth > 9):
+#         sID = 'SV' + str(iNextNth)
+#
+#
+# def rankAcademic(fGPA: float) -> str:
+#     if (fGPA < 3.5):
+#         return 'Kém'
+#     elif (3.5 <= fGPA < 5.0):
+#         return 'Yếu'
+#     elif (5.0 <= fGPA < 7.0):
+#         return 'Trung bình'
+#     elif (7.0 <= fGPA < 8.0):
+#         return 'Khá'
+#     elif (8.0 <= fGPA < 9.0):
+#         return 'Giỏi'
+#     elif (9.0 <= fGPA <= 10):
+#         return 'Xuất sắc'
+#
+#
+# def createStudent(sName: str, fGPA: float):
+#     createID()
+#     dStudent = {
+#         'ID': sID,
+#         'Name': sName,
+#         'GPA': float(fGPA),
+#         'Classification': rankAcademic(fGPA)
+#     }
+#     lStudents.append(dStudent)
+#
+#
+# def createRandomName() -> str:
+#     lLastNames = ['Nguyễn', 'Trần', 'Phạm', 'Hoàng', 'Bùi', 'Trịnh', 'Đặng', 'Vũ', 'Đồng']
+#     lFirstNames = ['Phú', 'Tân', 'Quân', 'Hậu', 'Lộc', 'Sơn', 'Khang', 'Quyên', 'Uyên', 'Tú', 'An', 'Bích', 'Duyên']
+#     lMiddleNames = ['', 'Thị', 'Chí', 'Minh', 'Đăng', 'Kim', 'Đức']
+#     return random.choice(lFirstNames) + ' ' + random.choice(lLastNames) + ' ' + random.choice(lMiddleNames)
+#
+#
+# def createRandomGPA() -> float:
+#     return round(random.uniform(0, 10), 2)
+#
+#
+# def createRandomStudent():
+#     createStudent(createRandomName(), createRandomGPA())
+#
+#
+# def createRandomClass(iSize: int):
+#     for index in range(iSize):
+#         createStudent(createRandomName(), createRandomGPA())
+#
+#
+# def showStudentInfo(sID: str) -> dict:
+#     for index in range(len(lStudents)):
+#         if (lStudents[index].get('ID') == sID):
+#             return lStudents[index]
+#
+#
+# createRandomClass(40)
+#
+#
+# def showStudentsList():
+#     for i in range(len(lStudents)):
+#         print(lStudents[i])
+#
+#
+# def findBestStudents() -> list:
+#     # Finding highest score
+#     iHighestScore = lStudents[0].get('GPA')
+#     for i in range(len(lStudents)):
+#         if (lStudents[i].get('GPA') > iHighestScore):
+#             iHighestScore = lStudents[i].get('GPA')
+#     # Finding best students
+#     lBestStudents = []
+#     for i in range(len(lStudents)):
+#         if (lStudents[i].get('GPA') == iHighestScore):
+#             lBestStudents.append(lStudents[i])
+#     return lBestStudents
+#
+#
+# def findStudentsFolowGPA(fGPA: float) -> list:
+#     lResult = []
+#     for i in range(len(lStudents)):
+#         if (lStudents[i].get('GPA') == fGPA):
+#             lResult.append(lStudents[i])
+#     return lResult
+#
+# def findTop10Students():
+#     data = pd.DataFrame(lStudents)
+#     data = data.sort_values(by=['GPA'], ascending=False)
+#     return data.head(10)
+#
+# def find10StupiestStudents():
+#     data = pd.DataFrame(lStudents)
+#     data = data.sort_values(by=['GPA'], ascending=True)
+#     return data.head(10)
+#
+# showStudentsList()
+#
+# print(showStudentInfo('SV30'))
+#
+# print("Những học sinh có điểm số cao nhất:")
+# for i in range(len(findBestStudents())):
+#     print(findBestStudents()[i])
+#
+# print("Những học sinh có điểm GPA 5.18")
+# for i in range(len(findStudentsFolowGPA(5.18))):
+#     print(findStudentsFolowGPA(5.18)[i])
+#
+# print("Top 10 học sinh có điểm GPA cao nhất:")
+# # for i in range(len(findTop10Students())):
+# #     print(findTop10Students()[i])
+# print(findTop10Students())
+#
+# print("10 học sinh có điểm GPA thấp nhất:")
+# print(find10StupiestStudents())
 
-sID = 'SV00'
+# Task 58: Manage staff program
+lStaff = []
+lOfficeStaff = []
+lSaleStaff = []
+
+sID = 'NV00'
 
 
 def createID():
@@ -835,35 +964,9 @@ def createID():
     iNth = re.findall(r"[0-9]+", sID)
     iNextNth = int(iNth[0]) + 1
     if iNextNth in range(10):
-        sID = 'SV0' + str(iNextNth)
+        sID = 'NV0' + str(iNextNth)
     elif (iNextNth > 9):
-        sID = 'SV' + str(iNextNth)
-
-
-def rankAcademic(fGPA: float) -> str:
-    if (fGPA < 3.5):
-        return 'Kém'
-    elif (3.5 <= fGPA < 5.0):
-        return 'Yếu'
-    elif (5.0 <= fGPA < 7.0):
-        return 'Trung bình'
-    elif (7.0 <= fGPA < 8.0):
-        return 'Khá'
-    elif (8.0 <= fGPA < 9.0):
-        return 'Giỏi'
-    elif (9.0 <= fGPA <= 10):
-        return 'Xuất sắc'
-
-
-def createStudent(sName: str, fGPA: float):
-    createID()
-    dStudent = {
-        'ID': sID,
-        'Name': sName,
-        'GPA': float(fGPA),
-        'Classification': rankAcademic(fGPA)
-    }
-    lStudents.append(dStudent)
+        sID = 'NV' + str(iNextNth)
 
 
 def createRandomName() -> str:
@@ -873,82 +976,133 @@ def createRandomName() -> str:
     return random.choice(lFirstNames) + ' ' + random.choice(lLastNames) + ' ' + random.choice(lMiddleNames)
 
 
-def createRandomGPA() -> float:
-    return round(random.uniform(0, 10), 2)
+def createRandomBaseSalary() -> float:
+    return round(random.uniform(3000000, 5000000), 3)
 
 
-def createRandomStudent():
-    createStudent(createRandomName(), createRandomGPA())
+def createRandomTypeStaff() -> str:
+    return random.choice(["Văn phòng", "Bán hàng"])
 
 
-def createRandomClass(iSize: int):
-    for index in range(iSize):
-        createStudent(createRandomName(), createRandomGPA())
+def createRandomNumberDays() -> int:
+    return random.randint(24, 26)
 
 
-def showStudentInfo(sID: str) -> dict:
-    for index in range(len(lStudents)):
-        if (lStudents[index].get('ID') == sID):
-            return lStudents[index]
+def createRandomNumberProducts() -> int:
+    return random.randint(100, 200)
 
 
-createRandomClass(40)
+def createStaff(sName: str, fBaseSalary: float, sType: str):
+    createID()
+    Staff = {
+        'ID': sID,
+        'Name': sName,
+        'BaseSalary': fBaseSalary,
+        'Type': sType,
+        'MonthlySalary': 0.0
+    }
+    lStaff.append(Staff)
 
 
-def showStudentsList():
-    for i in range(len(lStudents)):
-        print(lStudents[i])
+def createOfficeStaff(sID: str, iDays: int):
+    for i in range(len(lStaff)):
+        if (lStaff[i].get('ID') == sID and lStaff[i].get('Type') == "Văn phòng"):
+            OfficeStaff = {
+                'ID': sID,
+                'Days': iDays
+            }
+            lOfficeStaff.append(OfficeStaff)
 
 
-def findBestStudents() -> list:
-    # Finding highest score
-    iHighestScore = lStudents[0].get('GPA')
-    for i in range(len(lStudents)):
-        if (lStudents[i].get('GPA') > iHighestScore):
-            iHighestScore = lStudents[i].get('GPA')
-    # Finding best students
-    lBestStudents = []
-    for i in range(len(lStudents)):
-        if (lStudents[i].get('GPA') == iHighestScore):
-            lBestStudents.append(lStudents[i])
-    return lBestStudents
+def createSaleStaff(sID: str, iProducts: int):
+    for i in range(len(lStaff)):
+        if (lStaff[i].get('ID') == sID and lStaff[i].get('Type') == "Bán hàng"):
+            SaleStaff = {
+                'ID': sID,
+                'Products': iProducts
+            }
+            lSaleStaff.append(SaleStaff)
 
 
-def findStudentsFolowGPA(fGPA: float) -> list:
-    lResult = []
-    for i in range(len(lStudents)):
-        if (lStudents[i].get('GPA') == fGPA):
-            lResult.append(lStudents[i])
-    return lResult
+def caculatingMonthlySalaryOfficeStaff(Staff):
+    for i in range(len(lOfficeStaff)):
+        if (Staff.get('ID') == lOfficeStaff[i].get('ID')):
+            return round(Staff.get('BaseSalary') + lOfficeStaff[i].get('Days') * 150000, 3)
 
-def findTop10Students():
-    data = pd.DataFrame(lStudents)
-    data = data.sort_values(by=['GPA'], ascending=False)
-    return data.head(10)
 
-def find10StupiestStudents():
-    data = pd.DataFrame(lStudents)
-    data = data.sort_values(by=['GPA'], ascending=True)
-    return data.head(10)
+def caculatingMonthlySalarySaleStaff(Staff):
+    for i in range(len(lSaleStaff)):
+        if (Staff.get('ID') == lSaleStaff[i].get('ID')):
+            return round(Staff.get('BaseSalary') + lSaleStaff[i].get('Products') * 18000, 3)
 
-showStudentsList()
 
-print(showStudentInfo('SV30'))
+def caculatingMonthLySalaryAllStaff():
+    for i in range(len(lStaff)):
+        if (lStaff[i].get('Type') == "Văn phòng"):
+            lStaff[i].update({'MonthlySalary': caculatingMonthlySalaryOfficeStaff(lStaff[i])})
+        if (lStaff[i].get('Type') == "Bán hàng"):
+            lStaff[i].update({'MonthlySalary': caculatingMonthlySalarySaleStaff(lStaff[i])})
 
-print("Những học sinh có điểm số cao nhất:")
-for i in range(len(findBestStudents())):
-    print(findBestStudents()[i])
 
-print("Những học sinh có điểm GPA 5.18")
-for i in range(len(findStudentsFolowGPA(5.18))):
-    print(findStudentsFolowGPA(5.18)[i])
+def findStaffByID(sID: str):
+    dResult = {}
+    for i in range(len(lStaff)):
+        if (lStaff[i].get('ID') == sID):
+            dResult = lStaff[i]
+        if (lStaff[i].get('Type') == "Văn phòng"):
+            for i in range(len(lOfficeStaff)):
+                if (lOfficeStaff[i].get('ID') == sID):
+                    dResult.update({'Days': lOfficeStaff[i].get('Days')})
+        elif (lStaff[i].get('Type') == "Bán hàng"):
+            for i in range(len(lSaleStaff)):
+                if (lSaleStaff[i].get('ID') == sID):
+                    dResult.update({'Products': lSaleStaff[i].get('Products')})
+    return dResult
 
-print("Top 10 học sinh có điểm GPA cao nhất:")
-# for i in range(len(findTop10Students())):
-#     print(findTop10Students()[i])
-print(findTop10Students())
 
-print("10 học sinh có điểm GPA thấp nhất:")
-print(find10StupiestStudents())
+def findStaffsWithHighestMonthlySalary() -> list:
+    lBestStaffs = []
+    fHighestMonthlySalary = lStaff[0].get('MonthlySalary')
+    for i in range(len(lStaff)):
+        if (lStaff[i].get('MonthlySalary') > fHighestMonthlySalary):
+            fHighestMonthlySalary = lStaff[i].get('MonthlySalary')
+    for i in range(len(lStaff)):
+        if (lStaff[i].get('MonthlySalary') == fHighestMonthlySalary):
+            lBestStaffs.append(lStaff[i])
+    return lBestStaffs
 
-# Task 58:
+
+def findSaleStaffsWithLowestMonthlySalary() -> list:
+    lLaziestStaffs = []
+    fLowestMonthlySalary = 99999999
+    for i in range(len(lStaff)):
+        if (lStaff[i].get('Type') == "Bán hàng" and lStaff[i].get('MonthlySalary') < fLowestMonthlySalary):
+            fLowestMonthlySalary = lStaff[i].get('MonthlySalary')
+    for i in range(len(lStaff)):
+        if (lStaff[i].get('Type') == "Bán hàng" and lStaff[i].get('MonthlySalary') == fLowestMonthlySalary):
+            lLaziestStaffs.append(lStaff[i])
+    return lLaziestStaffs
+
+
+def createRandomStaffs(iSize: int):
+    for i in range(iSize):
+        createStaff(createRandomName(), createRandomBaseSalary(), createRandomTypeStaff())
+        createOfficeStaff(lStaff[i].get('ID'), createRandomNumberDays())
+        createSaleStaff(lStaff[i].get('ID'), createRandomNumberProducts())
+    caculatingMonthLySalaryAllStaff()
+
+
+def printStaffsList():
+    for i in range(len(lStaff)):
+        print(lStaff[i])
+
+
+# Create random 200 staff
+createRandomStaffs(200)
+printStaffsList()
+print("-Thông tin nhân viên NV50:")
+print(findStaffByID('NV50'))
+print("-Những nhân viên có lương hàng tháng cao nhất:")
+print(findStaffsWithHighestMonthlySalary())
+print("-Những nhân viên bán hàng có lương hàng tháng thấp nhất:")
+print(findSaleStaffsWithLowestMonthlySalary())
