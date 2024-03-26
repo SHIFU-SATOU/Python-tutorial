@@ -39,7 +39,7 @@ class Fraction:
         Result.Denominator = self.Denominator // GCD
         return Result
 
-    #10. Finding largest fraction
+    # 10. Finding largest fraction
     @staticmethod
     def findLargestFraction(Fractions: list) -> Fraction:
         Max = Fractions[0]
@@ -48,14 +48,21 @@ class Fraction:
                 Max = Fractions[i]
         return Max
 
+    # 2. Print fraction
     def __str__(self):
         return f"{self.Numerator}/{self.Denominator}"
 
     def __add__(self, other):
-        Result = Fraction(0, 1)
-        Result.Numerator = self.Numerator * other.Denominator + other.Numerator * self.Denominator
-        Result.Denominator = self.Denominator * other.Denominator
-        return Result.shortenFraction()
+        ResultNumerator = 0
+        ResultDenominator = 0
+        if (type(other) == type(int())):
+            ResultNumerator = self.Numerator + other * self.Denominator
+            ResultDenominator = self.Denominator
+            return Fraction(ResultNumerator, ResultDenominator).shortenFraction()
+        else:
+            ResultNumerator = self.Numerator * other.Denominator + other.Numerator * self.Denominator
+            ResultDenominator = self.Denominator * other.Denominator
+            return Fraction(ResultNumerator, ResultDenominator).shortenFraction()
 
     def __sub__(self, other):
         Result = Fraction(0, 1)
@@ -114,4 +121,5 @@ if __name__ == '__main__':
     c = Fraction(3, 1)
     d = Fraction(2, 5)
     e = Fraction(2, 3)
-    print(a.findLargestFraction([a, b, c, d, e]))
+    print(Fraction.findLargestFraction([a, b, c, d, e]))
+    print(a+b)
