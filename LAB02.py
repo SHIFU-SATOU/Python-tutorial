@@ -65,17 +65,29 @@ class Fraction:
             return Fraction(ResultNumerator, ResultDenominator).shortenFraction()
 
     def __sub__(self, other):
-        Result = Fraction(0, 1)
-        Result.Numerator = self.Numerator * other.Denominator - other.Numerator * self.Denominator
-        Result.Denominator = self.Denominator * other.Denominator
-        return Result.shortenFraction()
+        ResultNumerator = 0
+        ResultDenominator = 0
+        if (type(other) == type(int())):
+            ResultNumerator = self.Numerator - other * self.Denominator
+            ResultDenominator = self.Denominator
+            return Fraction(ResultNumerator, ResultDenominator).shortenFraction()
+        else:
+            ResultNumerator = self.Numerator * other.Denominator - other.Numerator * self.Denominator
+            ResultDenominator = self.Denominator * other.Denominator
+            return Fraction(ResultNumerator, ResultDenominator).shortenFraction()
 
     # Multiply 2 fraction
     def __mul__(self, other):
-        Result = Fraction(0, 1)
-        Result.Numerator = self.Numerator * other.Numerator
-        Result.Denominator = self.Denominator * other.Denominator
-        return Result.shortenFraction()
+        ResultNumerator = 0
+        ResultDenominator = 0
+        if (type(other) == type(int())):
+            ResultNumerator = self.Numerator * other
+            ResultDenominator = self.Denominator
+            return Fraction(ResultNumerator, ResultDenominator).shortenFraction()
+        else:
+            ResultNumerator = self.Numerator * other.Numerator
+            ResultDenominator = self.Denominator * other.Denominator
+            return Fraction(ResultNumerator, ResultDenominator).shortenFraction()
 
     def __truediv__(self, other):
         Result = Fraction(0, 1)
@@ -122,4 +134,4 @@ if __name__ == '__main__':
     d = Fraction(2, 5)
     e = Fraction(2, 3)
     print(Fraction.findLargestFraction([a, b, c, d, e]))
-    print(a+b)
+    print(a + b)
