@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a4377a6-b188-47f5-bf8b-4110ac33e44e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LAB01.py" beforeDir="false" afterPath="$PROJECT_DIR$/LAB01.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OOP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LAB02.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +24,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2diXoP9pSeGbZc2oBRGPTcE74o8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -34,9 +35,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.LAB01.executor": "Run",
+    "Python.LAB02.executor": "Run",
+    "Python.OOP.executor": "Run",
+    "Python.main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -45,7 +52,30 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.LAB02">
+    <configuration name="LAB02" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python-tutorial" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LAB02.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="python-tutorial" />
       <option name="ENV_FILES" value="" />
@@ -69,11 +99,16 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.LAB02" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-d68999036c7f-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.14475.56" />
+        <option value="bundled-python-sdk-09665e90c3a7-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.15026.15" />
       </set>
     </attachedChunks>
   </component>
@@ -85,11 +120,43 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1710492047681</updated>
-      <workItem from="1710492057044" duration="572000" />
+      <workItem from="1710492057044" duration="6999000" />
+      <workItem from="1710499775570" duration="978000" />
+      <workItem from="1710508941003" duration="3773000" />
+      <workItem from="1710556992635" duration="4641000" />
+      <workItem from="1710573226585" duration="3872000" />
+      <workItem from="1710691969981" duration="5508000" />
+      <workItem from="1710722495466" duration="8274000" />
+      <workItem from="1710749533023" duration="3760000" />
+      <workItem from="1710773377192" duration="4387000" />
+      <workItem from="1710816271869" duration="19000" />
+      <workItem from="1710817323250" duration="1632000" />
+      <workItem from="1710828620598" duration="468000" />
+      <workItem from="1710829106759" duration="2657000" />
+      <workItem from="1710833276147" duration="297000" />
+      <workItem from="1710834210842" duration="3745000" />
+      <workItem from="1710839038515" duration="5000" />
+      <workItem from="1710894912657" duration="2560000" />
+      <workItem from="1710900333261" duration="967000" />
+      <workItem from="1710931263826" duration="3351000" />
+      <workItem from="1710938897760" duration="14761000" />
+      <workItem from="1710986394057" duration="14000" />
+      <workItem from="1710988192807" duration="8636000" />
+      <workItem from="1711330079784" duration="2916000" />
+      <workItem from="1711333767442" duration="985000" />
+      <workItem from="1711355758784" duration="365000" />
+      <workItem from="1711410202003" duration="22000" />
+      <workItem from="1711414447995" duration="5789000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/python_tutorial$main.coverage" NAME="main Coverage Results" MODIFIED="1711415265104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python_tutorial$LAB02.coverage" NAME="LAB02 Coverage Results" MODIFIED="1711419973548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python_tutorial$LAB01.coverage" NAME="LAB01 Coverage Results" MODIFIED="1710997182415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/python_tutorial$OOP.coverage" NAME="OOP Coverage Results" MODIFIED="1710837546874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
