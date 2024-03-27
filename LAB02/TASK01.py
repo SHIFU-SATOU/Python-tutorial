@@ -21,6 +21,20 @@ class Fraction:
     def Denominator(self, iNewValue: int) -> None:
         self.__Denominator = iNewValue
 
-    #Redefine the output method
+    # Finding greatest common divisor
+    @staticmethod
+    def __findGCD(iA: int, iB: int) -> int:
+        while iB != 0:
+            iA, iB = iB, iA % iB
+        return iA
+
+    # Shortening fraction
+    def __shortenFraction(self):
+        iGCD = self.__findGCD(self.Numerator, self.Denominator)
+        iNewNumerator = self.__Numerator // iGCD
+        iNewDenominator = self.__Denominator // iGCD
+        return Fraction(iNewNumerator, iNewDenominator)
+
+    # Redefine the output method
     def __str__(self):
         return f"{self.__Numerator}/{self.__Denominator}"
