@@ -38,3 +38,9 @@ class Fraction:
     # Redefine the output method
     def __str__(self):
         return f"{self.__Numerator}/{self.__Denominator}"
+    # Adding 2 fractions
+    def __add__(self, other):
+        iNewNumerator = self.__Numerator * other.__Denominator + other.Numerator * self.__Denominator
+        iNewDenominator = self.__Denominator * other.__Denominator
+        return Fraction(iNewNumerator, iNewDenominator).__shortenFraction()
+
