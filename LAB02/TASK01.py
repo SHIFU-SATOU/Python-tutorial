@@ -41,9 +41,16 @@ class Fraction:
 
     # Adding 2 fractions
     def __add__(self, other):
-        iNewNumerator = self.__Numerator * other.__Denominator + other.Numerator * self.__Denominator
-        iNewDenominator = self.__Denominator * other.__Denominator
-        return Fraction(iNewNumerator, iNewDenominator).__shortenFraction()
+        iNewNumerator = 0
+        iNewDenominator = 0
+        if(type(other)==type(int())):
+            iNewNumerator = self.__Numerator + other * self.__Denominator
+            return Fraction(iNewNumerator, self.__Denominator).__shortenFraction()
+        else:
+            iNewNumerator = self.__Numerator * other.Denominator + other.Numerator * self.__Denominator
+            iNewDenominator = self.__Denominator * other.Denominator
+            return Fraction(iNewNumerator, iNewDenominator).__shortenFraction()
+
 
     # Subtracting 2 fractions
     def __sub__(self, other):
