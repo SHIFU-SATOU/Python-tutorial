@@ -81,3 +81,46 @@ class Fraction:
             new_numerator = self.__numerator * other.denominator
             new_denominator = self.__denominator * other.numerator
         return Fraction(new_numerator, new_denominator).__shortenFraction()
+
+    # redefine the equal operator
+    def __eq__(self, other) -> bool:
+        if type(int()) == type(other):
+            return self.__numerator / self.__denominator == other
+        else:
+            return self.__numerator / self.__denominator == other.numerator / other.denominator
+
+    # redefine the negative operator
+    def __ne__(self, other) -> bool:
+        if type(int()) == type(other):
+            return self.__numerator / self.__denominator != other
+        else:
+            return self.__numerator / self.__denominator != other.numerator / other.denominator
+
+    # redefine the greater than operator
+    def __gt__(self, other) -> bool:
+        if type(int()) == type(other):
+            return self.__numerator / self.__denominator > other
+        else:
+            return self.__numerator / self.__denominator > other.numerator / other.denominator
+
+    # redefine the greater than or equal operator
+    def __ge__(self, other) -> bool:
+        if type(int()) == type(other):
+            return self.__numerator / self.__denominator >= other
+        else:
+            return self.__numerator / self.__denominator >= other.numerator / other.denominator
+
+    # redefine the less than operator
+    def __lt__(self, other) -> bool:
+        if type(int()) == type(other):
+            return self.__numerator / self.__denominator < other
+        else:
+            return self.__numerator / self.__denominator < other.numerator / other.denominator
+
+    # redefine the less than or equal operator
+    def __le__(self, other) -> bool:
+        if type(int()) == type(other):
+            return self.__numerator / self.__denominator <= other
+        else:
+            return self.__numerator / self.__denominator <= other.numerator / other.denominator
+
