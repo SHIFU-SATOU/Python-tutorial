@@ -124,3 +124,22 @@ class Fraction:
         else:
             return self.__numerator / self.__denominator <= other.numerator / other.denominator
 
+    # negative fraction
+    def __neg__(self) -> Fraction:
+        return Fraction(-self.__numerator, self.__denominator)
+
+    @staticmethod
+    def __findTheLargestFraction(fractions_list: list) -> Fraction:
+        Max = fractions_list[0]
+        for i in range(len(fractions_list)):
+            if (fractions_list[i].numerator / fractions_list[i].denominator > Max.numerator / Max.denominator):
+                Max = fractions_list[i]
+        return Max
+
+    if __name__ == "__main__":
+        a = Fraction(2, 3)
+        b = Fraction(1, 4)
+        c = Fraction(3, 1)
+        d = Fraction(2, 5)
+        a = b * c
+        print(a)
