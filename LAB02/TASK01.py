@@ -34,6 +34,9 @@ class Fraction:
             a, b = b, a % b
         return a
 
+    def __shortenFraction(self) -> Fraction:
+        GCD = self.__findGCD(self.__numerator, self.__denominator)
+        return Fraction(self.__numerator // GCD, self.__denominator // GCD)
 
     # print fraction
     def __str__(self):
