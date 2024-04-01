@@ -1,21 +1,21 @@
 class Fraction:
     # Initialization method
     def __init__(self, numerator: int, denominator: int):
-        self.Numerator = numerator
-        self.Denominator = denominator
+        self.__numerator = numerator
+        self.__denominator = denominator
 
     @property
-    def Numerator(self) -> int:
-        return self.Numerator
+    def numerator(self) -> int:
+        return self.__numerator
 
-    @Numerator.setter
-    def Numerator(self, new_value: int) -> None:
-        self.Numerator = new_value
+    @numerator.setter
+    def numerator(self, new_value: int) -> None:
+        self.__numerator = new_value
 
     @property
-    def Denominator(self) -> int:
-        return self.Denominator
+    def denominator(self) -> int:
+        return self.__denominator
 
-    @Denominator.setter
-    def Denominator(self, new_value: int) -> None:
-        self.Denominator = new_value
+    @denominator.setter
+    def denominator(self, new_value: int) -> None:
+        self.__denominator = new_value
