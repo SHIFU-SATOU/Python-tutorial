@@ -44,10 +44,9 @@ class Fraction:
 
     # add 2 fractions & add fraction to number
     def __add__(self, other) -> Fraction:
-        new_numerator = 0
-        new_denominator = 0
         if type(int()) == type(other):
             new_numerator = self.__numerator + other * self.__denominator
+            new_denominator = self.__denominator
         else:
             new_numerator = self.__numerator * other.denominator + other.numerator * self.__denominator
             new_denominator = self.__denominator * other.denominator
@@ -55,13 +54,19 @@ class Fraction:
 
     # subtract 2 fractions & subtract fraction to number
     def __sub__(self, other) -> Fraction:
-        new_numerator = 0
-        new_denominator = 0
         if type(int()) == type(other):
             new_numerator = self.__numerator - other * self.__denominator
+            new_denominator = self.__denominator
         else:
             new_numerator = self.__numerator * other.denominator - other.numerator * self.__denominator
             new_denominator = self.__denominator * other.denominator
         return Fraction(new_numerator, new_denominator).__shortenFraction()
 
-
+    def __mul__(self, other) -> Fraction:
+        if type(int()) == type(other):
+            new_numerator = self.__numerator * other
+            new_denominator = self.__denominator
+        else:
+            new_numerator = self.__numerator * other.numerator
+            new_denominator = self.__denominator * other.denominator
+        return Fraction(new_numerator, new_denominator).__shortenFraction()
