@@ -62,6 +62,7 @@ class Fraction:
             new_denominator = self.__denominator * other.denominator
         return Fraction(new_numerator, new_denominator).__shortenFraction()
 
+    # multiply2 fractions & multiply fraction to number
     def __mul__(self, other) -> Fraction:
         if type(int()) == type(other):
             new_numerator = self.__numerator * other
@@ -69,4 +70,14 @@ class Fraction:
         else:
             new_numerator = self.__numerator * other.numerator
             new_denominator = self.__denominator * other.denominator
+        return Fraction(new_numerator, new_denominator).__shortenFraction()
+
+    # divide fraction by fraction & divide fraction by number
+    def __truediv__(self, other) -> Fraction:
+        if type(int()) == type(other):
+            new_numerator = self.__numerator
+            new_denominator = self.__denominator * other
+        else:
+            new_numerator = self.__numerator * other.denominator
+            new_denominator = self.__denominator * other.numerator
         return Fraction(new_numerator, new_denominator).__shortenFraction()
