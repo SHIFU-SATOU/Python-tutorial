@@ -35,8 +35,8 @@ class Fraction:
         return a
 
     def __shortenFraction(self) -> Fraction:
-        GCD = self.__findGCD(self.__numerator, self.__denominator)
-        return Fraction(self.__numerator // GCD, self.__denominator // GCD)
+        gcd = self.__findGCD(self.__numerator, self.__denominator)
+        return Fraction(self.__numerator // gcd, self.__denominator // gcd)
 
     # print fraction
     def __str__(self):
@@ -51,7 +51,7 @@ class Fraction:
         else:
             new_numerator = self.__numerator * other.denominator + other.numerator * self.__denominator
             new_denominator = self.__denominator * other.denominator
-        return Fraction(new_numerator, new_denominator)
+        return Fraction(new_numerator, new_denominator).__shortenFraction()
 
     # subtract 2 fractions & subtract fraction to number
     def __sub__(self, other) -> Fraction:
@@ -62,4 +62,6 @@ class Fraction:
         else:
             new_numerator = self.__numerator * other.denominator - other.numerator * self.__denominator
             new_denominator = self.__denominator * other.denominator
-        return Fraction(new_numerator, new_denominator)
+        return Fraction(new_numerator, new_denominator).__shortenFraction()
+
+
