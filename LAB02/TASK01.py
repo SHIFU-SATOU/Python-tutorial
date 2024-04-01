@@ -19,3 +19,6 @@ class Fraction:
     @denominator.setter
     def denominator(self, new_value: int) -> None:
         self.__denominator = new_value
+
+    def __str__(self):
+        return f"{self.__numerator}/{self.__denominator}"
