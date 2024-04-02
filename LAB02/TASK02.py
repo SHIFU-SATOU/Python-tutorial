@@ -20,3 +20,8 @@ class Coordinates:
     @longitude.setter
     def longitude(self, new_value: int) -> None:
         self.__latitude = new_value
+
+    # Print coordinates
+    def __str__(self) -> str:
+        return f"x: {self.__latitude}, y: {self.__longitude}"
+
