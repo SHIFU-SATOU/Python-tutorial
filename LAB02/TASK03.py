@@ -43,3 +43,7 @@ class Triangle:
     def caculateSquare(self) -> float:
         p = self.caculatePerimeter() / 2
         return math.sqrt(p * (p - self.__a) * (p - self.__b) * (p - self.__c))
+
+    # caculate the radius of circumcircle of the triangle
+    def caculateRadiusOfCircumcircle(self) -> float:
+        return round((self.__a * self.__b * self.__c) / (4 * self.caculateSquare()), 3)
