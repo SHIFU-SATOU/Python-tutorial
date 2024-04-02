@@ -53,5 +53,11 @@ class Coordinates:
         self.__latitude = 0
         self.__longitude = 0
 
+    # Copy coordinates
+    def copyCoordinates(self, other) -> None:
+        self.__latitude = other.latitude
+        self.__longitude = other.longitude
+
+
 if __name__ == '__main__':
     print("Hello task 2")
