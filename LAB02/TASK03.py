@@ -44,6 +44,10 @@ class Triangle:
         p = self.caculatePerimeter() / 2
         return math.sqrt(p * (p - self.__a) * (p - self.__b) * (p - self.__c))
 
-    # caculate the radius of circumcircle of the triangle
+    # caculate radius of circumcircle of triangle
     def caculateRadiusOfCircumcircle(self) -> float:
         return round((self.__a * self.__b * self.__c) / (4 * self.caculateSquare()), 3)
+
+    # caculate the radius of inscribed circle of triangle
+    def caculateRadiusOfInscribedCircle(self) -> float:
+        return round(2 * self.caculateSquare() / (self.__a + self.__b + self.__c), 3)
