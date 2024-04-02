@@ -58,6 +58,16 @@ class Coordinates:
         self.__latitude = other.latitude
         self.__longitude = other.longitude
 
+    @classmethod
+    def findCoordinatesClosestToCenterO(cls, *args) -> Coordinates:
+        O = Coordinates(0, 0)
+        MinDistance = Coordinates.findDistance(O, args[0])
+        ClosestCoordinates = args[0]
+        for i in range(len(args)):
+            if Coordinates.findDistance(O, args[i]) < MinDistance:
+                ClosestCoordinates = args[i]
+        return ClosestCoordinates
+
 
 if __name__ == '__main__':
     print("Hello task 2")
