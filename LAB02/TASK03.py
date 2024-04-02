@@ -31,3 +31,7 @@ class Triangle:
             return "Tam giác đều"
         else:
             return "Tam giác bình thường"
+
+    # caculate perimeter
+    def caculatePerimeter(self) -> int:
+        return self.__a + self.__b + self.__c
