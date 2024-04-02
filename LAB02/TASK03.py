@@ -23,17 +23,16 @@ class Triangle:
                    self.__c ** 2 + self.__a ** 2 == self.__b ** 2)
         isIsosceles = self.__a == self.__b or self.__b == self.__c or self.__c == self.__a
         isEquilateral = self.__a == self.__b and self.__b == self.__c
-        if isRight:
-            if isIsosceles:
-                return "Tam giác vuông cân"
-            else:
-                return "Tam giác vuông"
+        if isRight and isIsosceles:
+            return "tam giác vuông cân"
+        elif isRight:
+            return "tam giác vuông"
         elif isIsosceles:
-            return "Tam giác cân"
+            return "tam giác cân"
         elif isEquilateral:
-            return "Tam giác đều"
+            return "tam giác đều"
         else:
-            return "Tam giác bình thường"
+            return "tam giác bình thường"
 
     # caculate perimeter
     def caculatePerimeter(self) -> int:
@@ -42,7 +41,7 @@ class Triangle:
     # caculate square
     def caculateSquare(self) -> float:
         p = self.caculatePerimeter() / 2
-        return math.sqrt(p * (p - self.__a) * (p - self.__b) * (p - self.__c))
+        return round(math.sqrt(p * (p - self.__a) * (p - self.__b) * (p - self.__c)), 3)
 
     # caculate radius of circumcircle of triangle
     def caculateRadiusOfCircumcircle(self) -> float:
@@ -51,3 +50,14 @@ class Triangle:
     # caculate the radius of inscribed circle of triangle
     def caculateRadiusOfInscribedCircle(self) -> float:
         return round(2 * self.caculateSquare() / (self.__a + self.__b + self.__c), 3)
+
+
+if __name__ == '__main__':
+    a = Triangle(2, 2, 2 * 2 ** 0.5)
+
+    print(f"-Độ dài ba cạnh lần lượt: {a}")
+    print(f"-Loại tam giác: {a.findTypeOfTriangle()}")
+    print(f"-Chu vi tam giác: {a.caculatePerimeter()}")
+    print(f"-Diện tích tam giác: {a.caculateSquare()}")
+    print(f"-Bán kính đường tròn ngoại tiếp: {a.caculateRadiusOfCircumcircle()}")
+    print(f"-Bán kính đường tròn nội tiếp: {a.caculateRadiusOfInscribedCircle()}")
