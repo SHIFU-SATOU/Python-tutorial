@@ -48,6 +48,10 @@ class Coordinates:
         y_midpoint = (A.longitude + B.longitude) / 2
         return Coordinates(x_midpoint, y_midpoint)
 
+    # Reset coordinates
+    def resetCoordinates(self) -> None:
+        self.__latitude = 0
+        self.__longitude = 0
 
 if __name__ == '__main__':
     print("Hello task 2")
