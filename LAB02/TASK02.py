@@ -33,13 +33,13 @@ class Coordinates:
         return f"x: {self.__latitude}, y: {self.__longitude}"
 
     # Move to coordinates
-    def moveToCoordinates(self, distance: int) -> Coordinates:
+    def moveToDistance(self, distance: int) -> Coordinates:
         return Coordinates(self.__latitude + distance, self.__longitude + distance)
 
     # Caculate distance
     @classmethod
     def findDistance(cls, A: Coordinates, B: Coordinates) -> float:
-        math.sqrt((A.latitude - B.latitude) ** 2 + (A.longitude - B.longitude) ** 2)
+        return round(math.sqrt((A.latitude - B.latitude) ** 2 + (A.longitude - B.longitude) ** 2), 3)
 
     # Find midpoint of 2 coordinates
     @classmethod
@@ -59,15 +59,27 @@ class Coordinates:
         self.__longitude = other.longitude
 
     @classmethod
-    def findCoordinatesClosestToCenterO(cls, *args) -> Coordinates:
+    def findCoordinatesClosestToCenterO(cls, ListCordinates: list) -> Coordinates:
         O = Coordinates(0, 0)
-        MinDistance = Coordinates.findDistance(O, args[0])
-        ClosestCoordinates = args[0]
-        for i in range(len(args)):
-            if Coordinates.findDistance(O, args[i]) < MinDistance:
-                ClosestCoordinates = args[i]
+        MinDistance = Coordinates.findDistance(O, ListCordinates[0])
+        ClosestCoordinates = ListCordinates[0]
+        for i in range(len(ListCordinates)):
+            if Coordinates.findDistance(O, ListCordinates[i]) < MinDistance:
+                MinDistance = Coordinates.findDistance(O, ListCordinates[i])
+                ClosestCoordinates = ListCordinates[i]
         return ClosestCoordinates
 
 
 if __name__ == '__main__':
-    print("Hello task 2")
+    a = Coordinates(1, 1)
+    b = Coordinates(2, 2)
+    c = Coordinates(3, 3)
+    d = Coordinates(4, 4)
+    print(f"- Tọa độ A sau khi di chuyển thêm 4: {a.moveToDistance(4)}")
+    print(f"- Khoảng cách giữa A và D là: {Coordinates.findDistance(a, d)}")
+    print(f"- Trung điểm giữa B và D là: {Coordinates.findMidpoint(b, d)}")
+    print(f"- Tọa độ điểm gần tâm O nhất: {Coordinates.findCoordinatesClosestToCenterO([a, b, c, d])}")
+    a.resetCoordinates()
+    print(f"- Tọa độ điểm A sau khi bị xóa: {a}")
+    a.copyCoordinates(c)
+    print(f"- Tọa độ điểm A sau khi sao chép tọa độ điểm c {c} là: {a}")
