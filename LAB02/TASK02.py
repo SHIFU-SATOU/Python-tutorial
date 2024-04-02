@@ -41,6 +41,13 @@ class Coordinates:
     def findDistance(cls, A: Coordinates, B: Coordinates) -> float:
         math.sqrt((A.latitude - B.latitude) ** 2 + (A.longitude - B.longitude) ** 2)
 
+    # Find midpoint of 2 coordinates
+    @classmethod
+    def findMidpoint(cls, A: Coordinates, B: Coordinates) -> Coordinates:
+        x_midpoint = (A.latitude + B.latitude) / 2
+        y_midpoint = (A.longitude + B.longitude) / 2
+        return Coordinates(x_midpoint, y_midpoint)
+
 
 if __name__ == '__main__':
     print("Hello task 2")
