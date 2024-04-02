@@ -1,3 +1,6 @@
+import math
+
+
 class Triangle:
     pass
 
@@ -35,3 +38,8 @@ class Triangle:
     # caculate perimeter
     def caculatePerimeter(self) -> int:
         return self.__a + self.__b + self.__c
+
+    # caculate square
+    def caculateSquare(self) -> float:
+        p = self.caculatePerimeter() / 2
+        return math.sqrt(p * (p - self.__a) * (p - self.__b) * (p - self.__c))
