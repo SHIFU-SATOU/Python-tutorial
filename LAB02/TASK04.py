@@ -37,18 +37,18 @@ class Circle:
     # zoom in circle by percent
     def zoomInCircleByPercent(self, percent: int) -> float:
         p = self.caculatePerimeter()
-        return p + p * (percent / 100)
+        return round(p + p * (percent / 100), 3)
 
     # zoom out circle by percent
     def zoomOutCircleByPercent(self, percent: int) -> float:
         p = self.caculatePerimeter()
-        return p - p * (percent / 100)
+        return round(p - p * (percent / 100), 3)
 
     # Check if this circle intersects with another circle?
     def checkIntersects(self, other: Circle) -> bool:
         isTwoCirclesIntersectsion = False
         isTwoCirclesTouchInside = False
-        Distance = Coordinates(self.__O, other.O)
+        Distance = Coordinates.findDistance(self.__O, other.O)
         if self.__r > other.r:
             isTwoCirclesIntersectsion = Distance > self.__r - other.r and Distance < self.__r + other.r
             isTwoCirclesTouchInside = Distance == self.__r - other.r
@@ -57,3 +57,13 @@ class Circle:
             isTwoCirclesTouchInside = Distance == other.r - self.__r
         isTwoCirclesTouchOutside = Distance == self.__r + other.r
         return isTwoCirclesIntersectsion or isTwoCirclesTouchInside or isTwoCirclesTouchOutside
+
+
+if __name__ == "__main__":
+    o = Circle(7, 4, 4)
+    p = Circle(4, 15, 4)
+    print(f"-Chu vi đường tròn o: {o.caculatePerimeter()}")
+    print(f"-Diện tích đường tròn o: {o.caculateSquare()}")
+    print(f"-Chu vi đường tròn o sau khi tăng 40%: {o.zoomInCircleByPercent(40)}")
+    print(f"-Chu vi đường tròn o sau khi giảm 40%: {o.zoomOutCircleByPercent(40)}")
+    print(f"-Kiểm tra đường tròn o có giao nhau với đường tròn p không ? Kết quả: {o.checkIntersects(p)}")
