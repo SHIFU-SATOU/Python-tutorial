@@ -36,6 +36,10 @@ class Staff:
     def MonthlySalary(self) -> float:
         return self.__MonthlySalary
 
+    @property
+    def Products(self) -> int:
+        return self.__Products
+
     # auto create id
     @classmethod
     def increaseID(cls):
@@ -120,6 +124,15 @@ class Staff:
             if e.MonthlySalary > Max.MonthlySalary:
                 Max = e
         return Max
+
+    # find laziest staff
+    @classmethod
+    def findLaziestStaff(cls) -> Staff:
+        Min = cls.__Staffs[0]
+        for e in cls.__Staffs:
+            if e.Products < Min.Products:
+                Min = e
+        return Min
 
 
 if __name__ == '__main__':
