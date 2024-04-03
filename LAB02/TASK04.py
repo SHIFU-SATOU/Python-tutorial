@@ -18,7 +18,12 @@ class Circle:
     def caculateSquare(self) -> float:
         return round(math.pi * self.__r ** 2, 3)
 
-    # zoom circle by percent
-    def zoomCircleByPercent(self, percent: int) -> float:
+    # zoom in circle by percent
+    def zoomInCircleByPercent(self, percent: int) -> float:
         p = self.caculatePerimeter()
         return p + p * (percent / 100)
+
+    # zoom out circle by percent
+    def zoomOutCircleByPercent(self, percent: int) -> float:
+        p = self.caculatePerimeter()
+        return p - p * (percent / 100)
