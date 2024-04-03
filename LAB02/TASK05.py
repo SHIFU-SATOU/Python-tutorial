@@ -1,7 +1,7 @@
 import math
 import re
 import random
-
+import pandas as pd
 
 class Staff:
     pass
@@ -133,6 +133,13 @@ class Staff:
             if e.Products < Min.Products:
                 Min = e
         return Min
+
+    # find top 10 staffs
+    @classmethod
+    def findTop10Staff(cls):
+        data = pd.DataFrame(cls.__Staffs)
+        data = data.sort_values(by=['MonthlySalary'], ascending=True)
+        return data.head(10)
 
 
 if __name__ == '__main__':
