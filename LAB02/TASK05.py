@@ -19,7 +19,7 @@ class Staff:
         self.__Products = kwargs.get('products', 0)
         self.__MonthlySalary = kwargs.get('monthly salary', 0.0)
 
-    #Instance method
+    # Instance method
     @property
     def ID(self):
         return self.__ID
@@ -61,6 +61,7 @@ class Staff:
             self.__MonthlySalary = NewMoney + NewMoney * 0.1
         else:
             self.__MonthlySalary = NewMoney
+
     # caculate monthly salary for all staffs
     @classmethod
     def caculateAllMonthlySalary(cls) -> None:
@@ -85,12 +86,12 @@ class Staff:
         for e in cls.__Staffs:
             print(e)
 
-    #find staff by id
+    # find staff by id
     @classmethod
-    def findStaffByID(cls, id:str) -> Staff:
+    def findStaffByID(cls, id: str) -> Staff:
         for e in cls.__Staffs:
-            e.__id
-
+            if e.ID == id:
+                return e
 
 
 if __name__ == '__main__':
