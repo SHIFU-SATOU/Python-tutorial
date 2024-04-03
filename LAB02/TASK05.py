@@ -4,7 +4,12 @@ import random
 
 
 class Staff:
-    __Flag = 'NV00'
+    pass
+
+
+class Staff:
+    __CurrentID = 'NV00'
+    __Staffs = []
 
     # Construtor
     def __init__(self, **kwargs):
@@ -16,35 +21,59 @@ class Staff:
 
     # auto create id
     @classmethod
-    def createID(cls):
-        iNth = re.findall(r"[0-9]+", cls.__Flag)
+    def increaseID(cls):
+        iNth = re.findall(r"[0-9]+", cls.__CurrentID)
         iNextNth = int(iNth[0]) + 1
         if iNextNth in range(10):
-            cls.__Flag = 'NV0' + str(iNextNth)
+            cls.__CurrentID = 'NV0' + str(iNextNth)
         elif (iNextNth > 9):
-            cls.__Flag = 'NV' + str(iNextNth)
+            cls.__CurrentID = 'NV' + str(iNextNth)
 
     # auto create name
     @staticmethod
-    def createRandomName(cls) -> str:
+    def __createRandomName() -> str:
         lLastNames = ['Nguyễn', 'Trần', 'Phạm', 'Hoàng', 'Bùi', 'Trịnh', 'Đặng', 'Vũ', 'Đồng']
         lFirstNames = ['Phú', 'Tân', 'Quân', 'Hậu', 'Lộc', 'Sơn', 'Khang', 'Quyên', 'Uyên', 'Tú', 'An', 'Bích', 'Duyên']
         lMiddleNames = ['', 'Thị', 'Chí', 'Minh', 'Đăng', 'Kim', 'Đức']
         return random.choice(lFirstNames) + ' ' + random.choice(lLastNames) + ' ' + random.choice(lMiddleNames)
 
     @staticmethod
-    def createRandomBaseSalary(cls) -> float:
+    def __createRandomBaseSalary() -> float:
         return round(random.uniform(3000000, 5000000), 3)
 
     @staticmethod
-    def createRandomTypeStaff(cls) -> str:
-        return random.choice(["Văn phòng", "Bán hàng"])
-
-    @staticmethod
-    def createRandomNumberDays() -> int:
-        return random.randint(24, 26)
-
-    @staticmethod
-    def createRandomNumberProducts() -> int:
+    def __createRandomNumberProducts() -> int:
         return random.randint(100, 200)
 
+    # print info of staff
+    def __str__(self):
+        return f"ID: {self.__ID}, Họ tên: {self.__Name}, Lương cơ bản: {self.__BaseSalary}, Số sản phẩm: {self.__Products}, Lương hàng tháng: {self.__MonthlySalary}"
+
+    def caculateMonthlySalary(self) -> None:
+        NewMoney = self.__BaseSalary + self.__Products * 175000
+        if NewMoney >= 10000000:
+            self.__MonthlySalary = NewMoney + NewMoney * 0.1
+        else:
+            self.__MonthlySalary = NewMoney
+
+    @classmethod
+    def createStaffsAuto(cls, number: int) -> None:
+        for i in range(number):
+            Staff.increaseID()
+            id = cls.__CurrentID
+            name = Staff.__createRandomName()
+            salary = Staff.__createRandomBaseSalary()
+            products = Staff.__createRandomNumberProducts()
+            NewStaff = Staff(id=id, name=name, salary=salary, products=products)
+            cls.__Staffs.append(NewStaff)
+
+    @classmethod
+    def printStaffsList(cls):
+        for e in cls.__Staffs:
+            print(e)
+
+
+
+if __name__ == '__main__':
+    Staff.createStaffsAuto(40)
+    Staff.printStaffsList()
