@@ -11,5 +11,9 @@ class Circle:
         return f"r = {self.__r}"
 
     # caculate perimeter
-    def __caculatePerimeter(self) -> float:
+    def caculatePerimeter(self) -> float:
         return round(2 * math.pi * self.__r, 3)
+
+    # caculate square
+    def caculateSquare(self) -> float:
+        return round(math.pi * self.__r ** 2, 3)
