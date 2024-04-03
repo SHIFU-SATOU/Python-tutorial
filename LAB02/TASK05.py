@@ -1,7 +1,6 @@
 import math
 import re
 import random
-import pandas as pd
 
 
 class Staff:
