@@ -3,6 +3,7 @@ import re
 import random
 import pandas as pd
 
+
 class Staff:
     pass
 
@@ -136,12 +137,25 @@ class Staff:
 
     # find top 10 staffs
     @classmethod
-    def findTop10Staff(cls):
-        data = pd.DataFrame(cls.__Staffs)
-        data = data.sort_values(by=['MonthlySalary'], ascending=True)
-        return data.head(10)
+    def findTop10Staff(cls) -> list:
+        # Rearrange the employee list in ascending salary order
+        temp = cls.__Staffs.copy()
+        n = len(temp)
+        for i in range(n):
+            for j in range(0, n - i - 1):
+                if temp[j].MonthlySalary < temp[j + 1].MonthlySalary:
+                    temp[j], temp[j + 1] = temp[j + 1], temp[j]
+        # Take the first 10 staff
+        return temp[:10]
 
 
 if __name__ == '__main__':
     Staff.createStaffsAuto(40)
+    Staff.caculateAllMonthlySalary()
     Staff.printStaffsList()
+    print(f"-Nhân viên có lương cao nhất: {Staff.findBestStaff()}")
+    print(f"-Nhân viên có số sản phẩm bán được thấp nhất: {Staff.findLaziestStaff()}")
+    print("-Top 10 nhân viên có lương cao nhất:")
+    Top10Staffs = Staff.findTop10Staff()
+    for i in Staff.findTop10Staff():
+        print(i)
