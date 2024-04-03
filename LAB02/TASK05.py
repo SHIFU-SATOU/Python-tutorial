@@ -19,6 +19,11 @@ class Staff:
         self.__Products = kwargs.get('products', 0)
         self.__MonthlySalary = kwargs.get('monthly salary', 0.0)
 
+    #Instance method
+    @property
+    def ID(self):
+        return self.__ID
+
     # auto create id
     @classmethod
     def increaseID(cls):
@@ -62,6 +67,7 @@ class Staff:
         for e in cls.__Staffs:
             e.caculateMonthlySalary()
 
+    # create list staffs auto
     @classmethod
     def createStaffsAuto(cls, number: int) -> None:
         for i in range(number):
@@ -73,10 +79,17 @@ class Staff:
             NewStaff = Staff(id=id, name=name, salary=salary, products=products)
             cls.__Staffs.append(NewStaff)
 
+    # print all staffs info
     @classmethod
     def printStaffsList(cls):
         for e in cls.__Staffs:
             print(e)
+
+    #find staff by id
+    @classmethod
+    def findStaffByID(cls, id:str) -> Staff:
+        for e in cls.__Staffs:
+            e.__id
 
 
 
