@@ -32,6 +32,10 @@ class Staff:
     def BaseSalary(self, money: float) -> None:
         self.__BaseSalary = money
 
+    @property
+    def MonthlySalary(self) -> float:
+        return self.__MonthlySalary
+
     # auto create id
     @classmethod
     def increaseID(cls):
@@ -107,6 +111,15 @@ class Staff:
         for e in cls.__Staffs:
             if e.ID == id:
                 e.BaseSalary = money
+
+    # find best staff
+    @classmethod
+    def findBestStaff(cls) -> Staff:
+        Max = cls.__Staffs[0]
+        for e in cls.__Staffs:
+            if e.MonthlySalary > Max.MonthlySalary:
+                Max = e
+        return Max
 
 
 if __name__ == '__main__':
