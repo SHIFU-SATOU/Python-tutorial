@@ -1,9 +1,12 @@
 import math
 
+from TASK02 import Coordinates
+
 
 class Circle:
     # constructor
-    def __init__(self, r: int) -> None:
+    def __init__(self, r: int, x: int, y: int) -> None:
+        self.__O = Coordinates(x, y)
         self.__r = r
 
     # print info of circle
