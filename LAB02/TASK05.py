@@ -49,12 +49,18 @@ class Staff:
     def __str__(self):
         return f"ID: {self.__ID}, Họ tên: {self.__Name}, Lương cơ bản: {self.__BaseSalary}, Số sản phẩm: {self.__Products}, Lương hàng tháng: {self.__MonthlySalary}"
 
+    # caculate monthly salary for staff
     def caculateMonthlySalary(self) -> None:
         NewMoney = self.__BaseSalary + self.__Products * 175000
         if NewMoney >= 10000000:
             self.__MonthlySalary = NewMoney + NewMoney * 0.1
         else:
             self.__MonthlySalary = NewMoney
+    # caculate monthly salary for all staffs
+    @classmethod
+    def caculateAllMonthlySalary(cls) -> None:
+        for e in cls.__Staffs:
+            e.caculateMonthlySalary()
 
     @classmethod
     def createStaffsAuto(cls, number: int) -> None:
