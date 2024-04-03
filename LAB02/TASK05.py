@@ -21,8 +21,16 @@ class Staff:
 
     # Instance method
     @property
-    def ID(self):
+    def ID(self) -> str:
         return self.__ID
+
+    @property
+    def BaseSalary(self) -> float:
+        return self.__BaseSalary
+
+    @BaseSalary.setter
+    def BaseSalary(self, money: float) -> None:
+        self.__BaseSalary = money
 
     # auto create id
     @classmethod
@@ -92,6 +100,13 @@ class Staff:
         for e in cls.__Staffs:
             if e.ID == id:
                 return e
+
+    # update base salary by id
+    @classmethod
+    def updateBaseSalaryByID(cls, id: str, money: float) -> None:
+        for e in cls.__Staffs:
+            if e.ID == id:
+                e.BaseSalary = money
 
 
 if __name__ == '__main__':
