@@ -23,22 +23,22 @@ class Staff(ABC):
     # Get ID of staff
     @property
     def ID(self) -> str:
-        return self.__ID
+        return self._ID
 
     # Get Name of staff
     @property
     def Name(self) -> str:
-        return self.__Name
+        return self._Name
 
     # Get salary of staff
     @property
     def Salary(self) -> float:
-        return self.__Salary
+        return self._Salary
 
     # Get monthly salary of staff
     @property
     def MonthlySalary(self) -> float:
-        return self.__MonthlySalary
+        return self._MonthlySalary
 
     # Caculate monthly salary of staff
     @abstractmethod
@@ -64,7 +64,7 @@ class Staff(ABC):
 
     # Find staff by ID
     @classmethod
-    def findStaffByID(cls, id: str) -> Staff:
+    def findStaffByID(cls, id: str):
         for e in cls.__Staffs:
             if e.ID == id:
                 return e
@@ -211,5 +211,11 @@ class OfficeStaff(Staff):
 
 
 if __name__ == '__main__':
+    # Automatically create 40 staffs
     Staff.createRandomStaffs(40)
+    # Update monthly salary for all staffs
+    Staff.caculateMonthlySalaryForAllStaffs()
+    # Print staffs list
     Staff.printStaffsList()
+    # Find staff with ID = NV19
+    print(Staff.findStaffByID('NV19'))
