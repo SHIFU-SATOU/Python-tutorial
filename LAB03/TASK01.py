@@ -115,6 +115,12 @@ class Staff(ABC):
         # Take first 10 staff
         return temp[:10]
 
+    # Print staffs list
+    @classmethod
+    def printStaffsList(cls) -> None:
+        for e in cls.__Staffs:
+            print(e)
+
     # Automatically create name
     @staticmethod
     def __createRandomName() -> str:
@@ -175,3 +181,6 @@ class OfficeStaff(Staff):
         if NewMonthlySalary >= 8000000:
             NewMonthlySalary += NewMonthlySalary * 0.05
         self._MonthlySalary = NewMonthlySalary
+
+
+# if __name__ == '__main__':
