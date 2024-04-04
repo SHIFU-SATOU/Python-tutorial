@@ -8,6 +8,9 @@ class Staff:
 
 
 class Staff:
+    __CurrentID = 'NV00'
+    __Staffs = []
+
     # Constructor
     def __init__(self, **kwargs):
         self.__ID = kwargs.get('id')
@@ -35,3 +38,14 @@ class Staff:
     @property
     def MonthlySalary(self) -> float:
         return self.__MonthlySalary
+
+    # Automatically generate ID
+    @classmethod
+    def increaseID(cls) -> None:
+        iNth = re.findall(r"[0-9]+", cls.__CurrentID) #Get numbers of string
+        iNextNth = int(iNth[0]) + 1 #Increased by 1
+        #Append numbers to string
+        if iNextNth in range(10):
+            cls.__CurrentID = 'NV0' + str(iNextNth)
+        elif (iNextNth > 9):
+            cls.__CurrentID = 'NV' + str(iNextNth)
