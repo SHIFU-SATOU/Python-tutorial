@@ -62,6 +62,29 @@ class Staff:
         for e in cls.__Staffs:
             e.caculateMonthlySalary()
 
+    # Find staff by ID
+    @classmethod
+    def findStaffByID(cls, id: str) -> Staff:
+        for e in cls.__Staffs:
+            if e.ID == id:
+                return e
+
+    # Find staffs with lowest monthly salary
+    @classmethod
+    def findLaziestStaffs(cls) -> list:
+        LaziestStaffs = []
+        # Find lowest salary
+        Min = 999999999
+        for e in cls.__Staffs:
+            if e.MonthlySalary < Min:
+                Min = e.MonthlySalary
+
+        # Find staff with monthly salary equal highest salary
+        for e in cls.__Staffs:
+            if e.MonthlySalary == Min:
+                LaziestStaffs.append(e)
+
+        return LaziestStaffs
 
     # Automatically create name
     @staticmethod
