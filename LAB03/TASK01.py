@@ -86,6 +86,21 @@ class Staff:
 
         return LaziestStaffs
 
+    # Find sale staffs with highest monthly salary
+    @classmethod
+    def findBestSaleStaffs(cls) -> list:
+        BestSaleStaffs = []
+        # Find highest salary
+        Max = 0
+        for e in cls.__Staffs:
+            if e.__name__ == "SaleStaff" and e.MonthlySalary > Max:
+                Max = e.MonthlySalary
+        # Find sale staffs with salary equal highest salary
+        for e in cls.__Staffs:
+            if e.__name__ == "SaleStaff" and e.MonthlySalary == Max:
+                BestSaleStaffs.append(e)
+        return BestSaleStaffs
+
     # Automatically create name
     @staticmethod
     def __createRandomName() -> str:
