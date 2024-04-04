@@ -8,7 +8,7 @@ class Staff:
     pass
 
 
-class Staff:
+class Staff(ABC):
     __CurrentID = 'NV00'
     __Staffs = []
 
@@ -143,7 +143,7 @@ class SaleStaff(Staff):
 
     # Print info of sale staff
     def __str__(self) -> str:
-        return f"ID: {self._ID}, Họ và tên: {self._Name}, Lương cơ bản: {self._MonthlySalary}, Số sản phẩm: {self.__NumberProducts}, Lương hàng tháng: {self._MonthlySalary}"
+        return f"ID: {self._ID}, Họ và tên: {self._Name}, Lương cơ bản: {self._Salary}, Số sản phẩm: {self.__NumberProducts}, Lương hàng tháng: {self._MonthlySalary}"
 
     # Caculate monthly salary of sale staff
     def caculateMonthlySalary(self) -> None:
@@ -156,8 +156,13 @@ class SaleStaff(Staff):
 
 class OfficeStaff:
     pass
-class OfficeStaff:
+class OfficeStaff(Staff):
     # Constructor
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.__NumberDayWork = kwargs.get('NumberDayWork', 0)
+
+    # print info of office staff
+    def __str__(self) -> str:
+        return f"ID: {self._ID}, Họ và tên: {self._Name}, Lương cơ bản: {self._Salary}, Số ngày làm việc: {self.__NumberDayWork}, Lương hàng tháng: {self._MonthlySalary}"
+
