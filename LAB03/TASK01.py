@@ -198,4 +198,8 @@ class OfficeStaff(Staff):
             NewMonthlySalary += NewMonthlySalary * 0.05
         self._MonthlySalary = NewMonthlySalary
 
+    # Generate random number working day
+    def generateRandomNumberWorkingDay(self) -> int:
+        return random.randint(24, 26)
+
 # if __name__ == '__main__':
