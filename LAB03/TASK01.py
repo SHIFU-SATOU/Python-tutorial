@@ -14,10 +14,10 @@ class Staff:
 
     # Constructor
     def __init__(self, **kwargs):
-        self.__ID = kwargs.get('id')
-        self.__Name = kwargs.get('name', 'Trống')
-        self.__Salary = kwargs.get('salary', 0.0)
-        self.__MonthlySalary = kwargs.get('monthly_salary', 0.0)
+        self._ID = kwargs.get('id')
+        self._Name = kwargs.get('name', 'Trống')
+        self._Salary = kwargs.get('salary', 0.0)
+        self._MonthlySalary = kwargs.get('monthly_salary', 0.0)
 
     # Instance methods
     # Get ID of staff
@@ -129,12 +129,23 @@ class Staff:
     def __createRandomSalary() -> float:
         return round(random.uniform(3000000, 5000000), 3)
 
+
 class SaleStaff:
     pass
 
+
 class SaleStaff(Staff):
 
-    #Constructor
+    # Constructor
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.__NumberProducts = kwargs.get('NumberProducts', 0)
+        self._NumberProducts = kwargs.get('NumberProducts', 0)
+
+    # Caculate monthly salary of sale staff
+    def caculateMonthlySalary(self) -> None:
+        NewMonthlySalary = self._NumberProducts * 120000
+        if NewMonthlySalary >= 8000000:
+            NewMonthlySalary += NewMonthlySalary * 0.05
+        elif NewMonthlySalary <= 5000000:
+            NewMonthlySalary += NewMonthlySalary * 0.3
+        self._MonthlySalary = NewMonthlySalary
