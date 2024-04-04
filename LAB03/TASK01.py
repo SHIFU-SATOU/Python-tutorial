@@ -121,6 +121,17 @@ class Staff(ABC):
         for e in cls.__Staffs:
             print(e)
 
+    # Automatically create staff
+    @classmethod
+    def createRandomStaffs(cls, number: int) -> None:
+        for i in range(number):
+            Staff.increaseID()
+            Name = Staff.__createRandomName()
+            Salary = Staff.__createRandomSalary()
+            TypeStaff = random.choice(['Sale', 'Office'])
+            if TypeStaff == 'Sale':
+                NewStaff = SaleStaff()
+
     # Automatically create name
     @staticmethod
     def __createRandomName() -> str:
@@ -160,6 +171,11 @@ class SaleStaff(Staff):
             NewMonthlySalary += NewMonthlySalary * 0.3
         self._MonthlySalary = NewMonthlySalary
 
+    # Generate random number products
+    @staticmethod
+    def generateRandomNumberProducts() -> int:
+        return random.randint(100, 200)
+
 
 class OfficeStaff:
     pass
@@ -181,6 +197,5 @@ class OfficeStaff(Staff):
         if NewMonthlySalary >= 8000000:
             NewMonthlySalary += NewMonthlySalary * 0.05
         self._MonthlySalary = NewMonthlySalary
-
 
 # if __name__ == '__main__':
