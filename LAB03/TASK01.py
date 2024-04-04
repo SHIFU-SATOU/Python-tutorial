@@ -1,6 +1,7 @@
 import math
 import random
 import re
+from abc import ABC, abstractmethod
 
 
 class Staff:
@@ -38,6 +39,11 @@ class Staff:
     @property
     def MonthlySalary(self) -> float:
         return self.__MonthlySalary
+
+    # Caculate monthly salary of staff
+    @abstractmethod
+    def caculateMonthlySalary(self) -> None:
+        pass
 
     # Automatically generate ID
     @classmethod
