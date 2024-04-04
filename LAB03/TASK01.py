@@ -141,6 +141,10 @@ class SaleStaff(Staff):
         super().__init__(**kwargs)
         self._NumberProducts = kwargs.get('NumberProducts', 0)
 
+    # Print info of sale staff
+    def __str__(self) -> str:
+        return f"ID: {self._ID}, Họ và tên: {self._Name}, Lương cơ bản: {self._MonthlySalary}, Số sản phẩm: {self._NumberProducts}, Lương hàng tháng: {self._MonthlySalary}"
+
     # Caculate monthly salary of sale staff
     def caculateMonthlySalary(self) -> None:
         NewMonthlySalary = self._NumberProducts * 120000
