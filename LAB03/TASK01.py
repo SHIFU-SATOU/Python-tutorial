@@ -18,6 +18,7 @@ class Staff(ABC):
         self._Name = kwargs.get('name', 'Trống')
         self._Salary = kwargs.get('salary', 0.0)
         self._MonthlySalary = kwargs.get('monthly_salary', 0.0)
+        self._Type = 'Trống'
 
     # Instance methods
     # Get ID of staff
@@ -162,6 +163,7 @@ class SaleStaff(Staff):
     # Constructor
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self._Type = "Kinh doanh"
         self.__NumberProducts = kwargs.get('number_products', 0)
 
     # Print info of sale staff
@@ -191,6 +193,7 @@ class OfficeStaff(Staff):
     # Constructor
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self._Type = "Văn phòng"
         self.__NumberWorkingDay = kwargs.get('number_days', 0)
 
     # print info of office staff
@@ -218,4 +221,10 @@ if __name__ == '__main__':
     # Print staffs list
     Staff.printStaffsList()
     # Find staff with ID = NV19
+    print("-Thông tin nhân viên có mã số NV19:")
     print(Staff.findStaffByID('NV19'))
+    # Find laziest staffs
+    print("-Những nhân viên có lương thấp nhất:")
+    LaziestStaffs = Staff.findLaziestStaffs()
+    for e in LaziestStaffs:
+        print(e)
