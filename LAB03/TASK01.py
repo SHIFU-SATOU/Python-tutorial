@@ -128,3 +128,13 @@ class Staff:
     @staticmethod
     def __createRandomSalary() -> float:
         return round(random.uniform(3000000, 5000000), 3)
+
+class SaleStaff:
+    pass
+
+class SaleStaff(Staff):
+
+    #Constructor
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.__NumberProducts = kwargs.get('NumberProducts', 0)
