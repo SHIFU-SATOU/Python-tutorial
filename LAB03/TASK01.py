@@ -131,11 +131,11 @@ class Staff(ABC):
             TypeStaff = random.choice(['Sale', 'Office'])
             if TypeStaff == 'Sale':
                 NumberProducts = SaleStaff.generateRandomNumberProducts()
-                NewStaff = SaleStaff(id=cls.__CurrentID, Name=Name, Salary=Salary, NumberProducts=NumberProducts)
+                NewStaff = SaleStaff(id=cls.__CurrentID, name=Name, salary=Salary, number_products=NumberProducts)
                 cls.__Staffs.append(NewStaff)
-            if TypeStaff == 'Office':
-                NumberWorkingDay = OfficeStaff.generateRandomNumberWorkingDay()
-                NewStaff = OfficeStaff(id=cls.__CurrentID, Name=Name, Salary=Salary, NumberWorkingDay=NumberWorkingDay)
+            elif TypeStaff == 'Office':
+                NumberDay = OfficeStaff.generateRandomNumberWorkingDay()
+                NewStaff = OfficeStaff(id=cls.__CurrentID, name=Name, salary=Salary, number_days=NumberDay)
                 cls.__Staffs.append(NewStaff)
 
     # Automatically create name
@@ -162,7 +162,7 @@ class SaleStaff(Staff):
     # Constructor
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.__NumberProducts = kwargs.get('NumberProducts', 0)
+        self.__NumberProducts = kwargs.get('number_products', 0)
 
     # Print info of sale staff
     def __str__(self) -> str:
@@ -191,7 +191,7 @@ class OfficeStaff(Staff):
     # Constructor
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.__NumberWorkingDay = kwargs.get('NumberDayWork', 0)
+        self.__NumberWorkingDay = kwargs.get('number_days', 0)
 
     # print info of office staff
     def __str__(self) -> str:
@@ -209,4 +209,6 @@ class OfficeStaff(Staff):
     def generateRandomNumberWorkingDay() -> int:
         return random.randint(24, 26)
 
-# if __name__ == '__main__':
+if __name__ == '__main__':
+    Staff.createRandomStaffs(40)
+    Staff.printStaffsList()
