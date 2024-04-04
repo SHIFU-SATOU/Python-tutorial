@@ -175,7 +175,7 @@ class SaleStaff(Staff):
             NewMonthlySalary += NewMonthlySalary * 0.05
         elif NewMonthlySalary <= 5000000:
             NewMonthlySalary += NewMonthlySalary * 0.3
-        self._MonthlySalary = NewMonthlySalary
+        self._MonthlySalary = round(NewMonthlySalary, 3)
 
     # Generate random number products
     @staticmethod
@@ -202,12 +202,13 @@ class OfficeStaff(Staff):
         NewMonthlySalary = self.__NumberWorkingDay * 180000
         if NewMonthlySalary >= 8000000:
             NewMonthlySalary += NewMonthlySalary * 0.05
-        self._MonthlySalary = NewMonthlySalary
+        self._MonthlySalary = round(NewMonthlySalary, 3)
 
     # Generate random number working day
     @staticmethod
     def generateRandomNumberWorkingDay() -> int:
         return random.randint(24, 26)
+
 
 if __name__ == '__main__':
     Staff.createRandomStaffs(40)
