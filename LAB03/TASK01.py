@@ -50,7 +50,7 @@ class Staff:
         elif (iNextNth > 9):
             cls.__CurrentID = 'NV' + str(iNextNth)
 
-        # auto create name
+        # Automatically create name
         @staticmethod
         def __createRandomName() -> str:
             lLastNames = ['Nguyễn', 'Trần', 'Phạm', 'Hoàng', 'Bùi', 'Trịnh', 'Đặng', 'Vũ', 'Đồng']
@@ -58,3 +58,9 @@ class Staff:
                            'Duyên']
             lMiddleNames = ['', 'Thị', 'Chí', 'Minh', 'Đăng', 'Kim', 'Đức']
             return random.choice(lFirstNames) + ' ' + random.choice(lLastNames) + ' ' + random.choice(lMiddleNames)
+
+        # Automatically create salary
+        @staticmethod
+        def __createRandomSalary() -> float:
+            return round(random.uniform(3000000, 5000000), 3)
+
