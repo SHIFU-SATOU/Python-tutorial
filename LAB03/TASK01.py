@@ -94,11 +94,11 @@ class Staff(ABC):
         # Find highest salary
         Max = 0
         for e in cls.__Staffs:
-            if e.__name__ == "SaleStaff" and e.MonthlySalary > Max:
+            if e.__class__.__name__ == "SaleStaff" and e.MonthlySalary > Max:
                 Max = e.MonthlySalary
         # Find sale staffs with salary equal highest salary
         for e in cls.__Staffs:
-            if e.__name__ == "SaleStaff" and e.MonthlySalary == Max:
+            if e.__class__.__name__ == "SaleStaff" and e.MonthlySalary == Max:
                 BestSaleStaffs.append(e)
         return BestSaleStaffs
 
@@ -168,7 +168,7 @@ class SaleStaff(Staff):
 
     # Print info of sale staff
     def __str__(self) -> str:
-        return f"ID: {self._ID}, Họ và tên: {self._Name}, Lương cơ bản: {self._Salary}, Số sản phẩm: {self.__NumberProducts}, Lương hàng tháng: {self._MonthlySalary}"
+        return f"ID: {self._ID}, Họ và tên: {self._Name}, Lương cơ bản: {self._Salary}, Số sản phẩm: {self.__NumberProducts}, Lương hàng tháng: {self._MonthlySalary}, Loại: {self._Type}"
 
     # Caculate monthly salary of sale staff
     def caculateMonthlySalary(self) -> None:
@@ -198,7 +198,7 @@ class OfficeStaff(Staff):
 
     # print info of office staff
     def __str__(self) -> str:
-        return f"ID: {self._ID}, Họ và tên: {self._Name}, Lương cơ bản: {self._Salary}, Số ngày làm việc: {self.__NumberWorkingDay}, Lương hàng tháng: {self._MonthlySalary}"
+        return f"ID: {self._ID}, Họ và tên: {self._Name}, Lương cơ bản: {self._Salary}, Số ngày làm việc: {self.__NumberWorkingDay}, Lương hàng tháng: {self._MonthlySalary}, Loại: {self._Type}"
 
     # caculate monthly salary of office staff
     def caculateMonthlySalary(self) -> None:
@@ -227,4 +227,15 @@ if __name__ == '__main__':
     print("-Những nhân viên có lương thấp nhất:")
     LaziestStaffs = Staff.findLaziestStaffs()
     for e in LaziestStaffs:
+        print(e)
+    # Find best sale staffs
+    print("-Những nhân viên bán hàng có lương cao nhất:")
+    BestSaleStaffs = Staff.findBestSaleStaffs()
+    for e in BestSaleStaffs:
+        print(e)
+
+    # Find top 10 staffs
+    print("-Top 10 nhân viên có lương cao nhất:")
+    Top10Staffs = Staff.findTop10Staffs()
+    for e in Top10Staffs:
         print(e)
