@@ -101,6 +101,20 @@ class Staff:
                 BestSaleStaffs.append(e)
         return BestSaleStaffs
 
+    # Find top 10 staff with highest salary
+    @classmethod
+    def findTop10Staffs(cls) -> list:
+        temp = cls.__Staffs.copy()
+        Top10Staffs = []
+        n = len(temp)
+        # Rearrange the staffs list in ascending salary order
+        for i in range(n):
+            for j in range(0, n - i - 1):
+                if temp[j].MonthlySalary < temp[j + 1].MonthlySalary:
+                    temp[j], temp[j + 1] = temp[j + 1], temp[j]
+        # Take first 10 staff
+        return temp[:10]
+
     # Automatically create name
     @staticmethod
     def __createRandomName() -> str:
