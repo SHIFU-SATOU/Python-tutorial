@@ -130,7 +130,13 @@ class Staff(ABC):
             Salary = Staff.__createRandomSalary()
             TypeStaff = random.choice(['Sale', 'Office'])
             if TypeStaff == 'Sale':
-                NewStaff = SaleStaff()
+                NumberProducts = SaleStaff.generateRandomNumberProducts()
+                NewStaff = SaleStaff(id=cls.__CurrentID, Name=Name, Salary=Salary, NumberProducts=NumberProducts)
+                cls.__Staffs.append(NewStaff)
+            if TypeStaff == 'Office':
+                NumberWorkingDay = OfficeStaff.generateRandomNumberWorkingDay()
+                NewStaff = OfficeStaff(id=cls.__CurrentID, Name=Name, Salary=Salary, NumberWorkingDay=NumberWorkingDay)
+                cls.__Staffs.append(NewStaff)
 
     # Automatically create name
     @staticmethod
@@ -185,21 +191,22 @@ class OfficeStaff(Staff):
     # Constructor
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.__NumberDayWork = kwargs.get('NumberDayWork', 0)
+        self.__NumberWorkingDay = kwargs.get('NumberDayWork', 0)
 
     # print info of office staff
     def __str__(self) -> str:
-        return f"ID: {self._ID}, Họ và tên: {self._Name}, Lương cơ bản: {self._Salary}, Số ngày làm việc: {self.__NumberDayWork}, Lương hàng tháng: {self._MonthlySalary}"
+        return f"ID: {self._ID}, Họ và tên: {self._Name}, Lương cơ bản: {self._Salary}, Số ngày làm việc: {self.__NumberWorkingDay}, Lương hàng tháng: {self._MonthlySalary}"
 
     # caculate monthly salary of office staff
     def caculateMonthlySalary(self) -> None:
-        NewMonthlySalary = self.__NumberDayWork * 180000
+        NewMonthlySalary = self.__NumberWorkingDay * 180000
         if NewMonthlySalary >= 8000000:
             NewMonthlySalary += NewMonthlySalary * 0.05
         self._MonthlySalary = NewMonthlySalary
 
     # Generate random number working day
-    def generateRandomNumberWorkingDay(self) -> int:
+    @staticmethod
+    def generateRandomNumberWorkingDay() -> int:
         return random.randint(24, 26)
 
 # if __name__ == '__main__':
