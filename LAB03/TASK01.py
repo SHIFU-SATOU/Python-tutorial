@@ -49,3 +49,12 @@ class Staff:
             cls.__CurrentID = 'NV0' + str(iNextNth)
         elif (iNextNth > 9):
             cls.__CurrentID = 'NV' + str(iNextNth)
+
+        # auto create name
+        @staticmethod
+        def __createRandomName() -> str:
+            lLastNames = ['Nguyễn', 'Trần', 'Phạm', 'Hoàng', 'Bùi', 'Trịnh', 'Đặng', 'Vũ', 'Đồng']
+            lFirstNames = ['Phú', 'Tân', 'Quân', 'Hậu', 'Lộc', 'Sơn', 'Khang', 'Quyên', 'Uyên', 'Tú', 'An', 'Bích',
+                           'Duyên']
+            lMiddleNames = ['', 'Thị', 'Chí', 'Minh', 'Đăng', 'Kim', 'Đức']
+            return random.choice(lFirstNames) + ' ' + random.choice(lLastNames) + ' ' + random.choice(lMiddleNames)
