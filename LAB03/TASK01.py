@@ -139,17 +139,25 @@ class SaleStaff(Staff):
     # Constructor
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self._NumberProducts = kwargs.get('NumberProducts', 0)
+        self.__NumberProducts = kwargs.get('NumberProducts', 0)
 
     # Print info of sale staff
     def __str__(self) -> str:
-        return f"ID: {self._ID}, Họ và tên: {self._Name}, Lương cơ bản: {self._MonthlySalary}, Số sản phẩm: {self._NumberProducts}, Lương hàng tháng: {self._MonthlySalary}"
+        return f"ID: {self._ID}, Họ và tên: {self._Name}, Lương cơ bản: {self._MonthlySalary}, Số sản phẩm: {self.__NumberProducts}, Lương hàng tháng: {self._MonthlySalary}"
 
     # Caculate monthly salary of sale staff
     def caculateMonthlySalary(self) -> None:
-        NewMonthlySalary = self._NumberProducts * 120000
+        NewMonthlySalary = self.__NumberProducts * 120000
         if NewMonthlySalary >= 8000000:
             NewMonthlySalary += NewMonthlySalary * 0.05
         elif NewMonthlySalary <= 5000000:
             NewMonthlySalary += NewMonthlySalary * 0.3
         self._MonthlySalary = NewMonthlySalary
+
+class OfficeStaff:
+    pass
+class OfficeStaff:
+    # Constructor
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.__NumberDayWork = kwargs.get('NumberDayWork', 0)
