@@ -48,25 +48,31 @@ class Staff:
     # Automatically generate ID
     @classmethod
     def increaseID(cls) -> None:
-        iNth = re.findall(r"[0-9]+", cls.__CurrentID) #Get numbers of string
-        iNextNth = int(iNth[0]) + 1 #Increased by 1
-        #Append numbers to string
+        iNth = re.findall(r"[0-9]+", cls.__CurrentID)  # Get numbers of string
+        iNextNth = int(iNth[0]) + 1  # Increased by 1
+        # Append numbers to string
         if iNextNth in range(10):
             cls.__CurrentID = 'NV0' + str(iNextNth)
         elif (iNextNth > 9):
             cls.__CurrentID = 'NV' + str(iNextNth)
 
-        # Automatically create name
-        @staticmethod
-        def __createRandomName() -> str:
-            lLastNames = ['Nguyễn', 'Trần', 'Phạm', 'Hoàng', 'Bùi', 'Trịnh', 'Đặng', 'Vũ', 'Đồng']
-            lFirstNames = ['Phú', 'Tân', 'Quân', 'Hậu', 'Lộc', 'Sơn', 'Khang', 'Quyên', 'Uyên', 'Tú', 'An', 'Bích',
-                           'Duyên']
-            lMiddleNames = ['', 'Thị', 'Chí', 'Minh', 'Đăng', 'Kim', 'Đức']
-            return random.choice(lFirstNames) + ' ' + random.choice(lLastNames) + ' ' + random.choice(lMiddleNames)
+    # Caculate monthly salary for all staffs
+    @classmethod
+    def caculateMonthlySalaryForAllStaffs(cls) -> None:
+        for e in cls.__Staffs:
+            e.caculateMonthlySalary()
 
-        # Automatically create salary
-        @staticmethod
-        def __createRandomSalary() -> float:
-            return round(random.uniform(3000000, 5000000), 3)
 
+    # Automatically create name
+    @staticmethod
+    def __createRandomName() -> str:
+        lLastNames = ['Nguyễn', 'Trần', 'Phạm', 'Hoàng', 'Bùi', 'Trịnh', 'Đặng', 'Vũ', 'Đồng']
+        lFirstNames = ['Phú', 'Tân', 'Quân', 'Hậu', 'Lộc', 'Sơn', 'Khang', 'Quyên', 'Uyên', 'Tú', 'An', 'Bích',
+                       'Duyên']
+        lMiddleNames = ['', 'Thị', 'Chí', 'Minh', 'Đăng', 'Kim', 'Đức']
+        return random.choice(lFirstNames) + ' ' + random.choice(lLastNames) + ' ' + random.choice(lMiddleNames)
+
+    # Automatically create salary
+    @staticmethod
+    def __createRandomSalary() -> float:
+        return round(random.uniform(3000000, 5000000), 3)
