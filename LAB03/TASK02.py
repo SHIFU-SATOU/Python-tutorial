@@ -54,3 +54,9 @@ class Staff(ABC):
     def printStaffsList(cls) -> None:
         for e in cls.__Staffs:
             print(e)
+
+    # Caculate monthly salary for all staffs
+    @classmethod
+    def caculateMonthlySalaryForAllStaffs(cls) -> None:
+        for e in cls.__Staffs:
+            e.caculateMonthlySalary()
