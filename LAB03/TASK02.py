@@ -27,3 +27,8 @@ class Staff(ABC):
     @Salary.setter
     def Salary(self, value: float) -> None:
         self.__Salary = value
+
+    # Get reponsibility index of staff
+    @property
+    def ResponsibilityIndex(self) -> float:
+        return self.__ResponsibilityIndex
