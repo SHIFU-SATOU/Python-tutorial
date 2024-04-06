@@ -80,3 +80,12 @@ class Staff(ABC):
         for e in cls.__Staffs:
             Money += e.MonthlySalary
         return Money
+
+    # Find ID of staff with largest monthly salary
+    @classmethod
+    def findIDOfBestStaff(cls) -> str:
+        BestStaff = cls.__Staffs[0]
+        for e in cls.__Staffs:
+            if e.MonthlySalary > BestStaff.MonthlySalary:
+                BestStaff = e
+        return BestStaff.ID
