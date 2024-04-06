@@ -42,3 +42,8 @@ class Staff(ABC):
     @abstractmethod
     def caculateMonthlySalary(self) -> None:
         pass
+
+    # Add staff
+    @classmethod
+    def addStaff(cls, staff) -> None:
+        cls.__Staffs.append(staff)
