@@ -60,3 +60,10 @@ class Staff(ABC):
     def caculateMonthlySalaryForAllStaffs(cls) -> None:
         for e in cls.__Staffs:
             e.caculateMonthlySalary()
+
+    # Find staff by ID
+    @classmethod
+    def findStaffByID(cls, id: str):
+        for e in cls.__Staffs:
+            if e.ID == id:
+                return e
