@@ -17,3 +17,13 @@ class Staff(ABC):
     @property
     def ID(self) -> str:
         return self.__ID
+
+    # Get salary of staff
+    @property
+    def Salary(self) -> float:
+        return self.__Salary
+
+    # Update salary of staff
+    @Salary.setter
+    def Salary(self, value: float) -> None:
+        self.__Salary = value
