@@ -89,3 +89,11 @@ class Staff(ABC):
             if e.MonthlySalary > BestStaff.MonthlySalary:
                 BestStaff = e
         return BestStaff.ID
+
+    # Update salary of staff by ID
+    @classmethod
+    def updateSalaryOfStaff(cls, id: str, new_salary: float) -> None:
+        for e in cls.__Staffs:
+            if e.ID == id:
+                e.Salary = new_salary
+                break
