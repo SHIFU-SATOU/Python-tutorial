@@ -3,8 +3,9 @@ import re
 import random
 from abc import ABC, abstractmethod
 
+
 class Staff(ABC):
-    __Staffs = [] # staff list
+    __Staffs = []  # staff list
 
     # Constructor
     def __init__(self, **kwargs) -> None:
@@ -47,3 +48,9 @@ class Staff(ABC):
     @classmethod
     def addStaff(cls, staff) -> None:
         cls.__Staffs.append(staff)
+
+    # Print staffs list
+    @classmethod
+    def printStaffsList(cls) -> None:
+        for e in cls.__Staffs:
+            print(e)
