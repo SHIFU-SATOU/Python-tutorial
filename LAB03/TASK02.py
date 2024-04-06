@@ -12,3 +12,8 @@ class Staff(ABC):
         self.__Name = kwargs.get('Name', "Trống")
         self.__Salary = kwargs.get('Salary', 0.0)
         self.__ResponsibilityIndex = kwargs.get('ResponsibilityIndex', 0.0)
+
+    # Get ID of staff
+    @property
+    def ID(self) -> str:
+        return self.__ID
