@@ -13,6 +13,7 @@ class Staff(ABC):
         self.__Name = kwargs.get('Name', "Trống")
         self.__Salary = kwargs.get('Salary', 0.0)
         self.__ResponsibilityIndex = kwargs.get('ResponsibilityIndex', 0.0)
+        self.__MonthlySalary = kwargs.get('MonthlySalary', 0.0)
 
     # Get ID of staff
     @property
@@ -67,3 +68,7 @@ class Staff(ABC):
         for e in cls.__Staffs:
             if e.ID == id:
                 return e
+
+    # caculate labor costs
+    @classmethod
+    def caculateLaborCosts(cls) -> float:
