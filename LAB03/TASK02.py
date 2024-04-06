@@ -28,7 +28,13 @@ class Staff(ABC):
     def Salary(self, value: float) -> None:
         self.__Salary = value
 
-    # Get reponsibility index of staff
+    # Get responsibility index of staff
     @property
     def ResponsibilityIndex(self) -> float:
         return self.__ResponsibilityIndex
+
+    # Print info of staff
+    @abstractmethod
+    def __str__(self) -> str:
+        pass
+
