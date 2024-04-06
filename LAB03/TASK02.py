@@ -38,3 +38,7 @@ class Staff(ABC):
     def __str__(self) -> str:
         pass
 
+    # Caculate monthly salary of staff
+    @abstractmethod
+    def caculateMonthlySalary(self) -> None:
+        pass
