@@ -35,6 +35,10 @@ class Staff(ABC):
     def ResponsibilityIndex(self) -> float:
         return self.__ResponsibilityIndex
 
+    # Get monthly salary
+    def MonthlySalary(self) -> float:
+        return self.__MonthlySalary
+
     # Print info of staff
     @abstractmethod
     def __str__(self) -> str:
@@ -72,3 +76,7 @@ class Staff(ABC):
     # caculate labor costs
     @classmethod
     def caculateLaborCosts(cls) -> float:
+        Money = 0.0
+        for e in cls.__Staffs:
+            Money += e.MonthlySalary
+        return Money
