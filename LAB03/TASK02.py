@@ -105,9 +105,11 @@ class Expert(Staff):
         super().__init__()
         self.__OvertimeHours = kwargs.get('OvertimeHours', 0)
 
+    # Print info of expert
     def __str__(self) -> str:
         return f"ID: {self.__ID}, Họ và tên: {self.__Name}, Lương cơ bản: {self.__Salary}, Chỉ số trách nhiệm: {self.__ResponsibilityIndex}, Số giờ tăng ca: {self.__OvertimeHours}, Lương hàng tháng: {self.__MonthlySalary}"
 
+    # Caculate monthly salary of expert
     def caculateMonthlySalary(self) -> None:
         self.__MonthlySalary = self.__Salary + self.__Salary * self.__ResponsibilityIndex + self.__OvertimeHours * 180000
 
@@ -116,3 +118,12 @@ class Researcher(Staff):
     def __init__(self, **kwargs) -> None:
         super().__init__()
         self.__NumberOfInventionWorks = kwargs.get('NumberOfInventionWorks', 0)
+
+    # Print info of researcher
+    def __str__(self) -> str:
+        return f"ID: {self.__ID}, Họ và tên: {self.__Name}, Lương cơ bản: {self.__Salary}, Chỉ số trách nhiệm: {self.__ResponsibilityIndex}, Số lượng công trình phát minh: {self.__NumberOfInventionWorks}, Lương hàng tháng: {self.__MonthlySalary}"
+
+    # Caculate monthly salary of researcher
+    def caculateMonthlySalary(self) -> None:
+        self.__MonthlySalary = self.__Salary + self.__Salary * (self.__ResponsibilityIndex - 0.2) + self.__NumberOfInventionWorks * 5500000
+
