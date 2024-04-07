@@ -108,3 +108,5 @@ class Expert(Staff):
     def __str__(self) -> str:
         return f"ID: {self.__ID}, Họ và tên: {self.__Name}, Lương cơ bản: {self.__Salary}, Chỉ số trách nhiệm: {self.__ResponsibilityIndex}, Số giờ tăng ca: {self.__OvertimeHours}, Lương hàng tháng: {self.__MonthlySalary}"
 
+    def caculateMonthlySalary(self) -> None:
+        self.__MonthlySalary = self.__Salary + self.__Salary * self.__ResponsibilityIndex + self.__OvertimeHours * 180000
