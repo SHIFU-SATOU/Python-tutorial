@@ -136,3 +136,7 @@ class Manager(Staff):
     # Print info of manager
     def __str__(self) -> str:
         return f"ID: {self.__ID}, Họ và tên: {self.__Name}, Lương cơ bản: {self.__Salary}, Hệ số trách nhiệm: {self.__ResponsibilityIndex}, Hệ số kiêm nhiệm: {self.__MonthlySalary}, Lương hàng tháng: {self.__MonthlySalary}"
+
+    # Caculate monthly salary of manager
+    def caculateMonthlySalary(self) ->None:
+        self.__MonthlySalary = self.__Salary * 0.7 + self.__Salary * self.__ResponsibilityIndex + self.__Salary * self.__ConcurrentCoefficient
