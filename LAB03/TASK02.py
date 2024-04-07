@@ -3,6 +3,8 @@ import re
 import random
 from abc import ABC, abstractmethod
 
+class Staff:
+    pass
 
 class Staff(ABC):
     __Staffs = []  # staff list
@@ -97,3 +99,9 @@ class Staff(ABC):
             if e.ID == id:
                 e.Salary = new_salary
                 break
+
+    class Expert(Staff):
+        # Constructor
+        def __init__(self, **kwargs) -> None:
+            super().__init__()
+            self.__OvertimeHours = kwargs.get('OvertimeHours', 0)
