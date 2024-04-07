@@ -127,3 +127,8 @@ class Researcher(Staff):
     def caculateMonthlySalary(self) -> None:
         self.__MonthlySalary = self.__Salary + self.__Salary * (self.__ResponsibilityIndex - 0.2) + self.__NumberOfInventionWorks * 5500000
 
+class Manager(Staff):
+    # Constructor
+    def __init__(self, **kwargs) -> None:
+        super().__init__()
+        self.__ConcurrentCoefficient = kwargs.get('ConcurrentCoefficient', 0.0)
