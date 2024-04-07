@@ -132,3 +132,7 @@ class Manager(Staff):
     def __init__(self, **kwargs) -> None:
         super().__init__()
         self.__ConcurrentCoefficient = kwargs.get('ConcurrentCoefficient', 0.0)
+
+    # Print info of manager
+    def __str__(self) -> str:
+        return f"ID: {self.__ID}, Họ và tên: {self.__Name}, Lương cơ bản: {self.__Salary}, Hệ số trách nhiệm: {self.__ResponsibilityIndex}, Hệ số kiêm nhiệm: {self.__MonthlySalary}, Lương hàng tháng: {self.__MonthlySalary}"
