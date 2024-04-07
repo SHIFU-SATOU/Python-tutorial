@@ -3,8 +3,6 @@ import re
 import random
 from abc import ABC, abstractmethod
 
-class Staff:
-    pass
 
 class Staff(ABC):
     __Staffs = []  # staff list
@@ -100,8 +98,13 @@ class Staff(ABC):
                 e.Salary = new_salary
                 break
 
-    class Expert(Staff):
-        # Constructor
-        def __init__(self, **kwargs) -> None:
-            super().__init__()
-            self.__OvertimeHours = kwargs.get('OvertimeHours', 0)
+
+class Expert(Staff):
+    # Constructor
+    def __init__(self, **kwargs) -> None:
+        super().__init__()
+        self.__OvertimeHours = kwargs.get('OvertimeHours', 0)
+
+    def __str__(self) -> str:
+        return f"ID: {self.__ID}, Họ và tên: {self.__Name}, Lương cơ bản: {self.__Salary}, Chỉ số trách nhiệm: {self.__ResponsibilityIndex}, Số giờ tăng ca: {self.__OvertimeHours}, Lương hàng tháng: {self.__MonthlySalary}"
+
