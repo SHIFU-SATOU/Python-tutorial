@@ -110,3 +110,9 @@ class Expert(Staff):
 
     def caculateMonthlySalary(self) -> None:
         self.__MonthlySalary = self.__Salary + self.__Salary * self.__ResponsibilityIndex + self.__OvertimeHours * 180000
+
+class Researcher(Staff):
+    # Constructor
+    def __init__(self, **kwargs) -> None:
+        super().__init__()
+        self.__NumberOfInventionWorks = kwargs.get('NumberOfInventionWorks', 0)
