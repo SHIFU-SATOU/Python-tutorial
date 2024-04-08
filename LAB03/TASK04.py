@@ -12,13 +12,16 @@ class Point(ABC):
 class Circle(Point):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self._Radius = kwargs.get('Radius', 0)
+        self.__Radius = kwargs.get('Radius', 0)
 
     # Print info of circle
     def __str__(self) -> str:
-        return f"Tâm O: ({self._X}, {self._Y})| Bán kính: {self._Radius}"
+        return f"Tâm O: ({self._X}, {self._Y})| Bán kính: {self.__Radius}"
 
     # Caculate perimeter
     def caculatePerimeter(self) -> float:
-        return round(2 * math.pi * self._Radius, 2)
+        return round(2 * math.pi * self.__Radius, 2)
 
+    # Caculate square
+    def caculateSquare(self) -> float:
+        return round(math.pi * self.__Radius ** 2, 2)
