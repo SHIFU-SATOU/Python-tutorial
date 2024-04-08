@@ -54,3 +54,5 @@ class MixedNumber(Fraction):
         return MixedNumber(NewNumerator, NewDenominator, IntergerPart)
 
     # Convert mixed number to fraction
+    def convertMixedNumberToFraction(self) -> Fraction:
+        return Fraction(self.__Number * self._Denominator + self._Numerator, self._Denominator).shortenFraction()
