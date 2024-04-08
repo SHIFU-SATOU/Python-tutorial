@@ -61,6 +61,15 @@ class Student(ABC):
                 GraduationStudents.append(e)
         return GraduationStudents
 
+    # Find undergraduate students
+    @classmethod
+    def findUndergraduateStudents(cls) -> list:
+        UndergraduateStudents = []
+        for e in cls.__Students:
+            if e.isGraduation != True:
+                UndergraduateStudents.append(e)
+        return UndergraduateStudents
+
     # Automatically generate ID
     @classmethod
     def increaseID(cls) -> None:
@@ -136,4 +145,9 @@ if __name__ == '__main__':
     print("-Danh sách sinh viên đủ điều kiện tốt nghiêp:")
     GraduationStudents = Student.findGraduationStudents()
     for e in GraduationStudents:
+        print(e)
+    # Find undergraduate students
+    print("-Danh sách sinh viên không đủ điều kiện tốt nghiệp:")
+    UndergraduateStudents = Student.findUndergraduateStudents()
+    for e in UndergraduateStudents:
         print(e)
