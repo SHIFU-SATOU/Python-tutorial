@@ -25,3 +25,9 @@ class Researcher(Staff):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.__NumberInvention = kwargs.get('number_invention', 0)
+
+class Manager(Staff):
+    # Constructor
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.__ConcurrentCoefficient = kwargs.get('concurrent_coefficient', 0.0)
