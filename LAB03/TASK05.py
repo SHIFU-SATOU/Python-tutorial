@@ -26,6 +26,11 @@ class Fraction():
             a, b = b, a % b
         return a
 
+    # Shorten fraction
+    def shortenFraction(self) -> Fraction:
+        GCD = self.findGCD()
+        return Fraction(self._Numerator // GCD, self._Denominator // GCD)
+
 
 class MixedNumber:
     pass
@@ -49,4 +54,3 @@ class MixedNumber(Fraction):
         return MixedNumber(NewNumerator, NewDenominator, IntergerPart)
 
     # Convert mixed number to fraction
-
