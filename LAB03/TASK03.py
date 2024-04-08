@@ -15,6 +15,10 @@ class Student(ABC):
         self._NumberCredits = kwargs.get('number_credits', 0)
         self._GPA = kwargs.get('gpa', 0.0)
 
+    @abstractmethod
+    def __str__(self) -> str:
+        pass
+
     # Automatically create students
     @classmethod
     def createStudentsList(cls, number: int):
@@ -85,11 +89,16 @@ class FullTimeStudent(Student):
         self.__EssayName = kwargs.get('essay_name', "Trống")
         self.__EssayScore = kwargs.get('essay_score', 0.0)
 
+    def __str__(self) -> str:
+        return f"ID: {self._ID}, Tên: {self._Name}, Địa chỉ: {self._Address}, Tín chỉ: {self._NumberCredits}, GPA: {self._GPA}, Tên luận văn: {self.__EssayName}, Điểm luận văn: {self.__EssayScore}"
 
 class PartTimeStudent(Student):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.__GraduationScore = kwargs.get('graduation_score', 0.0)
+
+    def __str__(self) -> str:
+        return f"ID: {self._ID}, Tên: {self._Name}, Địa chỉ: {self._Address}, Tín chỉ: {self._NumberCredits}, GPA: {self._GPA}, Điểm thi tốt nghiệp: {self.__GraduationScore}"
 
 if __name__ == '__main__':
     Student.createStudentsList(40)
