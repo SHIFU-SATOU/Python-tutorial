@@ -26,6 +26,16 @@ class Staff(ABC):
     def MonthlySalary(self) -> float:
         return self._MonthlySalary
 
+    # Get salary of staff
+    @property
+    def Salary(self) -> float:
+        return self._Salary
+
+    # Set salary of staff
+    @Salary.setter
+    def Salary(self, money: float) -> None:
+        self._Salary = money
+
     # Print info of staff
     @abstractmethod
     def __str__(self) -> str:
