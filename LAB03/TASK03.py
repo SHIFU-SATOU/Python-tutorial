@@ -52,6 +52,15 @@ class Student(ABC):
         for e in cls.__Students:
             print(e)
 
+    # Find graduation students
+    @classmethod
+    def findGraduationStudents(cls) -> list:
+        GraduationStudents = []
+        for e in cls.__Students:
+            if e.isGraduation():
+                GraduationStudents.append(e)
+        return GraduationStudents
+
     # Automatically generate ID
     @classmethod
     def increaseID(cls) -> None:
@@ -123,3 +132,8 @@ class PartTimeStudent(Student):
 if __name__ == '__main__':
     Student.createStudentsList(40)
     Student.printStudentsList()
+    # Find graduation students
+    print("-Danh sách sinh viên đủ điều kiện tốt nghiêp:")
+    GraduationStudents = Student.findGraduationStudents()
+    for e in GraduationStudents:
+        print(e)
