@@ -9,7 +9,7 @@ class Staff(ABC):
 
     # Constructor
     def __init__(self, **kwargs):
-        self._ID = kwargs.get('id')
+        self._ID = str(kwargs.get('id'))
         self._Name = kwargs.get('name', "Trống")
         money = float("".join(kwargs.get('salary').split("_")))
         self._Salary = money
@@ -47,10 +47,18 @@ class Staff(ABC):
         for e in cls.__Staffs:
             print(e)
 
+    # Caculate monthly salary for all staffs
     @classmethod
     def caculateAllMonthlySalary(cls) -> None:
         for e in cls.__Staffs:
             e.caculateMonthlySalary()
+
+    # Find staff by ID
+    @classmethod
+    def findStaffByID(cls, id: str):
+        for e in cls.__Staffs:
+            if e.ID == id:
+                return e
 
 
 class Expert(Staff):
@@ -96,13 +104,23 @@ class Manager(Staff):
 
 if __name__ == '__main__':
     StaffA = Expert(id=123, name="Nguyen A", salary='4_500_000', responsibility_index=0.5, overtime_hours=50)
-
     Staff.addStaff(StaffA)
     StaffB = Researcher(id=124, name="Nguyen B", salary='5_600_000', responsibility_index=1.2, number_invention=10)
-
     Staff.addStaff(StaffB)
     StaffC = Manager(id=125, name="Nguyen C", salary='7_800_800', responsibility_index=1.5, concurrent_coefficient=1.3)
-
     Staff.addStaff(StaffC)
+    StaffD = Researcher(id=126, name="Nguyen D", salary='8_100_000', responsibility_index=0.8, number_invention=12)
+    Staff.addStaff(StaffD)
+    StaffE = Manager(id=127, name="Nguyen E", salary='9_500_000', responsibility_index=1.0, concurrent_coefficient=1.6)
+    Staff.addStaff(StaffE)
+    StaffF = Expert(id=128, name="Nguyen F", salary='6_500_000', responsibility_index=0.8, overtime_hours=30)
+    Staff.addStaff(StaffF)
+
+    # Caculate monthly salary for all staff
     Staff.caculateAllMonthlySalary()
+    # Print staffs list
+    print("-Danh sách nhân viên:")
     Staff.printStaffsList()
+    # Find staff with ID: 125
+    print("-Nhân viên ID:125")
+    print(Staff.findStaffByID('125'))
