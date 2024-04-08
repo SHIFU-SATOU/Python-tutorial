@@ -80,6 +80,16 @@ class MixedNumber(Fraction):
                                    self._Denominator * other.Denominator).shortenFraction()
             return MixedNumber(NewFraction.Numerator, NewFraction.Denominator, self.__Number)
 
+    # Define mutiply operator of mixed number
+    def __mul__(self, other) -> MixedNumber:
+        if type(other) == type(int()):
+            return MixedNumber(self._Numerator, self._Denominator, self.__Number * other)
+        elif other.__class__.__name__ == 'MixedNumber':
+            return MixedNumber(self._Numerator * other.Numerator, self._Denominator * other.Denominator,
+                               self.__Number * other.Number)
+        elif other.__class__.__name__ == 'Fraction':
+            return MixedNumber(self._Numerator * other.Numerator, self._Denominator * other.Denominator, self.__Number)
+
     # Convert fraction to mixed number
     @staticmethod
     def convertFractionToMixedNumber(fraction: Fraction) -> MixedNumber:
