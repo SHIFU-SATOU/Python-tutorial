@@ -68,11 +68,18 @@ class Student(ABC):
 
     # Find best students
     @classmethod
-    def findBestStudents(cls):
+    def findBestStudents(cls) -> list:
         # Find highest score
         Max = 0
         for e in cls.__Students:
-
+            if e.GPA > Max:
+                Max = e.GPA
+        # Find best students
+        BestStudents = []
+        for e in cls.__Students:
+            if e.GPA == Max:
+                BestStudents.append(e)
+        return BestStudents
 
     # Find undergraduate students
     @classmethod
@@ -163,4 +170,9 @@ if __name__ == '__main__':
     print("-Danh sách sinh viên không đủ điều kiện tốt nghiệp:")
     UndergraduateStudents = Student.findUndergraduateStudents()
     for e in UndergraduateStudents:
+        print(e)
+    # Find best students
+    print("-Danh sách những sinh viên có điểm trung bình cao nhất:")
+    BestStudents = Student.findBestStudents()
+    for e in BestStudents:
         print(e)
