@@ -64,12 +64,15 @@ class MixedNumber(Fraction):
     def __str__(self) -> str:
         return f"{self.__Number} {self._Numerator}/{self._Denominator}"
 
-    # Define the addition operator for mixed numbers
+    # Define the addition operator of mixed numbers
     def __add__(self, other) -> MixedNumber:
         if type(other) == type(int()):
             return MixedNumber(self._Numerator, self._Denominator, self.__Number + other)
         elif other.__class__.__name__ == 'MixedNumber':
-            return MixedNumber(self._Numerator + other.Numerator, )
+            return MixedNumber(self._Numerator + other.Numerator, self._Denominator + other.Denominator,
+                               self.__Number + other.Number)
+        elif other.__class__.__name__ == 'Fraction':
+            return MixedNumber(self._Numerator + other.Numerator, self._Denominator + other.Denominator, self.__Number)
 
     # Convert fraction to mixed number
     @staticmethod
@@ -83,10 +86,16 @@ class MixedNumber(Fraction):
     def convertMixedNumberToFraction(self) -> Fraction:
         return Fraction(self.__Number * self._Denominator + self._Numerator, self._Denominator).shortenFraction()
 
+
 if __name__ == "__main__":
     a = Fraction(5, 2)
     b = MixedNumber(1, 2, 2)
+    b2 = MixedNumber(4, 4, 4)
     # Convert fraction a to mixed number
     print(f"-Phân số a sau khi chuyển sang hỗn số: {MixedNumber.convertFractionToMixedNumber(a)}")
     # Convert mixed number b to fraction
     print(f"-Hỗn số b sau khi chuyển sang phân số: {b.convertMixedNumberToFraction()}")
+    # Test addition operator of mixed number
+    print(f"-Hỗn số b cộng phân số a: {b + a}")
+    print(f"-Hỗn số b cộng hỗn số b2: {b + b2}")
+    print(f"-Hỗn số b cộng 5: {b + 5}")
