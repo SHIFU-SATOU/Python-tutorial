@@ -23,8 +23,8 @@ class Staff(ABC):
 
     # Get monthly salary of staff
     @property
-    def salary(self) -> float:
-        return self._Salary
+    def MonthlySalary(self) -> float:
+        return self._MonthlySalary
 
     # Print info of staff
     @abstractmethod
@@ -59,6 +59,14 @@ class Staff(ABC):
         for e in cls.__Staffs:
             if e.ID == id:
                 return e
+
+    # Caculate labors cost
+    @classmethod
+    def caculateLaborsCost(cls) -> float:
+        Total = 0
+        for e in cls.__Staffs:
+            Total += e.MonthlySalary
+        return round(Total, 2)
 
 
 class Expert(Staff):
@@ -124,3 +132,5 @@ if __name__ == '__main__':
     # Find staff with ID: 125
     print("-Nhân viên ID:125")
     print(Staff.findStaffByID('125'))
+    # Caculate labors cost
+    print(f"-Chi phí nhân công: {Staff.caculateLaborsCost()}")
