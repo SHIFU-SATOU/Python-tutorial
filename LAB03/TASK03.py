@@ -144,7 +144,9 @@ class FullTimeStudent(Student):
         return f"ID: {self._ID}| Tên: {self._Name}| Địa chỉ: {self._Address}| Tín chỉ: {self._NumberCredits}| GPA: {self._GPA}| Tên luận văn: {self.__EssayName}| Điểm luận văn: {self.__EssayScore}"
 
     def isGraduation(self) -> bool:
-        return self._NumberCredits >= 120 and self._GPA >= 5 and self.__EssayScore >= 5
+        Result = self._NumberCredits >= 120 and self._GPA >= 5 and self.__EssayScore >= 5
+        self._Graduation = Result
+        return Result
 
 
 class PartTimeStudent(Student):
@@ -156,7 +158,9 @@ class PartTimeStudent(Student):
         return f"ID: {self._ID}| Tên: {self._Name}| Địa chỉ: {self._Address}| Tín chỉ: {self._NumberCredits}| GPA: {self._GPA}| Điểm thi tốt nghiệp: {self.__GraduationScore}"
 
     def isGraduation(self) -> bool:
-        return self._NumberCredits >= 84 and self._GPA >= 5 and self.__GraduationScore >= 5
+        Result = self._NumberCredits >= 84 and self._GPA >= 5 and self.__GraduationScore >= 5
+        self._Graduation = Result
+        return Result
 
 
 if __name__ == '__main__':
