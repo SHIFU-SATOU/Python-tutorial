@@ -118,6 +118,15 @@ class MixedNumber(Fraction):
         elif other.__class__.__name__ == 'Fraction':
             return self.__Number + self._Numerator / self._Denominator != other.Numerator / other.Denominator
 
+    # Definde not equal operator of mixed number
+    def __gt__(self, other) -> bool:
+        if type(other) == type(int()):
+            return self.__Number + self._Numerator / self._Denominator > other
+        elif other.__class__.__name__ == 'MixedNumber':
+            return self.__Number > other.Number and self._Numerator > other.Numerator and self._Denominator > other.Denominator
+        elif other.__class__.__name__ == 'Fraction':
+            return self.__Number + self._Numerator / self._Denominator > other.Numerator / other.Denominator
+
     # Convert fraction to mixed number
     @staticmethod
     def convertFractionToMixedNumber(fraction: Fraction) -> MixedNumber:
