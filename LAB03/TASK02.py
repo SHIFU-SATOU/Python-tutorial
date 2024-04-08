@@ -68,6 +68,21 @@ class Staff(ABC):
             Total += e.MonthlySalary
         return round(Total, 2)
 
+    # Find staffs with highest monthly salary
+    @classmethod
+    def findBestStaffs(cls) -> list:
+        # Find highest salary
+        Max = 0
+        for e in cls.__Staffs:
+            if e.MonthlySalary > Max:
+                Max = e.MonthlySalary
+        # Find staffs with salary equal highest salary
+        BestStaffs = []
+        for e in cls.__Staffs:
+            if e.MonthlySalary == Max:
+                BestStaffs.append(e.ID)
+        return BestStaffs
+
 
 class Expert(Staff):
     # Constructor
@@ -134,3 +149,8 @@ if __name__ == '__main__':
     print(Staff.findStaffByID('125'))
     # Caculate labors cost
     print(f"-Chi phí nhân công: {Staff.caculateLaborsCost()}")
+    # Find staffs with highest monthly salary
+    print("-Những nhân viên có lương cao nhất:")
+    BestStaffs = Staff.findBestStaffs()
+    for e in BestStaffs:
+        print(e)
