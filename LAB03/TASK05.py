@@ -64,7 +64,7 @@ class MixedNumber(Fraction):
     def __str__(self) -> str:
         return f"{self.__Number} {self._Numerator}/{self._Denominator}"
 
-    # Define the addition operator of mixed numbers
+    # Define the addition operator of mixed number
     def __add__(self, other) -> MixedNumber:
         if type(other) == type(int()):
             return MixedNumber(self._Numerator, self._Denominator, self.__Number + other)
@@ -73,6 +73,17 @@ class MixedNumber(Fraction):
                                self.__Number + other.Number)
         elif other.__class__.__name__ == 'Fraction':
             return MixedNumber(self._Numerator + other.Numerator, self._Denominator + other.Denominator, self.__Number)
+
+    # Define the subtract operator of mixed number
+    def __sub__(self, other) -> MixedNumber:
+        if type(other) == type(int()):
+            return MixedNumber(self._Numerator, self._Denominator, self.__Number - other)
+        elif other.__class__.__name__ == 'MixedNumber':
+            return MixedNumber(self._Numerator - other.Numerator, self._Denominator - other.Denominator,
+                               self.__Number - other.Number)
+        elif other.__class__.__name__ == 'Fraction':
+            return MixedNumber(self._Numerator - other.Numerator, self._Denominator - other.Denominator,
+                               self.__Number)
 
     # Convert fraction to mixed number
     @staticmethod
