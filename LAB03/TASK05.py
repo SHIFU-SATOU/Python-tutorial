@@ -45,9 +45,21 @@ class MixedNumber(Fraction):
         super().__init__(numerator, denominator)
         self.__Number = number
 
+    # Get numerator of mixed number
+    @property
+    def Numerator(self) -> int:
+        return self._Numerator
+
     # Print mixed number
     def __str__(self) -> str:
         return f"{self.__Number} {self._Numerator}/{self._Denominator}"
+
+    # Define the addition operator for mixed numbers
+    def __add__(self, other) -> MixedNumber:
+        if type(other) == type(int()):
+            return MixedNumber(self._Numerator, self._Denominator, self.__Number + other)
+        elif other.__class__.__name__ == 'MixedNumber':
+            return MixedNumber(self._Numerator + other.Numerator, )
 
     # Convert fraction to mixed number
     @staticmethod
