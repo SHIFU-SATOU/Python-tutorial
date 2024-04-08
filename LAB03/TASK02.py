@@ -47,6 +47,11 @@ class Staff(ABC):
         for e in cls.__Staffs:
             print(e)
 
+    @classmethod
+    def caculateAllMonthlySalary(cls) -> None:
+        for e in cls.__Staffs:
+            e.caculateMonthlySalary()
+
 
 class Expert(Staff):
     # Constructor
@@ -91,12 +96,13 @@ class Manager(Staff):
 
 if __name__ == '__main__':
     StaffA = Expert(id=123, name="Nguyen A", salary='4_500_000', responsibility_index=0.5, overtime_hours=50)
-    StaffA.caculateMonthlySalary()
+
     Staff.addStaff(StaffA)
     StaffB = Researcher(id=124, name="Nguyen B", salary='5_600_000', responsibility_index=1.2, number_invention=10)
-    StaffB.caculateMonthlySalary()
+
     Staff.addStaff(StaffB)
     StaffC = Manager(id=125, name="Nguyen C", salary='7_800_800', responsibility_index=1.5, concurrent_coefficient=1.3)
-    StaffC.caculateMonthlySalary()
+
     Staff.addStaff(StaffC)
+    Staff.caculateAllMonthlySalary()
     Staff.printStaffsList()
