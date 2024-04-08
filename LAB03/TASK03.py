@@ -15,6 +15,11 @@ class Student(ABC):
         self._NumberCredits = kwargs.get('number_credits', 0)
         self._GPA = kwargs.get('gpa', 0.0)
 
+    # Get GPA
+    @property
+    def GPA(self) -> float:
+        return self._GPA
+
     # Print info of student
     @abstractmethod
     def __str__(self) -> str:
@@ -60,6 +65,14 @@ class Student(ABC):
             if e.isGraduation():
                 GraduationStudents.append(e)
         return GraduationStudents
+
+    # Find best students
+    @classmethod
+    def findBestStudents(cls):
+        # Find highest score
+        Max = 0
+        for e in cls.__Students:
+
 
     # Find undergraduate students
     @classmethod
