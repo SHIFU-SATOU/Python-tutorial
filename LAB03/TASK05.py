@@ -45,16 +45,6 @@ class MixedNumber(Fraction):
         super().__init__(numerator, denominator)
         self.__Number = number
 
-    # Get numerator of mixed number
-    @property
-    def Numerator(self) -> int:
-        return self._Numerator
-
-    # Get denominator of mixed number
-    @property
-    def Denominator(self) -> int:
-        return self._Denominator
-
     # Get integer part of mixed number
     @property
     def Number(self) -> int:
@@ -69,21 +59,26 @@ class MixedNumber(Fraction):
         if type(other) == type(int()):
             return MixedNumber(self._Numerator, self._Denominator, self.__Number + other)
         elif other.__class__.__name__ == 'MixedNumber':
-            return MixedNumber(self._Numerator + other.Numerator, self._Denominator + other.Denominator,
-                               self.__Number + other.Number)
+            NewFraction = Fraction(self._Numerator * other.Denominator + other.Numerator * self._Denominator,
+                                   self._Denominator * other.Denominator).shortenFraction()
+            return MixedNumber(NewFraction.Numerator, NewFraction.Denominator, self.__Number + other.Number)
         elif other.__class__.__name__ == 'Fraction':
-            return MixedNumber(self._Numerator + other.Numerator, self._Denominator + other.Denominator, self.__Number)
+            NewFraction = Fraction(self._Numerator * other.Denominator + other.Numerator * self._Denominator,
+                                   self._Denominator * other.Denominator).shortenFraction()
+            return MixedNumber(NewFraction.Numerator, NewFraction.Denominator, self.__Number)
 
     # Define the subtract operator of mixed number
     def __sub__(self, other) -> MixedNumber:
         if type(other) == type(int()):
             return MixedNumber(self._Numerator, self._Denominator, self.__Number - other)
         elif other.__class__.__name__ == 'MixedNumber':
-            return MixedNumber(self._Numerator - other.Numerator, self._Denominator - other.Denominator,
-                               self.__Number - other.Number)
+            NewFraction = Fraction(self._Numerator * other.Denominator - other.Numerator * self._Denominator,
+                                   self._Denominator * other.Denominator).shortenFraction()
+            return MixedNumber(NewFraction.Numerator, NewFraction.Denominator, self.__Number - other.Number)
         elif other.__class__.__name__ == 'Fraction':
-            return MixedNumber(self._Numerator - other.Numerator, self._Denominator - other.Denominator,
-                               self.__Number)
+            NewFraction = Fraction(self._Numerator * other.Denominator - other.Numerator * self._Denominator,
+                                   self._Denominator * other.Denominator).shortenFraction()
+            return MixedNumber(NewFraction.Numerator, NewFraction.Denominator, self.__Number)
 
     # Convert fraction to mixed number
     @staticmethod
@@ -110,3 +105,7 @@ if __name__ == "__main__":
     print(f"-Hỗn số b cộng phân số a: {b + a}")
     print(f"-Hỗn số b cộng hỗn số b2: {b + b2}")
     print(f"-Hỗn số b cộng 5: {b + 5}")
+    # Test substract operator of mixed number
+    print(f"-Hỗn số b trừ phân số a: {b - a}")
+    print(f"-Hỗn số b2 trừ hỗn số b: {b2 - b}")
+    print(f"-Hỗn số b trừ 5: {b - 5}")
