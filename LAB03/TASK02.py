@@ -19,3 +19,9 @@ class Expert(Staff):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.__OvertimeHours = kwargs.get('overtime_hours', 0)
+
+class Researcher(Staff):
+    # Constructor
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.__NumberInvention = kwargs.get('number_invention', 0)
