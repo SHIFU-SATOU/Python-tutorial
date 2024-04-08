@@ -86,7 +86,7 @@ class Student(ABC):
     # Generate random GPA
     @staticmethod
     def __generateRandomScore() -> float:
-        return random.uniform(0, 10)
+        return round(random.uniform(0, 10), 1)
 
 
 class FullTimeStudent(Student):
