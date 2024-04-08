@@ -16,3 +16,8 @@ class FullTimeStudent(Student):
         super().__init__(**kwargs)
         self.__EssayName = kwargs.get('essay_name', "Trống")
         self.__EssayScore = kwargs.get('essay_score', 0.0)
+
+class PartTimeStudent(Student):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.__GraduationScore = kwargs.get('graduation_score', 0.0)
