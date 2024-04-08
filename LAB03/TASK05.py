@@ -118,7 +118,7 @@ class MixedNumber(Fraction):
         elif other.__class__.__name__ == 'Fraction':
             return self.__Number + self._Numerator / self._Denominator != other.Numerator / other.Denominator
 
-    # Definde not equal operator of mixed number
+    # Definde greater than operator of mixed number
     def __gt__(self, other) -> bool:
         if type(other) == type(int()):
             return self.__Number + self._Numerator / self._Denominator > other
@@ -126,6 +126,15 @@ class MixedNumber(Fraction):
             return self.__Number > other.Number and self._Numerator > other.Numerator and self._Denominator > other.Denominator
         elif other.__class__.__name__ == 'Fraction':
             return self.__Number + self._Numerator / self._Denominator > other.Numerator / other.Denominator
+
+    # Definde greater than or equal operator of mixed number
+    def __ge__(self, other) -> bool:
+        if type(other) == type(int()):
+            return self.__Number + self._Numerator / self._Denominator >= other
+        elif other.__class__.__name__ == 'MixedNumber':
+            return self.__Number >= other.Number and self._Numerator >= other.Numerator and self._Denominator >= other.Denominator
+        elif other.__class__.__name__ == 'Fraction':
+            return self.__Number + self._Numerator / self._Denominator >= other.Numerator / other.Denominator
 
     # Convert fraction to mixed number
     @staticmethod
@@ -172,3 +181,7 @@ if __name__ == "__main__":
     print(f"-Hỗn số b có khác phân số a? {b != a}")
     print(f"-Hỗn số b có khác hỗn số b 2? {b != b2}")
     print(f"-Hỗn số b có khác 5? {b != 5}")
+    # Test greater than operator of mixed number
+    print(f"-Hỗn số b có lớn hơn phân số a? {b > a}")
+    print(f"-Hỗn số b có lớn hơn hỗn số b 2? {b > b2}")
+    print(f"-Hỗn số b có lớn hơn 5? {b > 5}")
