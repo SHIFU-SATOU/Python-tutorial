@@ -91,6 +91,12 @@ class Student(ABC):
                 UndergraduateStudents.append(e)
         return UndergraduateStudents
 
+    # Graduation consideration for all students
+    @classmethod
+    def graduationConsiderationForAllStudents(cls) -> None:
+        for e in cls.__Students:
+            e.isGraduation()
+
     # Automatically generate ID
     @classmethod
     def increaseID(cls) -> None:
@@ -166,6 +172,8 @@ class PartTimeStudent(Student):
 if __name__ == '__main__':
     Student.createStudentsList(40)
     Student.printStudentsList()
+    # Graduation consideration for all students
+    Student.graduationConsiderationForAllStudents()
     # Find graduation students
     print("-Danh sách sinh viên đủ điều kiện tốt nghiêp:")
     GraduationStudents = Student.findGraduationStudents()
