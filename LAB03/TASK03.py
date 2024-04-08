@@ -96,7 +96,7 @@ class FullTimeStudent(Student):
         self.__EssayScore = kwargs.get('essay_score', 0.0)
 
     def __str__(self) -> str:
-        return f"ID: {self._ID}, Tên: {self._Name}, Địa chỉ: {self._Address}, Tín chỉ: {self._NumberCredits}, GPA: {self._GPA}, Tên luận văn: {self.__EssayName}, Điểm luận văn: {self.__EssayScore}"
+        return f"ID: {self._ID}| Tên: {self._Name}| Địa chỉ: {self._Address}| Tín chỉ: {self._NumberCredits}| GPA: {self._GPA}| Tên luận văn: {self.__EssayName}| Điểm luận văn: {self.__EssayScore}"
 
 class PartTimeStudent(Student):
     def __init__(self, **kwargs):
@@ -104,7 +104,7 @@ class PartTimeStudent(Student):
         self.__GraduationScore = kwargs.get('graduation_score', 0.0)
 
     def __str__(self) -> str:
-        return f"ID: {self._ID}, Tên: {self._Name}, Địa chỉ: {self._Address}, Tín chỉ: {self._NumberCredits}, GPA: {self._GPA}, Điểm thi tốt nghiệp: {self.__GraduationScore}"
+        return f"ID: {self._ID}| Tên: {self._Name}| Địa chỉ: {self._Address}| Tín chỉ: {self._NumberCredits}| GPA: {self._GPA}| Điểm thi tốt nghiệp: {self.__GraduationScore}"
 
 if __name__ == '__main__':
     Student.createStudentsList(40)
