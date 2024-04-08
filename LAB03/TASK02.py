@@ -93,6 +93,13 @@ class Staff(ABC):
                 BestStaffs.append(e.ID)
         return BestStaffs
 
+    # Update salary by ID
+    @classmethod
+    def updateSalaryByID(cls, id: str, money: float) -> None:
+        for e in cls.__Staffs:
+            if e.ID == id:
+                e.Salary = money
+
 
 class Expert(Staff):
     # Constructor
@@ -164,3 +171,7 @@ if __name__ == '__main__':
     BestStaffs = Staff.findBestStaffs()
     for e in BestStaffs:
         print(e)
+    # Update salary of staff with ID: 125
+    print("-Lương mới của nhân viên 125 sau khi được cập nhật lương:")
+    Staff.updateSalaryByID('125', 1000000)
+    print(Staff.findStaffByID('125'))
