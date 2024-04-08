@@ -211,7 +211,7 @@ if __name__ == "__main__":
     print(f"-Hỗn số b có nhỏ hơn phân số a? {b < a}")
     print(f"-Hỗn số b có nhỏ hơn hỗn số b 2? {b < b2}")
     print(f"-Hỗn số b có nhỏ hơn 5? {b < 5}")
-    # # Test letter than or equal operator of mixed number
-    # print(f"-Hỗn số b có nhỏ hơn hoặc bằng phân số a? {b <= a}")
-    # print(f"-Hỗn số b có nhỏ hơn hoặc bằng hỗn số b 2? {b <= b2}")
-    # print(f"-Hỗn số b có nhỏ hơn hoặc bằng 5? {b <= 5}")
+    # Test letter than or equal operator of mixed number
+    print(f"-Hỗn số b có nhỏ hơn hoặc bằng phân số a? {b <= a}")
+    print(f"-Hỗn số b có nhỏ hơn hoặc bằng hỗn số b 2? {b <= b2}")
+    print(f"-Hỗn số b có nhỏ hơn hoặc bằng 5? {b <= 5}")
