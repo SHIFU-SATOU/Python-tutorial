@@ -2,6 +2,7 @@ import random
 import re
 from abc import ABC, abstractmethod
 
+
 class Student(ABC):
     __Students = []
     __CurrentID = 'SV00'
@@ -12,7 +13,28 @@ class Student(ABC):
         self._Name = kwargs.get('name', "Trống")
         self._Address = kwargs.get('address', "Trống")
         self._NumberCredits = kwargs.get('number_credits', 0)
-        self._GPA = kwargs.get('GPA', 0.0)
+        self._GPA = kwargs.get('gpa', 0.0)
+
+    # Automatically create students
+    @classmethod
+    def createStudentsList(cls, number: int):
+        Student.increaseID()
+        name = Student.__generateRandomName()
+        address = Student.__generateRandomAddress()
+        number_credits = Student.__generateRandomNumberCredits()
+        gpa = Student.__generateRandomScore()
+        Type = ['Full-time', 'Part-time']
+        for i in range(number):
+            if random.choice(Type) == 'Full-time':
+                essay_score = Student.__generateRandomScore()
+                new_student = FullTimeStudent(id=cls.__CurrentID, name=name, address=address,
+                                              number_credits=number_credits, gpa=gpa, essay_score=essay_score)
+                cls.__Students.append(new_student)
+            elif random.choice(Type) == 'Part-time':
+                graduation_score = Student.__generateRandomScore()
+                new_student = PartTimeStudent(id=cls.__CurrentID, name=name, address=address,
+                                              number_credits=number_credits, gpa=gpa, graduation_score=graduation_score)
+                cls.__Students.append(new_student)
 
     # Automatically generate ID
     @classmethod
@@ -53,7 +75,7 @@ class Student(ABC):
 
     # Generate random GPA
     @staticmethod
-    def __generateRandomScore(self) -> float:
+    def __generateRandomScore() -> float:
         return random.uniform(0, 10)
 
 
@@ -63,8 +85,11 @@ class FullTimeStudent(Student):
         self.__EssayName = kwargs.get('essay_name', "Trống")
         self.__EssayScore = kwargs.get('essay_score', 0.0)
 
+
 class PartTimeStudent(Student):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.__GraduationScore = kwargs.get('graduation_score', 0.0)
 
+if __name__ == '__main__':
+    Student.createStudentsList(40)
