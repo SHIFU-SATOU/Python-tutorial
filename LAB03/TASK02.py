@@ -36,6 +36,11 @@ class Staff(ABC):
     def caculateMonthlySalary(self) -> None:
         pass
 
+    # Add staff to staffs list
+    @classmethod
+    def addStaff(cls, staff) -> None:
+        cls.__Staffs.append(staff)
+
 
 class Expert(Staff):
     # Constructor
@@ -62,7 +67,7 @@ class Researcher(Staff):
 
     def caculateMonthlySalary(self) -> None:
         self._MonthlySalary = self._Salary + self._Salary * (
-                    self._ResponsibilityIndex - 0.2) + self.__NumberInvention * 5500000
+                self._ResponsibilityIndex - 0.2) + self.__NumberInvention * 5500000
 
 
 class Manager(Staff):
@@ -76,6 +81,7 @@ class Manager(Staff):
 
     def caculateMonthlySalary(self) -> None:
         self._MonthlySalary = self._Salary * 0.7 + self._Salary * self._ResponsibilityIndex + self._Salary * self.__ConcurrentCoefficient
+
 
 if __name__ == '__main__':
     StaffA = Expert(id=123, name="Nguyen A", salary='4_500_000', responsibility_index=0.5, overtime_hours=50)
