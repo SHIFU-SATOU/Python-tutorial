@@ -15,8 +15,14 @@ class Student(ABC):
         self._NumberCredits = kwargs.get('number_credits', 0)
         self._GPA = kwargs.get('gpa', 0.0)
 
+    # Print info of student
     @abstractmethod
     def __str__(self) -> str:
+        pass
+
+    # Check graduation
+    @abstractmethod
+    def isGraduation(self) -> bool:
         pass
 
     # Automatically create students
@@ -98,6 +104,10 @@ class FullTimeStudent(Student):
     def __str__(self) -> str:
         return f"ID: {self._ID}| Tên: {self._Name}| Địa chỉ: {self._Address}| Tín chỉ: {self._NumberCredits}| GPA: {self._GPA}| Tên luận văn: {self.__EssayName}| Điểm luận văn: {self.__EssayScore}"
 
+    def isGraduation(self) -> bool:
+        return self._NumberCredits >= 120 and self._GPA >= 5 and self.__EssayScore >= 5
+
+
 class PartTimeStudent(Student):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -105,6 +115,10 @@ class PartTimeStudent(Student):
 
     def __str__(self) -> str:
         return f"ID: {self._ID}| Tên: {self._Name}| Địa chỉ: {self._Address}| Tín chỉ: {self._NumberCredits}| GPA: {self._GPA}| Điểm thi tốt nghiệp: {self.__GraduationScore}"
+
+    def isGraduation(self) -> bool:
+        return self._NumberCredits >= 84 and self._GPA >= 5 and self.__GraduationScore >= 5
+
 
 if __name__ == '__main__':
     Student.createStudentsList(40)
