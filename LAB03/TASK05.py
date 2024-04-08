@@ -55,6 +55,11 @@ class MixedNumber(Fraction):
     def Denominator(self) -> int:
         return self._Denominator
 
+    # Get integer part of mixed number
+    @property
+    def Number(self) -> int:
+        return self.__Number
+
     # Print mixed number
     def __str__(self) -> str:
         return f"{self.__Number} {self._Numerator}/{self._Denominator}"
