@@ -10,3 +10,9 @@ class Student(ABC):
         self._Address = kwargs.get('address', "Trống")
         self._NumberCredits = kwargs.get('number_credits', 0)
         self._GPA = kwargs.get('GPA', 0.0)
+
+class FullTimeStudent(Student):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.__EssayName = kwargs.get('essay_name', "Trống")
+        self.__EssayScore = kwargs.get('essay_score', 0.0)
