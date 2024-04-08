@@ -18,6 +18,14 @@ class Fraction():
     def Denominator(self) -> int:
         return self._Denominator
 
+    # Find greatest common divisor of fraction
+    def findGCD(self) -> int:
+        a = self._Numerator
+        b = self._Denominator
+        while b != 0:
+            a, b = b, a % b
+        return a
+
 
 class MixedNumber:
     pass
@@ -39,3 +47,6 @@ class MixedNumber(Fraction):
         NewNumerator = fraction.Numerator % fraction.Denominator
         NewDenominator = fraction.Denominator
         return MixedNumber(NewNumerator, NewDenominator, IntergerPart)
+
+    # Convert mixed number to fraction
+
