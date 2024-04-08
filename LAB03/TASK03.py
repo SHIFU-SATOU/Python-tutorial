@@ -22,13 +22,13 @@ class Student(ABC):
     # Automatically create students
     @classmethod
     def createStudentsList(cls, number: int):
-        Student.increaseID()
-        name = Student.__generateRandomName()
-        address = Student.__generateRandomAddress()
-        number_credits = Student.__generateRandomNumberCredits()
-        gpa = Student.__generateRandomScore()
-        Type = ['Full-time', 'Part-time']
         for i in range(number):
+            Student.increaseID()
+            name = Student.__generateRandomName()
+            address = Student.__generateRandomAddress()
+            number_credits = Student.__generateRandomNumberCredits()
+            gpa = Student.__generateRandomScore()
+            Type = ['Full-time', 'Part-time']
             if random.choice(Type) == 'Full-time':
                 essay_score = Student.__generateRandomScore()
                 new_student = FullTimeStudent(id=cls.__CurrentID, name=name, address=address,
@@ -39,6 +39,12 @@ class Student(ABC):
                 new_student = PartTimeStudent(id=cls.__CurrentID, name=name, address=address,
                                               number_credits=number_credits, gpa=gpa, graduation_score=graduation_score)
                 cls.__Students.append(new_student)
+
+    # Print students list
+    @classmethod
+    def printStudentsList(cls) -> None:
+        for e in cls.__Students:
+            print(e)
 
     # Automatically generate ID
     @classmethod
@@ -70,7 +76,7 @@ class Student(ABC):
         WardNumbers = str(random.randint(1, 10))
         Districts = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
                      "11", "Tân Bình", "Bình Tân", "Bình Thạnh", "Tân Phú"]
-        return f"{HouseNumbers}/ {random.choice(Streets)}/ Phường {WardNumbers}/ Quận {random.choice(Districts)}"
+        return f"{HouseNumbers}/{random.choice(Streets)}/Phường {WardNumbers}/Quận {random.choice(Districts)}"
 
     # Generate random number credits
     @staticmethod
@@ -102,3 +108,4 @@ class PartTimeStudent(Student):
 
 if __name__ == '__main__':
     Student.createStudentsList(40)
+    Student.printStudentsList()
