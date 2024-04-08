@@ -14,6 +14,7 @@ class Student(ABC):
         self._Address = kwargs.get('address', "Trống")
         self._NumberCredits = kwargs.get('number_credits', 0)
         self._GPA = kwargs.get('gpa', 0.0)
+        self._Graduation = False
 
     # Get GPA
     @property
