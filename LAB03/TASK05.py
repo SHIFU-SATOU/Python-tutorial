@@ -90,6 +90,16 @@ class MixedNumber(Fraction):
         elif other.__class__.__name__ == 'Fraction':
             return MixedNumber(self._Numerator * other.Numerator, self._Denominator * other.Denominator, self.__Number)
 
+    # Define divide operator of mixed number
+    def __truediv__(self, other) -> MixedNumber:
+        if type(other) == type(int()):
+            return MixedNumber(self._Numerator, self._Denominator, self.__Number / other)
+        elif other.__class__.__name__ == 'MixedNumber':
+            return MixedNumber(self._Numerator * other.Denominator, self._Denominator * other.Numerator,
+                               self.__Number / other.Number)
+        elif other.__class__.__name__ == 'Fraction':
+            return MixedNumber(self._Numerator * other.Denominator, self._Denominator * other.Numerator, self.__Number)
+
     # Convert fraction to mixed number
     @staticmethod
     def convertFractionToMixedNumber(fraction: Fraction) -> MixedNumber:
@@ -119,3 +129,7 @@ if __name__ == "__main__":
     print(f"-Hỗn số b trừ phân số a: {b - a}")
     print(f"-Hỗn số b2 trừ hỗn số b: {b2 - b}")
     print(f"-Hỗn số b trừ 5: {b - 5}")
+    # Test multiply operator of mixed number
+    print(f"-Hỗn số b nhân phân số a: {b * a}")
+    print(f"-Hỗn số b2 nhân hỗn số b: {b2 * b}")
+    print(f"-Hỗn số b nhân 5: {b * 5}")
