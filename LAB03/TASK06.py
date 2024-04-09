@@ -1,6 +1,7 @@
 import re
 import random
 
+
 class Student:
     __Students = []
     __CurrentID = 'SV00'
@@ -10,6 +11,19 @@ class Student:
         self.__ID = str(kwargs.get('ID'))
         self.__Name = kwargs.get('Name', 'Trống')
         self.__Status = kwargs.get('Status', "Còn học")
+        self.__GPA = kwargs.get('GPA', 0.0)
+
+    # Generate random students
+    @classmethod
+    def generateRandomStudents(cls, number_students: int) -> None:
+        for i in range(number_students):
+            Student.increaseID()
+            id = cls.__CurrentID
+            name = Student.__generateRandomName()
+            gpa = Student.__generateRandomScore()
+            status = Student.__generateRandomStatus()
+            NewStudent = Student(ID=id, Name=name, Status=status, GPA=gpa)
+            cls.__Students.append(NewStudent)
 
     # Automatically generate ID
     @classmethod
@@ -35,3 +49,8 @@ class Student:
     @staticmethod
     def __generateRandomScore() -> float:
         return round(random.uniform(0, 10), 1)
+
+    # Generate random status
+    @staticmethod
+    def __generateRandomStatus() -> str:
+        return random.choice(["Còn học", "Thôi học"])
