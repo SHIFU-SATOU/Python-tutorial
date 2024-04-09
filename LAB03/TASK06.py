@@ -114,6 +114,12 @@ class Student:
     def __generateRandomStatus() -> str:
         return random.choice(["Còn học", "Thôi học"])
 
+class School:
+    # Constructor
+    def __init__(self, **kwargs):
+        self.__ID = str(kwargs.get('ID'))
+        self.__Name = str(kwargs.get('Name'))
+
 
 if __name__ == '__main__':
     Student.generateRandomStudents(30)
@@ -123,4 +129,8 @@ if __name__ == '__main__':
     print("-Danh sách sinh viên thôi học:")
     QuitStudents = Student.findStudentQuit()
     for e in QuitStudents:
+        print(e)
+    print("-Những sinh viên có điểm trung bình cao nhất:")
+    BestStudents = Student.findBestStudents()
+    for e in BestStudents:
         print(e)
