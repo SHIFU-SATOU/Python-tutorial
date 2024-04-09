@@ -51,8 +51,8 @@ class Doctor:
         return self.__RentCost
 
     # Add patient
-    def addPatient(self, patient: Patient) -> None:
-        self.__Patients.append(patient)
+    def addPatient(self, patient_id: str) -> None:
+        self.__Patients.append(patient_id)
 
 class Patient:
     # Constructor
