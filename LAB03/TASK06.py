@@ -62,6 +62,11 @@ class Class:
         self.__Students = []
         self.__StudentsNumber = 0
 
+    # Get students number
+    @property
+    def StudentsNumber(self) -> int:
+        return self.__StudentsNumber
+
     # Print info of school
     def __str__(self) -> str:
         return f"ID: {self.__ID} | Tên: {self.__Name} | Sĩ số: {self.__StudentsNumber}"
@@ -121,6 +126,7 @@ class Class:
                 BestStudents.append(e)
         return BestStudents
 
+
 class School:
     # Constructor
     def __init__(self, **kwargs):
@@ -133,19 +139,49 @@ class School:
     def __str__(self) -> str:
         return f"ID: {self.__ID} | Tên: {self.__Name} | Số lượng lớp học: {self.__ClassesNumber}"
 
+    # Add class
+    def addClass(self, o: Class) -> None:
+        self.__Classes.append(o)
+
+    # Print classes list
+    def printClasses(self) -> None:
+        for e in self.__Classes:
+            print(e)
+
+    # Arrange classes by decreasing number of students
+    def arrangeClassesByDecreasingNumberStudents(self) -> None:
+        n = len(self.__Classes)
+        for i in range(n):
+            for j in range(0, n - i - 1):
+                if self.__Classes[j].StudentsNumber < self.__Classes[j + 1].StudentsNumber:
+                    self.__Classes[j], self.__Classes[j + 1] = self.__Classes[j + 1], self.__Classes[j]
 
 
 if __name__ == '__main__':
-    A = Class(ID=1, Name='A')
-    A.generateRandomStudents(random.randint(30,50))
-    print("-Thông tin lớp A")
-    print(A)
+    UIT = School(ID='UIT', Name="University information of technology")
+    A = Class(ID='1', Name='A')
+    UIT.addClass(A)
+    A.generateRandomStudents(random.randint(30, 50))
+    B = Class(ID='2', Name='B')
+    UIT.addClass(B)
+    B.generateRandomStudents(random.randint(30, 50))
+    C = Class(ID='3', Name='C')
+    UIT.addClass(C)
+    C.generateRandomStudents(random.randint(30, 50))
+    D = Class(ID='4', Name='D')
+    UIT.addClass(D)
+    D.generateRandomStudents(random.randint(30, 50))
+
+    print("-Danh sách lớp sau khi sắp xếp giảm dần theo sĩ số:")
+    UIT.arrangeClassesByDecreasingNumberStudents()
+    UIT.printClasses()
+    print("-Danh sách sinh viên lớp A:")
     A.printStudents()
-    print("-Thông tin sinh viên SV19:")
-    print(A.findStudentByID('SV19'))
-    print("-Danh sách sinh viên thôi học:")
-    QuitStudents = A.findStudentQuit()
-    for e in QuitStudents:
+    print("-Thông tin sinh viên SV19 trong lớp A:")
+    A.findStudentByID('SV19')
+    print("-Danh sách sinh viên lớp A đang thôi học:")
+    StudentsQuit = A.findStudentQuit()
+    for e in StudentsQuit:
         print(e)
     print("-Những sinh viên có điểm trung bình cao nhất:")
     BestStudents = A.findBestStudents()
