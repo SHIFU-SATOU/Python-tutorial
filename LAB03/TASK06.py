@@ -3,6 +3,10 @@ import random
 
 
 class Student:
+    pass
+
+
+class Student:
     __Students = []
     __CurrentID = 'SV00'
 
@@ -12,6 +16,10 @@ class Student:
         self.__Name = kwargs.get('Name', 'Trống')
         self.__Status = kwargs.get('Status', "Còn học")
         self.__GPA = kwargs.get('GPA', 0.0)
+
+    @property
+    def ID(self) -> str:
+        return self.__ID
 
     def __str__(self) -> str:
         return f"ID: {self.__ID} | Họ và tên: {self.__Name} | GPA: {self.__GPA} | Tình trạng: {self.__Status}"
@@ -33,6 +41,10 @@ class Student:
     def printStudents(cls) -> None:
         for e in cls.__Students:
             print(e)
+
+    # Find student by ID
+    @classmethod
+    def findStudentByID(cls, id: str) -> Student:
 
     # Automatically generate ID
     @classmethod
@@ -63,3 +75,8 @@ class Student:
     @staticmethod
     def __generateRandomStatus() -> str:
         return random.choice(["Còn học", "Thôi học"])
+
+
+if __name__ == '__main__':
+    Student.generateRandomStudents(30)
+    Student.printStudents()
