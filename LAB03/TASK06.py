@@ -124,7 +124,7 @@ class Class:
 
     # Print info of school
     def __str__(self) -> str:
-        return f"ID: {self.__ID} | Name: {self.__Name}"
+        return f"ID: {self.__ID} | Tên: {self.__Name} | Sĩ số: {self.__ClassNumber}"
 
 
 if __name__ == '__main__':
