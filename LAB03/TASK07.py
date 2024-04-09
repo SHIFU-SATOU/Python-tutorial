@@ -43,3 +43,7 @@ class Medicine:
         self.__Name = kwargs.get('Name', 'Trống')
         self.__Price = kwargs.get('Price', 0.0)
 
+    # Get ID of medicine
+    @property
+    def ID(self) -> str:
+        return self.__ID
