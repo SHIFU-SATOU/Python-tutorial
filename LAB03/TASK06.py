@@ -58,6 +58,11 @@ class Student:
     # Find students quit
     @classmethod
     def findStudentQuit(cls) -> list:
+        QuitStudents = []
+        for e in cls.__Students:
+            if e.Status == "Thôi học":
+                QuitStudents.append(e)
+        return QuitStudents
 
     # Automatically generate ID
     @classmethod
