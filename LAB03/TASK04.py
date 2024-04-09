@@ -9,21 +9,21 @@ class Point():
 class Point(ABC):
     # Constructor
     def __init__(self, **kwargs):
-        self._X = kwargs.get('X', 0)
-        self._Y = kwargs.get('Y', 0)
+        self.__X = kwargs.get('X', 0)
+        self.__Y = kwargs.get('Y', 0)
 
     # Get X
     @property
     def X(self) -> int:
-        return self._X
+        return self.__X
 
     @property
     def Y(self) -> int:
-        return self._Y
+        return self.__Y
 
     # Caculate distance of 2 points
     def caculateDistance(self, o_x: int, o_y: int) -> float:
-        return round(math.sqrt((self._X - o_x) ** 2 + (self._Y - o_y) ** 2), 2)
+        return round(math.sqrt((self.__X - o_x) ** 2 + (self.__Y - o_y) ** 2), 2)
 
 
 class Circle():
@@ -41,7 +41,7 @@ class Circle(Point):
 
     # Print info of circle
     def __str__(self) -> str:
-        return f"Tâm O: ({self._X}, {self._Y})| Bán kính: {self.__Radius}"
+        return f"Tâm O: ({self._Fraction__X}, {self._Fraction__Y})| Bán kính: {self.__Radius}"
 
     # Caculate perimeter
     def caculatePerimeter(self) -> float:

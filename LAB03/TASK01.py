@@ -14,32 +14,32 @@ class Staff(ABC):
 
     # Constructor
     def __init__(self, **kwargs):
-        self._ID = kwargs.get('id')
-        self._Name = kwargs.get('name', 'Trống')
-        self._Salary = kwargs.get('salary', 0.0)
-        self._MonthlySalary = kwargs.get('monthly_salary', 0.0)
-        self._Type = 'Trống'
+        self.__ID = kwargs.get('id')
+        self.__Name = kwargs.get('name', 'Trống')
+        self.__Salary = kwargs.get('salary', 0.0)
+        self.__MonthlySalary = kwargs.get('monthly_salary', 0.0)
+        self.__Type = 'Trống'
 
     # Instance methods
     # Get ID of staff
     @property
     def ID(self) -> str:
-        return self._ID
+        return self.__ID
 
     # Get Name of staff
     @property
     def Name(self) -> str:
-        return self._Name
+        return self.__Name
 
     # Get salary of staff
     @property
     def Salary(self) -> float:
-        return self._Salary
+        return self.__Salary
 
     # Get monthly salary of staff
     @property
     def MonthlySalary(self) -> float:
-        return self._MonthlySalary
+        return self.__MonthlySalary
 
     # Caculate monthly salary of staff
     @abstractmethod
@@ -60,15 +60,12 @@ class Staff(ABC):
     # Caculate monthly salary for all staffs
     @classmethod
     def caculateMonthlySalaryForAllStaffs(cls) -> None:
-        for e in cls.__Staffs:
-            e.caculateMonthlySalary()
+        map(lambda e: e.caculateMonthlySalary(), cls.__Staffs)
 
     # Find staff by ID
     @classmethod
     def findStaffByID(cls, id: str):
-        for e in cls.__Staffs:
-            if e.ID == id:
-                return e
+        return filter(lambda e: e.ID == id, cls.__Staffs)
 
     # Find staffs with lowest monthly salary
     @classmethod
@@ -81,9 +78,7 @@ class Staff(ABC):
                 Min = e.MonthlySalary
 
         # Find staff with monthly salary equal highest salary
-        for e in cls.__Staffs:
-            if e.MonthlySalary == Min:
-                LaziestStaffs.append(e)
+        LaziestStaffs.extend(filter(lambda e: e.MonthlySalary == Min, cls.__Staffs))
 
         return LaziestStaffs
 
@@ -97,9 +92,8 @@ class Staff(ABC):
             if e.__class__.__name__ == "SaleStaff" and e.MonthlySalary > Max:
                 Max = e.MonthlySalary
         # Find sale staffs with salary equal highest salary
-        for e in cls.__Staffs:
-            if e.__class__.__name__ == "SaleStaff" and e.MonthlySalary == Max:
-                BestSaleStaffs.append(e)
+        BestSaleStaffs.extend(
+            filter(lambda e: e.__class__.__name__ == "SaleStaff" and e.MonthlySalary == Max, cls.__Staffs))
         return BestSaleStaffs
 
     # Find top 10 staff with highest salary
@@ -119,8 +113,7 @@ class Staff(ABC):
     # Print staffs list
     @classmethod
     def printStaffsList(cls) -> None:
-        for e in cls.__Staffs:
-            print(e)
+        map(lambda e: print(e), cls.__Staffs)
 
     # Automatically create staff
     @classmethod
@@ -163,12 +156,12 @@ class SaleStaff(Staff):
     # Constructor
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self._Type = "Kinh doanh"
+        self._Staff__Type = "Kinh doanh"
         self.__NumberProducts = kwargs.get('number_products', 0)
 
     # Print info of sale staff
     def __str__(self) -> str:
-        return f"ID: {self._ID}, Họ và tên: {self._Name}, Lương cơ bản: {self._Salary}, Số sản phẩm: {self.__NumberProducts}, Lương hàng tháng: {self._MonthlySalary}, Loại: {self._Type}"
+        return f"ID: {self._Staff__ID}, Họ và tên: {self._Staff__Name}, Lương cơ bản: {self._Staff__Salary}, Số sản phẩm: {self.__NumberProducts}, Lương hàng tháng: {self._Staff__MonthlySalary}, Loại: {self._Staff__Type}"
 
     # Caculate monthly salary of sale staff
     def caculateMonthlySalary(self) -> None:
@@ -177,7 +170,7 @@ class SaleStaff(Staff):
             NewMonthlySalary += NewMonthlySalary * 0.05
         elif NewMonthlySalary <= 5000000:
             NewMonthlySalary += NewMonthlySalary * 0.3
-        self._MonthlySalary = round(NewMonthlySalary, 3)
+        self._Staff__MonthlySalary = round(NewMonthlySalary, 3)
 
     # Generate random number products
     @staticmethod
@@ -193,19 +186,19 @@ class OfficeStaff(Staff):
     # Constructor
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self._Type = "Văn phòng"
+        self._Staff__Type = "Văn phòng"
         self.__NumberWorkingDay = kwargs.get('number_days', 0)
 
     # print info of office staff
     def __str__(self) -> str:
-        return f"ID: {self._ID}, Họ và tên: {self._Name}, Lương cơ bản: {self._Salary}, Số ngày làm việc: {self.__NumberWorkingDay}, Lương hàng tháng: {self._MonthlySalary}, Loại: {self._Type}"
+        return f"ID: {self._Staff__ID}, Họ và tên: {self._Staff__Name}, Lương cơ bản: {self._Staff__Salary}, Số ngày làm việc: {self.__NumberWorkingDay}, Lương hàng tháng: {self._Staff__MonthlySalary}, Loại: {self._Staff__Type}"
 
     # caculate monthly salary of office staff
     def caculateMonthlySalary(self) -> None:
         NewMonthlySalary = self.__NumberWorkingDay * 180000
         if NewMonthlySalary >= 8000000:
             NewMonthlySalary += NewMonthlySalary * 0.05
-        self._MonthlySalary = round(NewMonthlySalary, 3)
+        self._Staff__MonthlySalary = round(NewMonthlySalary, 3)
 
     # Generate random number working day
     @staticmethod

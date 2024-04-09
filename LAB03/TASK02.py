@@ -9,32 +9,32 @@ class Staff(ABC):
 
     # Constructor
     def __init__(self, **kwargs):
-        self._ID = str(kwargs.get('id'))
-        self._Name = kwargs.get('name', "Trống")
+        self.__ID = str(kwargs.get('id'))
+        self.__Name = kwargs.get('name', "Trống")
         money = float("".join(kwargs.get('salary').split("_")))
-        self._Salary = money
-        self._ResponsibilityIndex = kwargs.get('responsibility_index', 0.0)
-        self._MonthlySalary = kwargs.get('monthly_salary', 0.0)
+        self.__Salary = money
+        self.__ResponsibilityIndex = kwargs.get('responsibility_index', 0.0)
+        self.__MonthlySalary = kwargs.get('monthly_salary', 0.0)
 
     # Get ID of staff
     @property
     def ID(self) -> str:
-        return self._ID
+        return self.__ID
 
     # Get monthly salary of staff
     @property
     def MonthlySalary(self) -> float:
-        return self._MonthlySalary
+        return self.__MonthlySalary
 
     # Get salary of staff
     @property
     def Salary(self) -> float:
-        return self._Salary
+        return self.__Salary
 
     # Set salary of staff
     @Salary.setter
     def Salary(self, money: float) -> None:
-        self._Salary = money
+        self.__Salary = money
 
     # Print info of staff
     @abstractmethod
@@ -56,6 +56,7 @@ class Staff(ABC):
     def printStaffsList(cls) -> None:
         for e in cls.__Staffs:
             print(e)
+        # map(lambda staff: print(staff), cls.__Staffs)
 
     # Caculate monthly salary for all staffs
     @classmethod
@@ -108,10 +109,10 @@ class Expert(Staff):
         self.__OvertimeHours = kwargs.get('overtime_hours', 0)
 
     def __str__(self) -> str:
-        return f"ID: {self._ID}, Tên: {self._Name}, Lương: {self._Salary}, Trách nhiệm: {self._ResponsibilityIndex}, Tăng ca: {self.__OvertimeHours}, Lương tháng: {self._MonthlySalary}"
+        return f"ID: {self._Staff__ID}, Tên: {self._Staff__Name}, Lương: {self._Staff__Salary}, Trách nhiệm: {self._Staff__ResponsibilityIndex}, Tăng ca: {self.__OvertimeHours}, Lương tháng: {self._Staff__MonthlySalary}"
 
     def caculateMonthlySalary(self) -> None:
-        self._MonthlySalary = self._Salary + self._Salary * self._ResponsibilityIndex + self.__OvertimeHours * 180000
+        self._Staff__MonthlySalary = self._Staff__Salary + self._Staff__Salary * self._Staff__ResponsibilityIndex + self.__OvertimeHours * 180000
 
 
 class Researcher(Staff):
@@ -122,11 +123,11 @@ class Researcher(Staff):
 
     # Print info researcher
     def __str__(self) -> str:
-        return f"ID: {self._ID}, Tên: {self._Name}, Lương: {self._Salary}, Trách nhiệm: {self._ResponsibilityIndex}, Phát minh: {self.__NumberInvention}, Lương tháng: {self._MonthlySalary}"
+        return f"ID: {self._Staff__ID}, Tên: {self._Staff__Name}, Lương: {self._Staff__Salary}, Trách nhiệm: {self._Staff__ResponsibilityIndex}, Phát minh: {self.__NumberInvention}, Lương tháng: {self._Staff__MonthlySalary}"
 
     def caculateMonthlySalary(self) -> None:
-        self._MonthlySalary = self._Salary + self._Salary * (
-                self._ResponsibilityIndex - 0.2) + self.__NumberInvention * 5500000
+        self._Staff__MonthlySalary = self._Staff__Salary + self._Staff__Salary * (
+                self._Staff__ResponsibilityIndex - 0.2) + self.__NumberInvention * 5500000
 
 
 class Manager(Staff):
@@ -136,10 +137,10 @@ class Manager(Staff):
         self.__ConcurrentCoefficient = kwargs.get('concurrent_coefficient', 0.0)
 
     def __str__(self) -> str:
-        return f"ID: {self._ID}, Tên: {self._Name}, Lương: {self._Salary}, Trách nhiệm: {self._ResponsibilityIndex}, Kiêm nhiệm: {self.__ConcurrentCoefficient}, Lương tháng: {self._MonthlySalary}"
+        return f"ID: {self._Staff__ID}, Tên: {self._Staff__Name}, Lương: {self._Staff__Salary}, Trách nhiệm: {self._Staff__ResponsibilityIndex}, Kiêm nhiệm: {self.__ConcurrentCoefficient}, Lương tháng: {self._Staff__MonthlySalary}"
 
     def caculateMonthlySalary(self) -> None:
-        self._MonthlySalary = self._Salary * 0.7 + self._Salary * self._ResponsibilityIndex + self._Salary * self.__ConcurrentCoefficient
+        self._Staff__MonthlySalary = self._Staff__Salary * 0.7 + self._Staff__Salary * self._Staff__ResponsibilityIndex + self._Staff__Salary * self.__ConcurrentCoefficient
 
 
 if __name__ == '__main__':

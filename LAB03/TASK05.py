@@ -5,27 +5,27 @@ class Fraction:
 class Fraction():
     # Constructor
     def __init__(self, numerator: int, denominator: int):
-        self._Numerator = numerator
-        self._Denominator = denominator
+        self.__Numerator = numerator
+        self.__Denominator = denominator
 
     # Print fraction
     def __str__(self):
-        return f"{self._Numerator}/{self._Denominator}"
+        return f"{self.__Numerator}/{self.__Denominator}"
 
     # Get numerator
     @property
     def Numerator(self) -> int:
-        return self._Numerator
+        return self.__Numerator
 
     # Get Denominator
     @property
     def Denominator(self) -> int:
-        return self._Denominator
+        return self.__Denominator
 
     # Find greatest common divisor of fraction
     def findGCD(self) -> int:
-        a = self._Numerator
-        b = self._Denominator
+        a = self.__Numerator
+        b = self.__Denominator
         while b != 0:
             a, b = b, a % b
         return a
@@ -33,7 +33,7 @@ class Fraction():
     # Shorten fraction
     def shortenFraction(self) -> Fraction:
         GCD = self.findGCD()
-        return Fraction(self._Numerator // GCD, self._Denominator // GCD)
+        return Fraction(self.__Numerator // GCD, self.__Denominator // GCD)
 
 
 class MixedNumber:
@@ -52,107 +52,107 @@ class MixedNumber(Fraction):
 
     # Print mixed number
     def __str__(self) -> str:
-        return f"{self.__Number} {self._Numerator}/{self._Denominator}"
+        return f"{self.__Number} {self._Fraction__Numerator}/{self._Fraction__Denominator}"
 
     # Define the addition operator of mixed number
     def __add__(self, other) -> MixedNumber:
         if type(other) == type(int()):
-            return MixedNumber(self._Numerator, self._Denominator, self.__Number + other)
+            return MixedNumber(self._Fraction__Numerator, self._Fraction__Denominator, self.__Number + other)
         elif other.__class__.__name__ == 'MixedNumber':
-            NewFraction = Fraction(self._Numerator * other.Denominator + other.Numerator * self._Denominator,
-                                   self._Denominator * other.Denominator).shortenFraction()
+            NewFraction = Fraction(self._Fraction__Numerator * other.Denominator + other.Numerator * self._Fraction__Denominator,
+                                   self._Fraction__Denominator * other.Denominator).shortenFraction()
             return MixedNumber(NewFraction.Numerator, NewFraction.Denominator, self.__Number + other.Number)
         elif other.__class__.__name__ == 'Fraction':
-            NewFraction = Fraction(self._Numerator * other.Denominator + other.Numerator * self._Denominator,
-                                   self._Denominator * other.Denominator).shortenFraction()
+            NewFraction = Fraction(self._Fraction__Numerator * other.Denominator + other.Numerator * self._Fraction__Denominator,
+                                   self._Fraction__Denominator * other.Denominator).shortenFraction()
             return MixedNumber(NewFraction.Numerator, NewFraction.Denominator, self.__Number)
 
     # Define the subtract operator of mixed number
     def __sub__(self, other) -> MixedNumber:
         if type(other) == type(int()):
-            return MixedNumber(self._Numerator, self._Denominator, self.__Number - other)
+            return MixedNumber(self._Fraction__Numerator, self._Fraction__Denominator, self.__Number - other)
         elif other.__class__.__name__ == 'MixedNumber':
-            NewFraction = Fraction(self._Numerator * other.Denominator - other.Numerator * self._Denominator,
-                                   self._Denominator * other.Denominator).shortenFraction()
+            NewFraction = Fraction(self._Fraction__Numerator * other.Denominator - other.Numerator * self._Fraction__Denominator,
+                                   self._Fraction__Denominator * other.Denominator).shortenFraction()
             return MixedNumber(NewFraction.Numerator, NewFraction.Denominator, self.__Number - other.Number)
         elif other.__class__.__name__ == 'Fraction':
-            NewFraction = Fraction(self._Numerator * other.Denominator - other.Numerator * self._Denominator,
-                                   self._Denominator * other.Denominator).shortenFraction()
+            NewFraction = Fraction(self._Fraction__Numerator * other.Denominator - other.Numerator * self._Fraction__Denominator,
+                                   self._Fraction__Denominator * other.Denominator).shortenFraction()
             return MixedNumber(NewFraction.Numerator, NewFraction.Denominator, self.__Number)
 
     # Define mutiply operator of mixed number
     def __mul__(self, other) -> MixedNumber:
         if type(other) == type(int()):
-            return MixedNumber(self._Numerator, self._Denominator, self.__Number * other)
+            return MixedNumber(self._Fraction__Numerator, self._Fraction__Denominator, self.__Number * other)
         elif other.__class__.__name__ == 'MixedNumber':
-            return MixedNumber(self._Numerator * other.Numerator, self._Denominator * other.Denominator,
+            return MixedNumber(self._Fraction__Numerator * other.Numerator, self._Fraction__Denominator * other.Denominator,
                                self.__Number * other.Number)
         elif other.__class__.__name__ == 'Fraction':
-            return MixedNumber(self._Numerator * other.Numerator, self._Denominator * other.Denominator, self.__Number)
+            return MixedNumber(self._Fraction__Numerator * other.Numerator, self._Fraction__Denominator * other.Denominator, self.__Number)
 
     # Define divide operator of mixed number
     def __truediv__(self, other) -> MixedNumber:
         if type(other) == type(int()):
-            return MixedNumber(self._Numerator, self._Denominator, self.__Number / other)
+            return MixedNumber(self._Fraction__Numerator, self._Fraction__Denominator, self.__Number / other)
         elif other.__class__.__name__ == 'MixedNumber':
-            return MixedNumber(self._Numerator * other.Denominator, self._Denominator * other.Numerator,
+            return MixedNumber(self._Fraction__Numerator * other.Denominator, self._Fraction__Denominator * other.Numerator,
                                self.__Number / other.Number)
         elif other.__class__.__name__ == 'Fraction':
-            return MixedNumber(self._Numerator * other.Denominator, self._Denominator * other.Numerator, self.__Number)
+            return MixedNumber(self._Fraction__Numerator * other.Denominator, self._Fraction__Denominator * other.Numerator, self.__Number)
 
     # Definde equal operator of mixed number
     def __eq__(self, other) -> bool:
         if type(other) == type(int()):
-            return self.__Number + self._Numerator / self._Denominator == other
+            return self.__Number + self._Fraction__Numerator / self._Fraction__Denominator == other
         elif other.__class__.__name__ == 'MixedNumber':
-            return self.__Number == other.Number and self._Numerator == other.Numerator and self._Denominator == other.Denominator
+            return self.__Number == other.Number and self._Fraction__Numerator == other.Numerator and self._Fraction__Denominator == other.Denominator
         elif other.__class__.__name__ == 'Fraction':
-            return self.__Number + self._Numerator / self._Denominator == other.Numerator / other.Denominator
+            return self.__Number + self._Fraction__Numerator / self._Fraction__Denominator == other.Numerator / other.Denominator
 
     # Definde not equal operator of mixed number
     def __ne__(self, other) -> bool:
         if type(other) == type(int()):
-            return self.__Number + self._Numerator / self._Denominator != other
+            return self.__Number + self._Fraction__Numerator / self._Fraction__Denominator != other
         elif other.__class__.__name__ == 'MixedNumber':
-            return self.__Number != other.Number and self._Numerator != other.Numerator and self._Denominator != other.Denominator
+            return self.__Number != other.Number and self._Fraction__Numerator != other.Numerator and self._Fraction__Denominator != other.Denominator
         elif other.__class__.__name__ == 'Fraction':
-            return self.__Number + self._Numerator / self._Denominator != other.Numerator / other.Denominator
+            return self.__Number + self._Fraction__Numerator / self._Fraction__Denominator != other.Numerator / other.Denominator
 
     # Definde greater than operator of mixed number
     def __gt__(self, other) -> bool:
         if type(other) == type(int()):
-            return self.__Number + self._Numerator / self._Denominator > other
+            return self.__Number + self._Fraction__Numerator / self._Fraction__Denominator > other
         elif other.__class__.__name__ == 'MixedNumber':
-            return self.__Number > other.Number and self._Numerator > other.Numerator and self._Denominator > other.Denominator
+            return self.__Number > other.Number and self._Fraction__Numerator > other.Numerator and self._Fraction__Denominator > other.Denominator
         elif other.__class__.__name__ == 'Fraction':
-            return self.__Number + self._Numerator / self._Denominator > other.Numerator / other.Denominator
+            return self.__Number + self._Fraction__Numerator / self._Fraction__Denominator > other.Numerator / other.Denominator
 
     # Definde greater than or equal operator of mixed number
     def __ge__(self, other) -> bool:
         if type(other) == type(int()):
-            return self.__Number + self._Numerator / self._Denominator >= other
+            return self.__Number + self._Fraction__Numerator / self._Fraction__Denominator >= other
         elif other.__class__.__name__ == 'MixedNumber':
-            return self.__Number >= other.Number and self._Numerator >= other.Numerator and self._Denominator >= other.Denominator
+            return self.__Number >= other.Number and self._Fraction__Numerator >= other.Numerator and self._Fraction__Denominator >= other.Denominator
         elif other.__class__.__name__ == 'Fraction':
-            return self.__Number + self._Numerator / self._Denominator >= other.Numerator / other.Denominator
+            return self.__Number + self._Fraction__Numerator / self._Fraction__Denominator >= other.Numerator / other.Denominator
 
     # Definde letter than operator of mixed number
     def __lt__(self, other) -> bool:
         if type(other) == type(int()):
-            return self.__Number + self._Numerator / self._Denominator < other
+            return self.__Number + self._Fraction__Numerator / self._Fraction__Denominator < other
         elif other.__class__.__name__ == 'MixedNumber':
-            return self.__Number < other.Number and self._Numerator < other.Numerator and self._Denominator < other.Denominator
+            return self.__Number < other.Number and self._Fraction__Numerator < other.Numerator and self._Fraction__Denominator < other.Denominator
         elif other.__class__.__name__ == 'Fraction':
-            return self.__Number + self._Numerator / self._Denominator < other.Numerator / other.Denominator
+            return self.__Number + self._Fraction__Numerator / self._Fraction__Denominator < other.Numerator / other.Denominator
 
     # Definde letter than or equal operator of mixed number
     def __le__(self, other) -> bool:
         if type(other) == type(int()):
-            return self.__Number + self._Numerator / self._Denominator <= other
+            return self.__Number + self._Fraction__Numerator / self._Fraction__Denominator <= other
         elif other.__class__.__name__ == 'MixedNumber':
-            return self.__Number <= other.Number and self._Numerator <= other.Numerator and self._Denominator <= other.Denominator
+            return self.__Number <= other.Number and self._Fraction__Numerator <= other.Numerator and self._Fraction__Denominator <= other.Denominator
         elif other.__class__.__name__ == 'Fraction':
-            return self.__Number + self._Numerator / self._Denominator <= other.Numerator / other.Denominator
+            return self.__Number + self._Fraction__Numerator / self._Fraction__Denominator <= other.Numerator / other.Denominator
 
     # Convert fraction to mixed number
     @staticmethod
@@ -164,7 +164,7 @@ class MixedNumber(Fraction):
 
     # Convert mixed number to fraction
     def convertMixedNumberToFraction(self) -> Fraction:
-        return Fraction(self.__Number * self._Denominator + self._Numerator, self._Denominator).shortenFraction()
+        return Fraction(self.__Number * self._Fraction__Denominator + self._Fraction__Numerator, self._Fraction__Denominator).shortenFraction()
 
 
 if __name__ == "__main__":
