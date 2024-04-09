@@ -17,9 +17,15 @@ class Student:
         self.__Status = kwargs.get('Status', "Còn học")
         self.__GPA = kwargs.get('GPA', 0.0)
 
+    # Get ID of student
     @property
     def ID(self) -> str:
         return self.__ID
+
+    # Get status of student
+    @property
+    def Status(self) -> str:
+        return self.__Status
 
     def __str__(self) -> str:
         return f"ID: {self.__ID} | Họ và tên: {self.__Name} | GPA: {self.__GPA} | Tình trạng: {self.__Status}"
@@ -48,6 +54,10 @@ class Student:
         for e in cls.__Students:
             if e.ID == id:
                 return e
+
+    # Find students quit
+    @classmethod
+    def findStudentQuit(cls) -> list:
 
     # Automatically generate ID
     @classmethod
@@ -83,3 +93,5 @@ class Student:
 if __name__ == '__main__':
     Student.generateRandomStudents(30)
     Student.printStudents()
+    print("-Thông tin sinh viên SV19:")
+    print(Student.findStudentByID('SV19'))
