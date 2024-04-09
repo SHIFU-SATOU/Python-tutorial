@@ -13,6 +13,9 @@ class Student:
         self.__Status = kwargs.get('Status', "Còn học")
         self.__GPA = kwargs.get('GPA', 0.0)
 
+    def __str__(self) -> str:
+        return f"ID: {self.__ID} | Họ và tên: {self.__Name} | GPA: {self.__GPA} | Tình trạng: {self.__Status}"
+
     # Generate random students
     @classmethod
     def generateRandomStudents(cls, number_students: int) -> None:
@@ -24,6 +27,12 @@ class Student:
             status = Student.__generateRandomStatus()
             NewStudent = Student(ID=id, Name=name, Status=status, GPA=gpa)
             cls.__Students.append(NewStudent)
+
+    # Print students list
+    @classmethod
+    def printStudents(cls) -> None:
+        for e in cls.__Students:
+            print(e)
 
     # Automatically generate ID
     @classmethod
