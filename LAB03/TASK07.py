@@ -52,3 +52,8 @@ class Medicine:
     @property
     def ID(self) -> str:
         return self.__ID
+
+    # Get price of medicine
+    @property
+    def Price(self) -> float:
+        return self.__Price
