@@ -21,6 +21,11 @@ class Doctor:
     def ID(self) -> str:
         return self.__ID
 
+    # Get rent cost
+    @property
+    def RentCost(self) -> float:
+        return self.__RentCost
+
 
 class Patient:
     # Constructor
