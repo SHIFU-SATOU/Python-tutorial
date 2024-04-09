@@ -17,7 +17,7 @@ class Doctor:
 
     # Get ID of doctor
     @property
-    def ID(self):
+    def ID(self) -> str:
         return self.__ID
 
 
@@ -28,6 +28,11 @@ class Patient:
         self.__Name = kwargs.get('Name', 'Trống')
         self.__Doctors = []
         self.__Medicines = []
+
+    # Get ID of patient
+    @property
+    def ID(self) -> str:
+        return self.__ID
 
 
 class Medicine:
