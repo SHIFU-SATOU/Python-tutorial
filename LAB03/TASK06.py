@@ -45,6 +45,9 @@ class Student:
     # Find student by ID
     @classmethod
     def findStudentByID(cls, id: str) -> Student:
+        for e in cls.__Students:
+            if e.ID == id:
+                return e
 
     # Automatically generate ID
     @classmethod
