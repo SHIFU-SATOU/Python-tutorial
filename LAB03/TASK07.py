@@ -15,6 +15,10 @@ class Doctor:
         self.__Name = kwargs.get('Name', 'Trống')
         self.__Patients = []
 
+    # Get ID of doctor
+    def __str__(self) -> str:
+        return f"ID: {self.__ID} | Họ và tên: {self.__Name}"
+
 
 class Patient:
     # Constructor
