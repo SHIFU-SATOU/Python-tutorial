@@ -6,6 +6,10 @@ class Patient:
     pass
 
 
+class Medicine:
+    pass
+
+
 class Clinic:
     # Constructor
     def __init__(self, **kwargs):
@@ -19,9 +23,13 @@ class Clinic:
     def addDoctor(self, doctor: Doctor) -> None:
         self.__Doctors.append(doctor)
 
-    # Add Patient
+    # Add patient
     def addPatient(self, patient: Patient) -> None:
         self.__Patients.append(patient)
+
+    # Add medicine
+    def addMedicine(self, medicine: Medicine) -> None:
+        self.__Medicines.append(medicine)
 
 
 class Doctor:
