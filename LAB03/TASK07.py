@@ -50,6 +50,9 @@ class Doctor:
     def RentCost(self) -> float:
         return self.__RentCost
 
+    # Add patient
+    def addPatient(self, patient: Patient) -> None:
+        self.__Patients.append(patient)
 
 class Patient:
     # Constructor
