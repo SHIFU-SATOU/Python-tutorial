@@ -114,11 +114,17 @@ class Student:
     def __generateRandomStatus() -> str:
         return random.choice(["Còn học", "Thôi học"])
 
-class School:
+class Class:
     # Constructor
     def __init__(self, **kwargs):
         self.__ID = str(kwargs.get('ID'))
-        self.__Name = str(kwargs.get('Name'))
+        self.__Name = str(kwargs.get('Name'), 'Trống')
+        self.__Students = []
+        self.__ClassNumber = kwargs.get('ClassNumber', 0)
+
+    # Print info of school
+    def __str__(self) -> str:
+        return f"ID: {self.__ID} | Name: {self.__Name}"
 
 
 if __name__ == '__main__':
