@@ -16,8 +16,9 @@ class Doctor:
         self.__Patients = []
 
     # Get ID of doctor
-    def __str__(self) -> str:
-        return f"ID: {self.__ID} | Họ và tên: {self.__Name}"
+    @property
+    def ID(self):
+        return self.__ID
 
 
 class Patient:
