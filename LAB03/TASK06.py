@@ -28,6 +28,7 @@ class Student:
         return self.__Status
 
     # Get GPA of student
+    @property
     def GPA(self) -> float:
         return self.__GPA
 
@@ -71,6 +72,17 @@ class Student:
     # Find students with highest GPA
     @classmethod
     def findBestStudents(cls) -> list:
+        # Find highest GPA
+        Max = cls.__Students[0].GPA
+        for e in cls.__Students:
+            if e.GPA > Max:
+                Max = e.GPA
+        # Find students with GPA equal highest GPA
+        BestStudents = []
+        for e in cls.__Students:
+            if e.GPA == Max:
+                BestStudents.append(e)
+        return BestStudents
 
     # Automatically generate ID
     @classmethod
