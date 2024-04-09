@@ -27,6 +27,10 @@ class Student:
     def Status(self) -> str:
         return self.__Status
 
+    # Get GPA of student
+    def GPA(self) -> float:
+        return self.__GPA
+
     def __str__(self) -> str:
         return f"ID: {self.__ID} | Họ và tên: {self.__Name} | GPA: {self.__GPA} | Tình trạng: {self.__Status}"
 
@@ -55,7 +59,7 @@ class Student:
             if e.ID == id:
                 return e
 
-    # Find students quit
+    # Find students who drop out of school
     @classmethod
     def findStudentQuit(cls) -> list:
         QuitStudents = []
@@ -63,6 +67,10 @@ class Student:
             if e.Status == "Thôi học":
                 QuitStudents.append(e)
         return QuitStudents
+
+    # Find students with highest GPA
+    @classmethod
+    def findBestStudents(cls) -> list:
 
     # Automatically generate ID
     @classmethod
@@ -100,3 +108,7 @@ if __name__ == '__main__':
     Student.printStudents()
     print("-Thông tin sinh viên SV19:")
     print(Student.findStudentByID('SV19'))
+    print("-Danh sách sinh viên thôi học:")
+    QuitStudents = Student.findStudentQuit()
+    for e in QuitStudents:
+        print(e)
