@@ -122,11 +122,18 @@ class Class:
         return BestStudents
 
 class School:
+    # Constructor
     def __init__(self, **kwargs):
         self.__ID = str(kwargs.get('ID'))
         self.__Name = kwargs.get('Name', 'Trống')
         self.__ClassesNumber = 0
         self.__Classes = []
+
+    # Print info of school
+    def __str__(self) -> str:
+        return f"ID: {self.__ID} | Tên: {self.__Name} | Số lượng lớp học: {self.__ClassesNumber}"
+
+
 
 if __name__ == '__main__':
     A = Class(ID=1, Name='A')
