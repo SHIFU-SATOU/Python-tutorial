@@ -67,6 +67,10 @@ class Patient:
     def ID(self) -> str:
         return self.__ID
 
+    # Add ID of doctor to doctors list of patient
+    def addDoctor(self, doctor_id: str) -> None:
+        self.__Doctors.append(doctor_id)
+
 
 class Medicine:
     # Constructor
