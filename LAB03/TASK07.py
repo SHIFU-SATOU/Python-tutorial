@@ -13,6 +13,7 @@ class Doctor:
     def __init__(self, **kwargs):
         self.__ID = str(kwargs.get('ID'))
         self.__Name = kwargs.get('Name', 'Trống')
+        self.__RentCost = kwargs.get('RentCost', 0.0)
         self.__Patients = []
 
     # Get ID of doctor
@@ -41,3 +42,4 @@ class Medicine:
         self.__ID = str(kwargs.get('ID'))
         self.__Name = kwargs.get('Name', 'Trống')
         self.__Price = kwargs.get('Price', 0.0)
+
