@@ -43,6 +43,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Workspace/Python-tutorial&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -107,7 +108,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-09665e90c3a7-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.15026.15" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
+        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
       </set>
     </attachedChunks>
   </component>
@@ -152,6 +154,13 @@
       <workItem from="1711501930491" duration="1076000" />
       <workItem from="1711503172359" duration="1707000" />
       <workItem from="1711596319623" duration="17000" />
+      <workItem from="1713834074294" duration="332000" />
+      <workItem from="1713917099562" duration="5000" />
+      <workItem from="1713921654904" duration="660000" />
+      <workItem from="1713922322281" duration="1100000" />
+      <workItem from="1714020536323" duration="7000" />
+      <workItem from="1714135270064" duration="3569000" />
+      <workItem from="1714139852223" duration="1082000" />
     </task>
     <servers />
   </component>
